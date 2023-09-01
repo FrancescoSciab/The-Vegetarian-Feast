@@ -1,4 +1,15 @@
 .container-fluid {
     display: flex;
     justify-content: space-between;
+    height: 100vh;
 }
+
+.row {
+    height: 20vh;
+}
+
+.carousel {
+    background-color: rgb(148, 140, 140);
+}
+
+
