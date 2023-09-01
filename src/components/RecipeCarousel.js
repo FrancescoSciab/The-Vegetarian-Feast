@@ -8,19 +8,13 @@ export default function RecipeCarousel() {
         
         <Carousel>
             <Carousel.Item>
-                <Carousel.Caption>
-                <div>
-                    <h1>Ciao</h1>
-                    <p>Qui andra' </p>
-                    <p>la</p>
-                </div>
-                </Carousel.Caption>
+            <h1>Carousel with random recipes</h1>
             </Carousel.Item>
             <Carousel.Item>
-            <h1>Ciao 2</h1>
+            <h1>Carousel with random recipes</h1>
             </Carousel.Item>
             <Carousel.Item>
-            <h1>Ciao 3</h1>
+            <h1>Carousel with random recipes</h1>
             </Carousel.Item>
         </Carousel>
         

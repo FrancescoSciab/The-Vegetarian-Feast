@@ -12,21 +12,31 @@ import RecipeCarousel from './components/RecipeCarousel';
 function App() {
   return (
     <div className="App">
-      <Container fluid>
+      <Container id="navbar-container" fluid>
         <Col>
-          <Row id="navbar">
+          <Row id="navbar-row">
             <NavbarComponent />
           </Row>
-          <Row id="recipe-carousel">
+        
+          <Row id="recipe-carousel-row">
             <RecipeCarousel />  
           </Row>
-          <Row id="recipe-carousel">
+          <Row id="recipe-carousel-row">
             <RecipeCarousel />
           </Row>
-          <Row id="recipe-carousel">
+          <Row id="recipe-carousel-row">
             <RecipeCarousel />
           </Row>
-          <Row id="recipe-carousel">
+          <Row id="recipe-carousel-row">
+            <RecipeCarousel />
+          </Row>
+          <Row id="recipe-carousel-row">
+            <RecipeCarousel />
+          </Row>
+          
+        </Col>
+        <Col id="desktop-ingredients">
+          <Row id="desktop-ingredients-row">
             <RecipeCarousel />
           </Row>
         </Col>
