@@ -24,6 +24,7 @@ export default function Root() {
     .finally(function () {
     // always executed
     });
+    
     return (
         <div className="root">
           <Container id="navbar-container" fluid>
