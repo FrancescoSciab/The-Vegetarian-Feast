@@ -5,9 +5,25 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/NavbarComponent';
 import RecipeCarousel from '../components/RecipeCarousel';
+import axios from 'axios';
+
+
 
 
 export default function Root() {
+
+    axios.get('https://api.spoonacular.com/recipes/716429/information/?apiKey=d7f530c178f6467994ebba5cdd1d4872')
+    .then( response => {
+    // handle success
+    console.log(response.data.title);
+    })
+    .catch(function (error) {
+    // handle error
+    console.log(error);
+    })
+    .finally(function () {
+    // always executed
+    });
     return (
         <div className="root">
           <Container id="navbar-container" fluid>
