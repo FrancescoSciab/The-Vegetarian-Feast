@@ -10,19 +10,21 @@
 
 .carousel {
     background-color: rgb(148, 140, 140);
+    width: 100vh;
 }
 
-#desktop-ingredients {
+#desktop-ingredients-col {
     display: none;
-}
-
-#desktop-ingredients-row {
-    height: 100vh;
     width: 100vw;
 }
 
+#desktop-ingredients-carousel {
+    width: 100vw;
+    height: 100vh;
+}
+
 @media (min-width:600px) {
-    #desktop-ingredients {
+    #desktop-ingredients-col {
         display: block;
     }
 }
