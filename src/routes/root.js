@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/NavbarComponent';
 import RecipeCarousel from '../components/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
+import FoodItem from '../components/FoodItem';
 import axios from 'axios';
 
 
@@ -15,19 +16,7 @@ import axios from 'axios';
 export default function Root() {
     const text = "food";
 
-    axios.get('https://api.spoonacular.com/recipes/716429/informatio')
-
-    .then( response => {
-    // handle success
-    console.log(response.data.title);
-    })
-    .catch(function (error) {
-    // handle error
-    console.log(error);
-    })
-    .finally(function () {
-    // always executed
-    });
+    
     
     return (
         <div className="root">
@@ -42,12 +31,13 @@ export default function Root() {
               </Row>
 
               <Row id="recipe-carousel-row">
+                <FoodItem />
+              </Row>
+
+              <Row id="recipe-carousel-row">
                 <FoodMenu text={text} />
               </Row>
               
-              <Row id="recipe-carousel-row">
-                
-              </Row>
             </Col>
 
             <Col id="desktop-ingredients-col">
