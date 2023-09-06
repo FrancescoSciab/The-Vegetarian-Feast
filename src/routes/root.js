@@ -5,14 +5,16 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/NavbarComponent';
 import RecipeCarousel from '../components/RecipeCarousel';
+import FoodMenu from '../components/FoodMenu';
 import axios from 'axios';
 
 
 
 
 export default function Root() {
+    const text = "food";
 
-    axios.get('https://api.spoonacular.com/recipes/716429/information/?apiKey=d7f530c178f6467994ebba5cdd1d4872')
+    axios.get('https://api.spoonacular.com/recipes/716429/informatio')
     .then( response => {
     // handle success
     console.log(response.data.title);
@@ -37,13 +39,13 @@ export default function Root() {
                 <RecipeCarousel />  
               </Row>
               <Row id="recipe-carousel-row">
-                <RecipeCarousel />
+                <FoodMenu text={text}/>
               </Row>
               <Row id="recipe-carousel-row">
-                <RecipeCarousel />
+                
               </Row>
               <Row id="recipe-carousel-row">
-                <RecipeCarousel />
+                
               </Row>
               <Row id="recipe-carousel-row">
                 <RecipeCarousel />
