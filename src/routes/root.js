@@ -1,4 +1,5 @@
-import '../App.css';
+import '../root.css';
+import '../custom.scss';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,7 +13,7 @@ import axios from 'axios';
 
 export default function Root() {
 
-    axios.get('https://api.spoonacular.com/recipes/716429/information/?apiKey=d7f530c178f6467994ebba5cdd1d4872')
+    axios.get('https://api.spoonacular.com/recipes/716429/informat')
     .then( response => {
     // handle success
     console.log(response.data.title);
@@ -37,13 +38,13 @@ export default function Root() {
                 <RecipeCarousel />  
               </Row>
               <Row id="recipe-carousel-row">
-                <RecipeCarousel />
+                
               </Row>
               <Row id="recipe-carousel-row">
-                <RecipeCarousel />
+                
               </Row>
               <Row id="recipe-carousel-row">
-                <RecipeCarousel />
+                
               </Row>
               <Row id="recipe-carousel-row">
                 <RecipeCarousel />

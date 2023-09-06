@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function RecipeCarousel() {
     return (
         
-        <Carousel>
+        <Carousel interval={null}>
             <Carousel.Item>
             <h1>Carousel with random recipes</h1>
             </Carousel.Item>

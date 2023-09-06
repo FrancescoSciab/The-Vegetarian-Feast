@@ -4,7 +4,6 @@ import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
-import '../custom.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //called navbar component to not conflict with bootstrap navbar
