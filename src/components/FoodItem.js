@@ -1,7 +1,7 @@
 import Pagination from 'react-bootstrap/Pagination';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+// API call to be moved to root component (?)
 const cache = {};
 
 function FoodItem(props) {
