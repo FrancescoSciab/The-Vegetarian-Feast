@@ -7,9 +7,9 @@ function FoodItem(props) {
     
     useEffect(() => {
         axios.get('https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false')
-
+// 
         .then( response => {
-        // handle success
+        //handle success
         setDishTypes(response.data.dishTypes)
         })
         .catch(function (error) {
