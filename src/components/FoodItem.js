@@ -2,24 +2,30 @@ import Pagination from 'react-bootstrap/Pagination';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+const cache = {};
+
 function FoodItem(props) {
-    const [dishTypes, setDishTypes] = useState([]);
+    const [dishTypes, setDishTypes] = useState([]); //to be set to null
     
     useEffect(() => {
-        axios.get('https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false')
-// 
-        .then( response => {
-        //handle success
-        setDishTypes(response.data.dishTypes)
+        if (cache["dishTypes"]) {
+            setDishTypes(cache['dishTypes']);
+        } else {
+            axios.get('https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false')
+            .then( response => {
+            //handle success
+            cache['dishTypes'] = response;
+            setDishTypes(response.data.dishTypes)
+            })
+            .catch(function (error) {
+            // handle error
+            console.log(error);
+            })
+            .finally(function () {
+            // always executed 
+            }, []);
+            }
         })
-        .catch(function (error) {
-        // handle error
-        console.log(error);
-        })
-        .finally(function () {
-        // always executed 
-        }, []);
-    })
     
     return (
       <Pagination>
