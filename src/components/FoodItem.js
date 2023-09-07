@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 // API call to be moved to root component (?)
 const cache = {};
 
-function FoodItem(props) {
-    const [dishTypes, setDishTypes] = useState([]); //to be set to null
+function FoodItem() {
+    const [dishTypes, setDishTypes] = useState(null); //to be set to null
     
     useEffect(() => {
         if (cache["dishTypes"]) {
@@ -28,9 +28,10 @@ function FoodItem(props) {
         })
     
     return (
+        // It only runs when dishtypes is not null
       <Pagination>
 
-        {dishTypes.map((dishType) => (
+        {dishTypes && dishTypes.map((dishType) => (
             <Pagination.Item key={dishType.id}>{dishType}</Pagination.Item>
         ))}
         
