@@ -27,8 +27,9 @@ export default function Root() {
             axios.get('https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false')
             .then( response => {
             //handle success
-            cache['topData'] = response;
+            cache['topData'] = response.data;
             setTopData(response.data)
+            
             })
             .catch(function(error) {
             // handle error
@@ -55,7 +56,7 @@ export default function Root() {
               </Row>
 
               <Row id="recipe-carousel-row">
-                <FoodItem dishTypes={topData && topData.dishTypes}/>
+              {topData && <FoodItem dishTypes={topData.dishTypes} />}
               </Row>
 
               <Row id="recipe-carousel-row">
