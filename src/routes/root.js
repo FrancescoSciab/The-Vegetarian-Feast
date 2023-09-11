@@ -55,7 +55,7 @@ export default function Root(props) {
               </Row>
 
               <Row id="recipe-carousel-row">
-              {topData && <FoodItem dishTypes={topData}/>}
+              {topData && <FoodItem dishTypes={topData.dishTypes}/>}
               </Row>
 
               <Row id="recipe-carousel-row">
