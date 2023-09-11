@@ -36,9 +36,9 @@ export default function Root(props) {
             })
             .finally(function() {
             // always executed 
-            });
+            }, []);
           }
-        }, [])
+        })
 
     
     
