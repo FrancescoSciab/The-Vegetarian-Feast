@@ -14,7 +14,7 @@ import axios from 'axios';
 
 const cache = {};
 
-export default function Root() {
+export default function Root(props) {
     const text = "food";
 
     const [topData, setTopData] = useState(null); //to be set to null
@@ -24,12 +24,11 @@ export default function Root() {
         if (cache["topData"]) {
             setTopData(cache['topData']);
         } else {
-            axios.get('https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false')
+            axios.get('https://api.spoonacular.com/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182')
             .then( response => {
             //handle success
             cache['topData'] = response.data;
             setTopData(response.data)
-            
             })
             .catch(function(error) {
             // handle error
@@ -37,9 +36,9 @@ export default function Root() {
             })
             .finally(function() {
             // always executed 
-            }, []);
-            }
-        })
+            });
+          }
+        }, [])
 
     
     
@@ -56,7 +55,7 @@ export default function Root() {
               </Row>
 
               <Row id="recipe-carousel-row">
-              {topData && <FoodItem dishTypes={topData.dishTypes} />}
+              {topData && <FoodItem dishTypes={topData}/>}
               </Row>
 
               <Row id="recipe-carousel-row">
