@@ -19,55 +19,56 @@ export default function Root(props) {
 
     const [topData, setTopData] = useState(null); //to be set to null
     
-    //calling api and distributing data to components via props
-    useEffect(() => {
-        if (cache["topData"]) {
-            setTopData(cache['topData']);
-        } else {
-            axios.get('https://api.spoonacular.com/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182')
-            .then( response => {
-            //handle success
-            cache['topData'] = response.data;
-            setTopData(response.data)
-            })
-            .catch(function(error) {
-            // handle error
-            console.log(error);
-            })
-            .finally(function() {
-            // always executed 
-            }, []);
-          }
-        })
+ //calling api and distributing data to components via props
+ useEffect(() => {
+  if (cache["topData"]) {
+      setTopData(cache['topData']);
+  } else {
+      axios.get('https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false')
+      .then( response => {
+      //handle success
+      cache['topData'] = response.data;
+      setTopData(response.data)
+      
+      })
+      .catch(function(error) {
+      // handle error
+      console.log(error);
+      })
+      .finally(function() {
+      // always executed 
+      }, []);
+      }
+  })
 
-    
-    
-    return (
-        <div className="root">
-          <Container id="navbar-container" fluid>
-            <Col>
-              <Row id="navbar-row">
-                <NavbarComponent />
-              </Row>
-            
-              <Row id="recipe-carousel-row">
-                <RecipeCarousel />  
-              </Row>
 
-              <Row id="recipe-carousel-row">
-              {topData && <FoodItem dishTypes={topData.dishTypes}/>}
-              </Row>
 
-              <Row id="recipe-carousel-row">
-                <FoodMenu text={text} />
-              </Row>
-              
-            </Col>
+return (
+  <div className="root">
+    <Container id="navbar-container" fluid>
+      <Col>
+        <Row id="navbar-row">
+          <NavbarComponent />
+        </Row>
+      
+        <Row id="recipe-carousel-row">
+          <RecipeCarousel />  
+        </Row>
 
-            <Col id="desktop-ingredients-col">
-              <RecipeCarousel id="desktop-ingredients-carousel" />
-            </Col>
-          </Container>
-        </div>
-  )}
+        <Row id="recipe-carousel-row">
+          {topData && <FoodItem dishTypes={topData.dishTypes} />}
+        </Row>
+
+        <Row id="recipe-carousel-row">
+          <FoodMenu text={text} />
+        </Row>
+        
+      </Col>
+
+      <Col id="desktop-ingredients-col">
+        <RecipeCarousel id="desktop-ingredients-carousel" />
+      </Col>
+    </Container>
+  </div>
+)}
   
