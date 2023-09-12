@@ -1,6 +1,7 @@
 import '../root.css';
 import '../custom.scss';
 import { useEffect, useState } from 'react'; 
+import { Route, Routes } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,6 +11,7 @@ import RecipeCarousel from '../components/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
 import FoodItem from '../components/FoodItem';
 import axios from 'axios';
+import Lunch from '../routes/Dishes';
 
 
 const cache = {};
@@ -56,7 +58,10 @@ return (
         </Row>
 
         <Row id="recipe-carousel-row">
-          {topData && <FoodItem dishTypes={topData.dishTypes} />}
+          
+            {topData && <FoodItem dishTypes={topData.dishTypes}/>}
+            <Lunch />
+          
         </Row>
 
         <Row id="recipe-carousel-row">

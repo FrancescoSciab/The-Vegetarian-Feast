@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
+import FoodItem from './components/FoodItem';
+import Lunch from './routes/Dishes';
 
 
 const router = createBrowserRouter([
@@ -15,6 +17,16 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "foodItem",
+        element: <FoodItem />
+      },
+      {
+        path: "lunch",
+        element: <Lunch />
+      },
+    ],
   },
 ]);
 
