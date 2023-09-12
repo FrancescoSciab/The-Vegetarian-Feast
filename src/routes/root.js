@@ -59,8 +59,13 @@ return (
 
         <Row id="recipe-carousel-row">
           
-            {topData && <FoodItem dishTypes={topData.dishTypes}/>}
-            <Lunch />
+            <Routes>
+              
+              <Route path='/' element={topData && <FoodItem dishTypes={topData.dishTypes}/>} />
+
+              <Route path='/lunch' element={<Lunch />} />
+                
+            </Routes>
           
         </Row>
 
