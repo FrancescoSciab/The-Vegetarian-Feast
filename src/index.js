@@ -6,8 +6,10 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Root from "./routes/root";
+import Root, { loader as rootLoader } from "./routes/root";
 import ErrorPage from "./error-page";
+import FoodItem from './components/FoodItem';
+import Lunch from './components/Dishes';
 
 
 const router = createBrowserRouter([
@@ -15,6 +17,17 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "fooditem",
+    element: <FoodItem />,
+    loader: rootLoader,
+    children: [
+      {
+        path: "lunch",
+        element: <Lunch />
+      }
+    ]
   },
 ]);
 

@@ -2,6 +2,7 @@ import '../root.css';
 import '../custom.scss';
 import { useEffect, useState } from 'react'; 
 import Container from "react-bootstrap/esm/Container";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,12 +10,22 @@ import NavbarComponent from '../components/NavbarComponent';
 import RecipeCarousel from '../components/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
 import FoodItem from '../components/FoodItem';
+import Lunch from '../components/Dishes';
 import axios from 'axios';
+import { getLunch } from "../routes/root"
 
 
 const cache = {};
 
-export default function Root(props) {
+export async function loader() {
+  const lunch = await getLunch();
+  return { lunch };
+}
+
+export default function Root() {
+  const { lunch } = useLoaderData();
+
+
     const text = "food";
 
     const [topData, setTopData] = useState(null); //to be set to null
@@ -56,7 +67,13 @@ return (
         </Row>
 
         <Row id="recipe-carousel-row">
-          {topData && <FoodItem dishTypes={topData.dishTypes} />}
+    
+          <Link to={"lunch"}>{topData && <FoodItem dishTypes={topData.dishTypes} />}
+          </Link>
+          
+
+          
+          
         </Row>
 
         <Row id="recipe-carousel-row">
@@ -69,6 +86,10 @@ return (
         <RecipeCarousel id="desktop-ingredients-carousel" />
       </Col>
     </Container>
+
+    <div id="detail">
+        <Outlet />
+      </div>
   </div>
 )}
   
