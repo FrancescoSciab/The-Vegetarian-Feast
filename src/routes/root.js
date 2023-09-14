@@ -19,6 +19,9 @@ const cache = {};
 export default function Root() {
     const text = "food";
 
+    const baseUrl = "https://api.spoonacular.com";
+    const apiKey = "?apiKey=8f5c95ab5ba54f428feb304dac547182"
+    const type = "recipes/716429";
     const [topData, setTopData] = useState(null); //to be set to null
     
     
@@ -26,12 +29,14 @@ export default function Root() {
  useEffect(() => {
   if (cache["topData"]) {
       setTopData(cache['topData']);
+      console.log(topData)
   } else {
-      axios.get(`https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false`)
+      axios.get(`${baseUrl}/${type}/${apiKey}&includeNutrition=false`)
       .then( response => {
       //handle success
       cache['topData'] = response.data;
       setTopData(response.data)
+      
       })
       .catch(function(error) {
       // handle error
@@ -39,6 +44,7 @@ export default function Root() {
       })
       .finally(function() {
       // always executed 
+      console.log(topData)
       }, []);
       }
   })
@@ -60,7 +66,7 @@ return (
         <Row id="recipe-carousel-row">
 
             <Routes>
-              <Route path='/' element={topData && <FoodItem id={topData.id}  dishTypes={topData.dishTypes}/>} />
+              <Route path='/' element={topData && <FoodItem id={topData.id}  dishTypes={topData.type}/>} />
 
               <Route path='lunch' element={<Lunch />} />
             </Routes>
