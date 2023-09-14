@@ -2,6 +2,8 @@
 
 export default function Lunch () {
     return (
-        <div>ciao</div>
+        <div>
+            <p></p>
+        </div>
     )
 }

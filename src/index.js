@@ -9,17 +9,17 @@ import {
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import FoodItem from './components/FoodItem';
-import Lunch from './components/Dishes';
+import Lunch from './routes/Dishes';
 
 
 const router = createBrowserRouter([
   {
-    path: "*",
+    path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "lunch",
+        path: "/lunch",
         element: <Lunch />
       },
     ]

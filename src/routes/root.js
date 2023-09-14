@@ -11,7 +11,7 @@ import RecipeCarousel from '../components/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
 import FoodItem from '../components/FoodItem';
 import axios from 'axios';
-import Lunch from '../components/Dishes';
+import Lunch from './Dishes';
 
 
 const cache = {};
@@ -20,14 +20,14 @@ export default function Root(props) {
     const text = "food";
 
     const [topData, setTopData] = useState(null); //to be set to null
-    const [specificUrl,setSpecificUrl] = useState("")
+    
     
  //calling api and distributing data to components via props
  useEffect(() => {
   if (cache["topData"]) {
       setTopData(cache['topData']);
   } else {
-      axios.get(`https://api.spoonacular.com/${specificUrl}?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false`)
+      axios.get(`https://api.spoonacular.com/recipes/716429/information?apiKey=8f5c95ab5ba54f428feb304dac547182&includeNutrition=false`)
       .then( response => {
       //handle success
       cache['topData'] = response.data;
@@ -40,7 +40,7 @@ export default function Root(props) {
       })
       .finally(function() {
       // always executed 
-      }, [specificUrl]);
+      }, []);
       }
   })
 
@@ -62,7 +62,7 @@ return (
           
             <Routes>
               
-              <Route path='/' action={() => setSpecificUrl("recipes/716429/information")} element={topData && <FoodItem id={topData.id}  dishTypes={topData.dishTypes}/>} />
+              <Route path='/' element={topData && <FoodItem id={topData.id}  dishTypes={topData.dishTypes}/>} />
 
               <Route path='lunch' element={<Lunch />} />
                 
