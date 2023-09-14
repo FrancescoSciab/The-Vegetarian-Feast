@@ -9,12 +9,12 @@ import {
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import FoodItem from './components/FoodItem';
-import Lunch from './routes/Dishes';
+import Lunch from './components/Dishes';
 
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "*",
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
