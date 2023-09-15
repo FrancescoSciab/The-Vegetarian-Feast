@@ -17,37 +17,29 @@ import Lunch from './Dishes';
 const cache = {};
 
 export default function Root() {
-    const text = "food";
 
-    const baseUrl = "https://api.spoonacular.com";
-    const apiKey = "?apiKey=8f5c95ab5ba54f428feb304dac547182"
-    const type = "recipes/716429";
-    const [topData, setTopData] = useState(null); //to be set to null
-    
-    
- //calling api and distributing data to components via props
- useEffect(() => {
-  if (cache["topData"]) {
-      setTopData(cache['topData']);
-      console.log(topData)
-  } else {
-      axios.get(`${baseUrl}/${type}/${apiKey}&includeNutrition=false`)
-      .then( response => {
-      //handle success
-      cache['topData'] = response.data;
-      setTopData(response.data)
-      
-      })
-      .catch(function(error) {
-      // handle error
-      console.log(error);
-      })
-      .finally(function() {
-      // always executed 
-      console.log(topData)
-      }, []);
-      }
-  })
+  const [topData, setTopData] = useState(null); //to be set to null
+
+  useEffect(() => {
+    if (cache["topData"]) {
+        setTopData(cache['topData']);
+    } else {
+        axios.get("https://api.spoonacular.com/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=lunch")
+        .then( response => {
+        //handle success
+        cache['topData'] = response.data;
+        setTopData(response.data)
+        })
+        .catch(function(error) {
+        // handle error
+        console.log(error);
+        })
+        .finally(function() {
+        // always executed 
+        console.log(topData)
+        }, []);
+        }
+    })
 
 
 
@@ -66,15 +58,15 @@ return (
         <Row id="recipe-carousel-row">
 
             <Routes>
-              <Route path='/' element={topData && <FoodItem id={topData.id}  dishTypes={topData.type}/>} />
+              <Route path='/' element={topData && <FoodItem />} />
 
-              <Route path='lunch' element={<Lunch />} />
+              <Route path='lunch' element={<Lunch lunchItems={topData.searchResults[1].results[1].name}/>} />
             </Routes>
           
         </Row>
 
         <Row id="recipe-carousel-row">
-          <FoodMenu text={text} />
+          <FoodMenu />
         </Row>
         
       </Col>

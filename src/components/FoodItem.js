@@ -11,10 +11,10 @@ function FoodItem(props) {
         //Will solve double link issue once I decide what to choose instead of "Pagination.Item"
       <Pagination>
 
-        {props.dishTypes && props.dishTypes.map((dishType) => (
+        
 
-            <Pagination.Item id={props.id}><Link to={`/${dishType}`}>{dishType}</Link></Pagination.Item>
-        ))}
+            <Pagination.Item><Link to={"/lunch"}>Lunch</Link></Pagination.Item>
+        
         
       </Pagination>
     );
