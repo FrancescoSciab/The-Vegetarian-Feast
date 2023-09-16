@@ -1,10 +1,11 @@
 
 
 export default function Lunch(props) {
-    console.log(props.lunchItems)
+    
+const lunchItem = props.lunchItems
     return (
         <div>
-            <p>ciao</p>
+            <p>{lunchItem}</p>
         </div>
     )
 }

@@ -14,6 +14,9 @@ import FoodItem from '../components/FoodItem';
 import axios from 'axios';
 import Lunch from './Dishes';
 
+const client = axios.create({
+  baseURL: "https://api.spoonacular.com"
+});
 const cache = {};
 
 export default function Root() {
@@ -24,11 +27,12 @@ export default function Root() {
     if (cache["topData"]) {
         setTopData(cache['topData']);
     } else {
-        axios.get("https://api.spoonacular.com/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=lunch")
+        client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182")
         .then( response => {
         //handle success
         cache['topData'] = response.data;
         setTopData(response.data)
+        topData && console.log(topData)
         })
         .catch(function(error) {
         // handle error
@@ -36,7 +40,6 @@ export default function Root() {
         })
         .finally(function() {
         // always executed 
-        console.log(topData)
         }, []);
         }
     })
@@ -60,7 +63,7 @@ return (
             <Routes>
               <Route path='/' element={topData && <FoodItem />} />
 
-              <Route path='lunch' element={<Lunch lunchItems={topData.searchResults[1].results[1].name}/>} />
+              <Route path='lunch' element={topData && <Lunch lunchItems={topData.searchResults[0].results[0].name} />} />
             </Routes>
           
         </Row>
