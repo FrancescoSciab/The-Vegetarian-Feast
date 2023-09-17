@@ -11,7 +11,7 @@ const client = axios.create({
 
 export default function Lunch() {
     
-    const [lunches, setLunches] = useState({});
+    const [lunches, setLunches] = useState([]);
 
   useEffect(() => {
     if (cache["lunches"]) {
@@ -20,8 +20,10 @@ export default function Lunch() {
         client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182")
         .then(response => {
         //handle success
-        cache["lunches"] = response.data.searchResults[0].results[0];
-        setLunches(response.data.searchResults[0].results[0])
+        
+            cache["lunches"] = response.data.searchResults[0].results;
+            setLunches(response.data.searchResults[0].results)
+            
         })
         .catch(function(error) {
         // handle error
@@ -31,22 +33,23 @@ export default function Lunch() {
         // always executed 
         });
         }
-    },)
+    }, [])
 
     return (
      <div className="d-flex justify-content-around">
         
-        
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={lunches.image} />
-        <Card.Body>
-          <Card.Title>{lunches.name}</Card.Title>
-          <Card.Text>
-            {console.log(lunches)}
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card> 
+        {lunches.map((lunchItem) => (
+            <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={lunchItem.image} />
+            <Card.Body>
+              <Card.Title>{lunchItem.name}</Card.Title>
+              <Card.Text>
+                {console.log(lunchItem.name)}
+              </Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card> 
+        ))}
       
     </div>
     )
