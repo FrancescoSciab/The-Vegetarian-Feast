@@ -11,41 +11,38 @@ const client = axios.create({
 
 export default function Lunch() {
     
-    const [lunches, setLunches] = useState(null); //to be set to null
+    const [lunches, setLunches] = useState({});
 
   useEffect(() => {
     if (cache["lunches"]) {
-        setLunches(cache['lunches']);
+        setLunches(cache["lunches"]);
     } else {
         client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182")
-        .then( response => {
+        .then(response => {
         //handle success
-        let i;
-        for (i=0; 1 < response.data.searchResults[0].results.lenght; i++) {
-            cache['lunches'] = response.data.searchResults[0].results[i];
-            setLunches(response.data.searchResults[0].results[i])
-        }})
+        cache["lunches"] = response.data.searchResults[0].results[0];
+        setLunches(response.data.searchResults[0].results[0])
+        })
         .catch(function(error) {
         // handle error
         console.log(error);
         })
         .finally(function() {
         // always executed 
-        }, []);
+        });
         }
-    })
+    },)
 
     return (
      <div className="d-flex justify-content-around">
         
         
         <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src={lunches.image} />
         <Card.Body>
-          {lunches && <Card.Title>{lunches}</Card.Title>}
+          <Card.Title>{lunches.name}</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {console.log(lunches)}
           </Card.Text>
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
