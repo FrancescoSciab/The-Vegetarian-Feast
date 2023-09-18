@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -35,10 +36,10 @@ export default function Lunch() {
     }, [])
 
     return (
-     <div className='d-flex justify-content-around'>
-        
+     
+        <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {lunches.map((lunchItem) => (
-            <Card style={{ width: '18rem' }}>
+            <Card style={{flex: "0 0 auto", maxWidth: "50%"}}>
             <Card.Img variant="top" src={lunchItem.image} />
             <Card.Body>
               <Card.Title>{lunchItem.name}</Card.Title>
@@ -49,7 +50,8 @@ export default function Lunch() {
             </Card.Body>
           </Card> 
         ))}
+        </CardGroup>
       
-    </div>
+    
     )
 }
