@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
+import Container from 'react-bootstrap/esm/Container';
 
 const cache = {};
 const client = axios.create({
@@ -20,10 +21,8 @@ export default function Lunch() {
         client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182")
         .then(response => {
         //handle success
-        
-            cache["lunches"] = response.data.searchResults[0].results;
-            setLunches(response.data.searchResults[0].results)
-            
+        cache["lunches"] = response.data.searchResults[0].results;
+        setLunches(response.data.searchResults[0].results)
         })
         .catch(function(error) {
         // handle error
@@ -36,7 +35,7 @@ export default function Lunch() {
     }, [])
 
     return (
-     <div className="d-flex justify-content-around">
+     <div className='d-flex justify-content-around'>
         
         {lunches.map((lunchItem) => (
             <Card style={{ width: '18rem' }}>
@@ -44,7 +43,7 @@ export default function Lunch() {
             <Card.Body>
               <Card.Title>{lunchItem.name}</Card.Title>
               <Card.Text>
-                {console.log(lunchItem.name)}
+                {}
               </Card.Text>
               <Button variant="primary">Go somewhere</Button>
             </Card.Body>
