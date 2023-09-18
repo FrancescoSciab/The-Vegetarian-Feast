@@ -18,11 +18,11 @@ export default function Beverage() {
     if (cache["beverages"]) {
         setBeverages(cache["beverages"]);
     } else {
-        client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&type=food")
+        client.get("/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=beverage")
         .then(response => {
         //handle success
-        cache["beverages"] = response.data.searchResults[0].results;
-        setBeverages(response.data.searchResults[0].results)
+        cache["beverages"] = response.data;
+        setBeverages(response.data)
         })
         .catch(function(error) {
         // handle error
