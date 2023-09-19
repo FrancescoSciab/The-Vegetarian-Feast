@@ -18,7 +18,7 @@ export default function Dessert() {
     if (cache["desserts"]) {
         setDesserts(cache["desserts"]);
     } else {
-        client.get("/recipes/search?apiKey=8f5c95ab5ba54f428feb304dac547182&type=dessert")
+        client.get("/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=dessert")
         .then(response => {
         //handle success
         cache["desserts"] = response.data.results;
