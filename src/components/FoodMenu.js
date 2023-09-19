@@ -11,7 +11,7 @@ function FoodMenu() {
         
         <Pagination.Item active>Food</Pagination.Item>
         <Pagination.Item><Link to={"/beverage"}>Beverage</Link></Pagination.Item>
-        <Pagination.Item>Dessert</Pagination.Item>
+        <Pagination.Item><Link to={"/dessert"}>Dessert</Link></Pagination.Item>
         
       </Pagination>
     );

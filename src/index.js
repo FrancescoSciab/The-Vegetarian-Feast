@@ -10,6 +10,7 @@ import Root, { loader as rootLoader } from "./routes/root";
 import ErrorPage from "./error-page";
 import Lunch from './routes/Dishes';
 import Beverage from './routes/Beverage';
+import Dessert from './routes/Dessert';
 
 
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "beverage",
         element: <Beverage />
+      },
+      {
+        path: "dessert",
+        element: <Dessert />
       },
     ]
   },
