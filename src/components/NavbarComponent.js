@@ -9,19 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //called navbar component to not conflict with bootstrap navbar
 export default function NavbarComponent() {
     return (
-        <Container fluid> 
-            <Row>
-                <Col>
-                    <Nav.Link>
-                        <Navbar.Brand >Vegetarian Recipe Website</Navbar.Brand>
-                    </Nav.Link>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Button variant="outline-success" >&#128269;</Button>
-                </Col>
-            </Row>
-        </Container>
+        
+        <Navbar style={{"justifyContent": "space-between", padding: "0 1rem"}}>
+            
+            <Navbar.Brand href='#'>The Vegetarian Feast</Navbar.Brand>
+        
+            <Button variant="outline-success" >&#128269;</Button>
+        </Navbar>       
+       
     )
 }

@@ -20,9 +20,9 @@ export default function Root() {
 
 return (
   <div className="root">
-    <Container id="navbar-container" fluid>
-      <Col style={{"maxWidth": "100vw"}}>
-        <Row id="navbar-row">
+    <Container fluid>
+      <Col>
+        <Row id="navbar-row" style={{height: "10vh", "alignItems": "center", "justifyContent": "space-around"}}>
           <NavbarComponent />
         </Row>
       
