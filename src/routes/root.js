@@ -22,7 +22,7 @@ return (
   <div className="root">
     <Container fluid>
       <Col>
-        <Row id="navbar-row" style={{height: "10vh", "alignItems": "center", "justifyContent": "space-around"}}>
+        <Row id="navbar-row" style={{height: "10vh"}}>
           <NavbarComponent />
         </Row>
       
