@@ -15,6 +15,7 @@ import axios from 'axios';
 import Lunch from './Dishes';
 import Beverage from './Beverage';
 import Dessert from './Dessert';
+import Ingredients from './Overview';
 
 export default function Root() {
 
@@ -36,6 +37,7 @@ return (
               <Route path='/' element={<FoodItem />} />
 
               <Route path='lunch' element={<Lunch />} />
+                <Route path='lunch/overview' element={<Ingredients />}/>
 
               <Route path='beverage' element={<Beverage />} />
 

@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Container from 'react-bootstrap/esm/Container';
+import { Link } from 'react-router-dom';
 
 const cache = {};
 const client = axios.create({
@@ -46,7 +47,7 @@ export default function Lunch() {
               <Card.Text>
                 {}
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary"><Link to={"/lunch/overview"}>Go somewhere</Link></Button>
             </Card.Body>
           </Card> 
         ))}

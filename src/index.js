@@ -11,6 +11,7 @@ import ErrorPage from "./error-page";
 import Lunch from './routes/Dishes';
 import Beverage from './routes/Beverage';
 import Dessert from './routes/Dessert';
+import Ingredients from './routes/Overview';
 
 
 
@@ -22,7 +23,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: "lunch",
-        element: <Lunch />
+        element: <Lunch />,
+        children: [
+          {
+            path: "overview",
+            element: <Ingredients />
+          }
+        ]
       },
       {
         path: "beverage",
