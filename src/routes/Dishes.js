@@ -5,7 +5,8 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Container from 'react-bootstrap/esm/Container';
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
+import Ingredients from './Overview';
 
 const cache = {};
 const client = axios.create({
@@ -36,9 +37,8 @@ export default function Lunch() {
         }
     }, [])
 
-    return (
-     
-        <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
+    const dishes = 
+    <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {lunches.map((lunchItem) => (
             <Card style={{flex: "0 0 auto", maxWidth: "50%"}}>
             <Card.Img variant="top" src={lunchItem.image} />
@@ -47,11 +47,21 @@ export default function Lunch() {
               <Card.Text>
                 {}
               </Card.Text>
-              <Button variant="primary"><Link to={"/lunch/overview"}>Go somewhere</Link></Button>
+              <Button variant="primary"><Link to={"overview"}>Go Somewhere</Link></Button>
             </Card.Body>
           </Card> 
         ))}
         </CardGroup>
+
+    return (
+     
+        <Routes>
+
+            <Route path='*' element={dishes}/>
+
+                <Route path='overview' element={<Ingredients />} />
+
+        </Routes>
       
     
     )

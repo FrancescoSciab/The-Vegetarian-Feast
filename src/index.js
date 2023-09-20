@@ -23,7 +23,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: "lunch",
-        element: <Lunch />,
         children: [
           {
             path: "overview",

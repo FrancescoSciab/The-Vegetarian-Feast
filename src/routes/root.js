@@ -36,8 +36,7 @@ return (
             <Routes>
               <Route path='/' element={<FoodItem />} />
 
-              <Route path='lunch' element={<Lunch />} />
-                <Route path='lunch/overview' element={<Ingredients />}/>
+              <Route path='lunch/*' element={<Lunch />} />
 
               <Route path='beverage' element={<Beverage />} />
 
