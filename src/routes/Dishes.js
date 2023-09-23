@@ -36,8 +36,10 @@ export default function Lunch() {
         });
         }
     }, [])
+    
 
-    const dishes = 
+    return (
+     <>
     <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {lunches.map((lunchItem) => (
             <Card style={{flex: "0 0 auto", maxWidth: "50%"}}>
@@ -51,18 +53,7 @@ export default function Lunch() {
             </Card.Body>
           </Card> 
         ))}
-        </CardGroup>
-
-    return (
-     
-        <Routes>
-
-            <Route path='*' element={dishes}/>
-
-                <Route path='overview' element={<Ingredients />} />
-
-        </Routes>
-      
-    
+    </CardGroup>
+    </>
     )
 }
