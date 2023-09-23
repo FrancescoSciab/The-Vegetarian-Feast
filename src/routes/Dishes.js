@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import Placeholder from 'react-bootstrap/Placeholder';
-import Container from 'react-bootstrap/esm/Container';
 import { Link, Route, Routes } from 'react-router-dom';
-import Ingredients from './Overview';
 
 const cache = {};
 const client = axios.create({
