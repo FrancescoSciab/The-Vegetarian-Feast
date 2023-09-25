@@ -39,14 +39,14 @@ export default function Lunch() {
      <>
     <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {lunches.map((lunchItem) => (
-            <Card style={{flex: "0 0 auto", maxWidth: "50%"}}>
+            <Card key={lunchItem.id} style={{flex: "0 0 auto", maxWidth: "50%"}}>
             <Card.Img variant="top" src={lunchItem.image} />
             <Card.Body>
               <Card.Title>{lunchItem.name}</Card.Title>
               <Card.Text>
                 {}
               </Card.Text>
-              <Button variant="primary"><Link to={"overview"}>Go Somewhere</Link></Button>
+              <Button variant="primary"><Link to={`overview/${lunchItem.id}`}>Go to: {lunchItem.id}</Link></Button>
             </Card.Body>
           </Card> 
         ))}

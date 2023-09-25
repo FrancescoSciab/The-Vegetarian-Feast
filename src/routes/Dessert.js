@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import Ingredients from "./Overview";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 
 
 
@@ -33,7 +35,10 @@ export default function Dessert() {
         });
         }
     }, [])
+
+     
     return (
+        <>
         <CardGroup style={{display:"flex", flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {desserts.map((dessert) => (
             <Card style={{flex: "0 0 auto", maxWidth: "50%"}} key={dessert.id}>
@@ -41,12 +46,13 @@ export default function Dessert() {
             <Card.Body>
               <Card.Title>{dessert.title}</Card.Title>
               <Card.Text>
-                {}
+                
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary"><Link to={`overview/${dessert.id}`}>Go to ID: {dessert.id}</Link></Button>
             </Card.Body>
           </Card> 
         ))}
         </CardGroup>
-    )
+        </>  
+        )
 }

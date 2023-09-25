@@ -26,18 +26,30 @@ const router = createBrowserRouter([
         element: <Lunch />,
         children: [
           {
-            path: "overview",
+            path: "overview/:id",
             element: <Ingredients />
           }
         ]
       },
       {
         path: "beverage",
-        element: <Beverage />
+        element: <Beverage />,
+        children: [
+          {
+            path: "overview/:id",
+            element: <Ingredients />
+          }
+        ]
       },
       {
         path: "dessert",
-        element: <Dessert />
+        element: <Dessert />,
+        children: [
+          {
+            path: "overview/:id",
+            element: <Ingredients />,
+          }
+        ]
       },
     ]
   },

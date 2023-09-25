@@ -11,10 +11,6 @@ import CardGroup from 'react-bootstrap/Card';
 function FoodMenu() {
   const [active, setActive] = useState(true)
   
-    
-  
-  
-  
     return (
 
       <>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import { Link } from "react-router-dom";
 
 
 
@@ -43,7 +44,7 @@ export default function Beverage() {
               <Card.Text>
                 {}
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary"><Link to={`overview/${beverage.id}`}>Go somewhere: {beverage.id}</Link></Button>
             </Card.Body>
           </Card> 
         ))}

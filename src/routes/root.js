@@ -1,6 +1,6 @@
 import '../root.css';
 import '../custom.scss';
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes, useParams } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -28,17 +28,21 @@ return (
           <RecipeCarousel />  
         </Row>
 
-        <Row id="recipe-carousel-row">
+        <Row id="recipe-carousel-row" style={{height: "auto"}}>
 
             <Routes>
               <Route path='/' element={<FoodItem />} />
 
               <Route path='lunch' element={<Lunch />} />
-                <Route path='lunch/overview' element={<Ingredients />} />
+                <Route path='lunch/overview/:id' element={<Ingredients />} />
 
               <Route path='beverage' element={<Beverage />} />
+              <Route path='beverage/overview/:id' element={<Ingredients />} />
 
               <Route path='dessert' element={<Dessert />} />
+
+                <Route path="dessert/overview/:id" element={<Ingredients />} /> 
+              
             </Routes>
           
         </Row>
