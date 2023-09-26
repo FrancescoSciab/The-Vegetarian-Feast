@@ -13,9 +13,16 @@ import Lunch from './Dishes';
 import Beverage from './Beverage';
 import Dessert from './Dessert';
 import Ingredients from './Overview';
+import axios from 'axios';
+
+const cache = {};
+const client = axios.create({
+    baseURL: "https://api.spoonacular.com"
+  });
 
 export default function Root() {
 
+  
 return (
   <div className="root">
     <Container fluid>
@@ -33,13 +40,13 @@ return (
             <Routes>
               <Route path='/' element={<FoodItem />} />
 
-              <Route path='lunch' element={<Lunch />} />
+              <Route path='lunch' element={<Lunch client={client} />} />
                 <Route path='lunch/overview/:id' element={<Ingredients />} />
 
-              <Route path='beverage' element={<Beverage />} />
+              <Route path='beverage' element={<Beverage client={client}/>} />
               <Route path='beverage/overview/:id' element={<Ingredients />} />
 
-              <Route path='dessert' element={<Dessert />} />
+              <Route path='dessert' element={<Dessert client={client}/>} />
 
                 <Route path="dessert/overview/:id" element={<Ingredients />} /> 
               

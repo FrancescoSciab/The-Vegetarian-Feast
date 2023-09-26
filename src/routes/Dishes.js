@@ -6,19 +6,16 @@ import CardGroup from 'react-bootstrap/Card';
 import { Link, Route, Routes } from 'react-router-dom';
 
 const cache = {};
-const client = axios.create({
-    baseURL: "https://api.spoonacular.com"
-  });
 
-export default function Lunch() {
-    
+export default function Lunch(props) {
+
     const [lunches, setLunches] = useState([]);
 
   useEffect(() => {
     if (cache["lunches"]) {
         setLunches(cache["lunches"]);
     } else {
-        client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182")
+        props.client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182")
         .then(response => {
         //handle success
         cache["lunches"] = response.data.searchResults[0].results;

@@ -13,14 +13,14 @@ const client = axios.create({
     baseURL: "https://api.spoonacular.com"
   });
 
-export default function Dessert() {
+export default function Dessert(props) {
     const [desserts, setDesserts] = useState([]);
 
   useEffect(() => {
     if (cache["desserts"]) {
         setDesserts(cache["desserts"]);
     } else {
-        client.get("/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=dessert")
+        props.client.get("/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=dessert")
         .then(response => {
         //handle success
         cache["desserts"] = response.data.results;
