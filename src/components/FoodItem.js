@@ -5,8 +5,33 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 // API call to be moved to root component (?)
 
+const cache = {};
 
 function FoodItem(props) {
+
+    const [foodType, setFoodType] = useState([]);
+
+  useEffect(() => {
+    if (cache["foodType"]) {
+        setFoodType(cache["foodType"]);
+    } else {
+        props.client.get("food/site/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=")
+        .then(response => {
+        //handle success
+        cache["foodType"] = response.data;
+        setFoodType(response.data)
+        })
+        .catch(function(error) {
+        // handle error
+        console.log(error);
+        })
+        .finally(function() {
+        // always executed 
+        });
+        }
+    }, [])
+    console.log(foodType)
+    
     
     return (
     <>

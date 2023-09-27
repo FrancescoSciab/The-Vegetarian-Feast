@@ -1,4 +1,5 @@
-import axios from 'axios';
+import { offset } from '@popperjs/core';
+
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -15,11 +16,11 @@ export default function Lunch(props) {
     if (cache["lunches"]) {
         setLunches(cache["lunches"]);
     } else {
-        props.client.get("/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=soup&cuisine=italian")
+        props.client.get("/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=soup&number=100")
         .then(response => {
         //handle success
-        cache["lunches"] = response.data;
-        setLunches(response.data)
+        cache["lunches"] = response.data.results;
+        setLunches(response.data.results)
         })
         .catch(function(error) {
         // handle error

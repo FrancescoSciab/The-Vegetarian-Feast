@@ -17,7 +17,7 @@ import axios from 'axios';
 
 const cache = {};
 const client = axios.create({
-    baseURL: "https://api.spoonacular.com"
+    baseURL: "https://api.spoonacular.com",
   });
 
 export default function Root() {
@@ -38,7 +38,7 @@ return (
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
 
             <Routes>
-              <Route path='/' element={<FoodItem />} />
+              <Route path='/' element={<FoodItem client={client}/>} />
 
               <Route path='lunch' element={<Lunch client={client} />} />
                 <Route path='lunch/overview/:id' element={<Ingredients />} />
