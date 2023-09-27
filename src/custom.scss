@@ -1,15 +1,11 @@
-.container-fluid {
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-}
+
 
 .row {
     height: 20vh;
 }
 
 .carousel {
-    background-color: rgb(148, 140, 140);
+    background-color: rgb(158, 158, 158);
     width: 100vh;
 }
 
@@ -18,10 +14,6 @@
     width: 100vw;
 }
 
-#desktop-ingredients-carousel {
-    width: 100vw;
-    height: 100vh;
-}
 
 @media (min-width:600px) {
     #desktop-ingredients-col {

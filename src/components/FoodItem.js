@@ -3,50 +3,32 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // API call to be moved to root component (?)
 
-const cache = {};
+
 
 function FoodItem(props) {
 
-    const [foodType, setFoodType] = useState([]);
-
-  useEffect(() => {
-    if (cache["foodType"]) {
-        setFoodType(cache["foodType"]);
-    } else {
-        props.client.get("food/site/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=")
-        .then(response => {
-        //handle success
-        cache["foodType"] = response.data;
-        setFoodType(response.data)
-        })
-        .catch(function(error) {
-        // handle error
-        console.log(error);
-        })
-        .finally(function() {
-        // always executed 
-        });
-        }
-    }, [])
-    console.log(foodType)
+    const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
     
-    
+    console.log(mealTypes)
     return (
     <>
-        <CardGroup>
+        <CardGroup style={{display:"flex", flexDirection:"row", width:"100vw", overflow:"scroll"}}>
 
-                <Card>
-                <Card.Img variant="top" />
-                <Card.Body>
-                  <Card.Title>Lunch</Card.Title>
-                  <Card.Text>
-                    Check out our new lunch ideas
-                  </Card.Text>
-                  <Button variant="primary"><Link to={"/lunch"}>Go Somewhere</Link></Button>
-                </Card.Body>
-              </Card> 
+                {mealTypes.map((mealType) => (
+                    <Card style={{flex: "0 0 auto", maxWidth: "50%"}}>
+                    <Card.Img variant="top" />
+                    <Card.Body>
+                      <Card.Title>{mealType}</Card.Title>
+                      <Card.Text>
+                        Check out our new {mealType} ideas
+                      </Card.Text>
+                      <Button variant="primary"><Link to={"/lunch"}>Go Somewhere</Link></Button>
+                    </Card.Body>
+                  </Card> 
+                ))}
 
         </CardGroup>
     </>
