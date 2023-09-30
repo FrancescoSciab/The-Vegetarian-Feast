@@ -8,10 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/NavbarComponent';
 import RecipeCarousel from '../components/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
-import FoodItem from '../components/FoodItem';
-import Lunch from './Dishes';
-import Beverage from './Beverage';
-import Dessert from './Dessert';
+import MealItems from '../components/MealType';
+import Meal from './Meal';
 import Ingredients from './Overview';
 import axios from 'axios';
 
@@ -21,7 +19,7 @@ const client = axios.create({
   });
 
 export default function Root() {
-
+  const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
   
 return (
   <div className="root">
@@ -38,15 +36,21 @@ return (
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
 
             <Routes>
-              <Route path='/' element={<FoodItem client={client}/>} />
+              <Route path='/' element={<MealItems client={client}/>} />
 
-              <Route path='lunch' element={<Lunch client={client} />} />
-                <Route path='lunch/overview/:id' element={<Ingredients />} />
+              {mealTypes.map((mealType) => (
+                <>
+                  <Route path={`:${mealType}`} element={<Meal client={client}/>} />
+                  <Route path={`${mealType}/overview/:id`} element={<Ingredients />} />
+                </>
+              ))}
+              
+                
 
-              <Route path='beverage' element={<Beverage client={client}/>} />
+              {/* <Route path='beverage' element={<Beverage client={client}/>} />
               <Route path='beverage/overview/:id' element={<Ingredients />} />
 
-              <Route path='dessert' element={<Dessert client={client}/>} />
+              <Route path='dessert' element={<Dessert client={client}/>} /> */}
 
                 <Route path="dessert/overview/:id" element={<Ingredients />} /> 
               

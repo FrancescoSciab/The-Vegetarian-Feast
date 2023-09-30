@@ -8,11 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function FoodItem(props) {
-
-    const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
+function MealItems(props) {
+  const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
     
-    console.log(mealTypes)
     return (
     <>
         <CardGroup style={{display:"flex", flexDirection:"row", width:"100vw", overflow:"scroll"}}>
@@ -25,7 +23,7 @@ function FoodItem(props) {
                       <Card.Text>
                         Check out our new {mealType} ideas
                       </Card.Text>
-                      <Button variant="primary"><Link to={"/lunch"}>Go Somewhere</Link></Button>
+                      <Button variant="primary"><Link to={`${mealType}`}>Go Somewhere: {mealType}</Link></Button>
                     </Card.Body>
                   </Card> 
                 ))}
@@ -35,4 +33,4 @@ function FoodItem(props) {
     );
   }
   
-  export default FoodItem;
+  export default MealItems;
