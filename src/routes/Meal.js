@@ -8,13 +8,14 @@ const cache = {};
 
 export default function Meal(props) {
 
-    const { mealType } = useParams(); 
+    const { mealType } = useParams()
     const [meals, setMeals] = useState([]);
 
   useEffect(() => {
     if (cache[`${meals}`]) {
         setMeals(cache[`${meals}`]);
     } else {
+        
         props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=${mealType}&number=100`)
         .then(response => {
         //handle success
@@ -29,8 +30,8 @@ export default function Meal(props) {
         // always executed 
         });
         }
-    }, [])
-    console.log(mealType)
+    }, [mealType])
+    
 
     return (
      <>

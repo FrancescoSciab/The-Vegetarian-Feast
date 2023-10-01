@@ -40,8 +40,8 @@ return (
 
               {mealTypes.map((mealType) => (
                 <>
-                  <Route path={`:${mealType}`} element={<Meal client={client}/>} />
-                  <Route path={`${mealType}/overview/:id`} element={<Ingredients />} />
+                  <Route path={":mealType"} element={<Meal client={client} />} />
+                    <Route path={`${mealType}/overview/:id`} element={<Ingredients />} />
                 </>
               ))}
               
