@@ -46,7 +46,7 @@ export default function Meal(props) {
               <Card.Text>
                 {`mealType: ${mealType}`}
               </Card.Text>
-              <Button variant="primary"><Link to={`overview/:${meal.id}`}>Go to: {meal.id}</Link></Button>
+              <Button variant="primary"><Link to={`overview/${meal.id}`}>Go to: {meal.id}</Link></Button>
             </Card.Body>
           </Card> 
         ))}
