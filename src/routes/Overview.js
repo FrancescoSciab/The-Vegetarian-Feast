@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/Card';
 
 const cache = {};
 
@@ -32,6 +34,18 @@ export default function Ingredients(props) {
     }, [id])
 
     return (
-        <p>Result: {id}</p>
+        <>
+    <CardGroup>
+            <Card key={mealsInfo.id}>
+            <Card.Img variant="top" src={mealsInfo.image} />
+            <Card.Body>
+              <Card.Title>{mealsInfo.title}</Card.Title>
+              <Card.Text>
+                {mealsInfo.summary}
+              </Card.Text>
+            </Card.Body>
+          </Card> 
+    </CardGroup>
+    </>
     )
 }
