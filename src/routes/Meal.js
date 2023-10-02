@@ -12,6 +12,7 @@ export default function Meal(props) {
     const [meals, setMeals] = useState([mealType]);//when mealtype changes the api call will be triggered
     console.log(`before useEffect: ${meals}`)
 
+    
   useEffect(() => {
     if (cache[`${meals}`]) {
         setMeals(cache[`${meals}`]);
