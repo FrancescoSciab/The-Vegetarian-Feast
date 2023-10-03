@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
+//sanitizing summary html below
+import DOMPurify from 'dompurify';
 
 const cache = {};
 
@@ -33,7 +35,9 @@ export default function Ingredients(props) {
         }
     }, [id])
 
+
     return (
+        
         <>
     <CardGroup>
             <Card key={mealsInfo.id}>
@@ -41,7 +45,8 @@ export default function Ingredients(props) {
             <Card.Body>
               <Card.Title>{mealsInfo.title}</Card.Title>
               <Card.Text>
-                {mealsInfo.summary}
+                
+              <p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(mealsInfo.summary)) }} />
               </Card.Text>
             </Card.Body>
           </Card> 

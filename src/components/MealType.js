@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function MealItems(props) {
-  const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
+  const mealTypes = ["main course 🥘", "side dish 🍛", "dessert 🍰", "appetizer 🥪", "salad 🥗", "bread 🥖", "breakfast 🥛", "soup 🍜", "beverage 🍹", "sauce 🍯", "marinade 🍲", "fingerfood 🍟", "snack 🍿", "drink 🍸"]
     
     return (
     <>
@@ -19,7 +19,9 @@ function MealItems(props) {
                     <Card style={{flex: "0 0 auto", maxWidth: "50%"}}>
                     <Card.Img variant="top" />
                     <Card.Body>
-                      <Card.Title>{mealType}</Card.Title>
+                      <Card.Title>
+                        {mealType}
+                        </Card.Title>
                       <Card.Text>
                         Check out our new {mealType} ideas
                       </Card.Text>
