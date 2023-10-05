@@ -7,6 +7,7 @@ import DOMPurify from 'dompurify';
 
 const cache = {};
 
+
 export default function Ingredients(props) {
 
     const { id } = useParams();

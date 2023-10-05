@@ -30,7 +30,7 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-          <RecipeCarousel />  
+          <RecipeCarousel client={client} />  
         </Row>
 
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
