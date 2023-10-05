@@ -19,7 +19,7 @@ const client = axios.create({
     baseURL: "https://api.spoonacular.com",
   });
 
-export default function Root(props) {
+export default function Root() {
   const [randomFood, setRandomFood] = useState([])
 
     useEffect(() => {
@@ -27,13 +27,16 @@ export default function Root(props) {
             setRandomFood(cache[`${randomFood}`]);
             console.log(`in cache: ${randomFood}`)
         } else {
-            client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=food")
+            client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=food&number=100")
             .then(response => {
             //handle success
-            cache[`${randomFood}`] = response.data.results;
-            setRandomFood(response.data.results)
+            cache[`${randomFood}`] = response.data.searchResults[0].results;
+            setRandomFood(response.data.searchResults[0].results)
             console.log(randomFood)
             })
+            
+      
+
             .catch(function(error) {
             // handle error
             console.log(error);
@@ -54,7 +57,7 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-          <RecipeCarousel client={randomFood} />  
+          <RecipeCarousel randomFood={randomFood} />  
         </Row>
 
         <Row id="recipe-carousel-row" style={{height: "auto"}}>

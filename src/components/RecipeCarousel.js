@@ -10,9 +10,15 @@ export default function RecipeCarousel(props) {
     return (
         
         <Carousel interval={null}>
-            <Carousel.Item>{props.randomFood}
+            {props.randomFood && props.randomFood.map((food) => (
+                <Carousel.Item>
+                    <img src={`${food.image}`}></img>
+                    <Carousel.Caption>
+                        <h3>{food.name}</h3>
+                        <p>{food.content}</p>
+                    </Carousel.Caption>
                 </Carousel.Item>
+            ))}
         </Carousel>
-        
     )
 }
