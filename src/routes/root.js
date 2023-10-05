@@ -12,13 +12,37 @@ import MealItems from '../components/MealType';
 import Meal from './Meal';
 import Ingredients from './Overview';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const cache = {};
 const client = axios.create({
     baseURL: "https://api.spoonacular.com",
   });
 
-export default function Root() {
+export default function Root(props) {
+  const [randomFood, setRandomFood] = useState([])
+
+    useEffect(() => {
+        if (cache[`${randomFood}`]) {
+            setRandomFood(cache[`${randomFood}`]);
+            console.log(`in cache: ${randomFood}`)
+        } else {
+            client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=food")
+            .then(response => {
+            //handle success
+            cache[`${randomFood}`] = response.data.results;
+            setRandomFood(response.data.results)
+            console.log(randomFood)
+            })
+            .catch(function(error) {
+            // handle error
+            console.log(error);
+            })
+            .finally(function() {
+            // always executed 
+            });
+            }
+        }, [])
   const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
   
 return (
@@ -30,7 +54,7 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-          <RecipeCarousel client={client} />  
+          <RecipeCarousel client={randomFood} />  
         </Row>
 
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
