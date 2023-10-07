@@ -13,6 +13,7 @@ import Meal from './Meal';
 import Ingredients from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import SearchBar from './SearchBar';
 
 const cache = {};
 const client = axios.create({
@@ -34,7 +35,7 @@ export default function Root() {
             setRandomFood(response.data.searchResults[0].results)
             console.log(randomFood)
             })
-            
+
       
 
             .catch(function(error) {
@@ -57,13 +58,15 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-          <RecipeCarousel randomFood={randomFood} />  
+            
         </Row>
 
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
 
             <Routes>
               <Route path='/' element={<MealItems client={client}/>} />
+
+              <Route path='searchbar' element={<SearchBar />}/>
 
               {mealTypes.map((mealType) => (
                 <>

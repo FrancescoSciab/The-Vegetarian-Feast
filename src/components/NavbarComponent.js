@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 //called navbar component to not conflict with bootstrap navbar
 export default function NavbarComponent() {
@@ -14,7 +15,7 @@ export default function NavbarComponent() {
             
             <Navbar.Brand href='#'>The Vegetarian Feast</Navbar.Brand>
         
-            <Button variant="outline-success" >&#128269;</Button>
+            <Button variant="outline-success"><Link to='searchbar'>&#128269;</Link></Button>
         </Navbar>       
        
     )
