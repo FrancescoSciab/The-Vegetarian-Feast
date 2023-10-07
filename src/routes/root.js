@@ -14,6 +14,7 @@ import Ingredients from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
+import SearchItems from './SearchBar';
 
 const cache = {};
 const client = axios.create({
@@ -58,7 +59,7 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-            
+          <RecipeCarousel randomFood={randomFood} />  
         </Row>
 
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
@@ -66,7 +67,7 @@ return (
             <Routes>
               <Route path='/' element={<MealItems client={client}/>} />
 
-              <Route path='searchbar' element={<SearchBar />}/>
+              <Route path=':searchbar' element={<SearchItems client={client} />}/>
 
               {mealTypes.map((mealType) => (
                 <>
