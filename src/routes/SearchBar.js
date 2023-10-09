@@ -9,38 +9,38 @@ const cache = {};
 export default function SearchItems(props) {
 
     const [items, setItems] = useState([]);
-    const { searchs } = window.location;
-    const query = new URLSearchParams(searchs).get('s');
-    var search = new JsSearch.Search(`${query}`);
-    search.addIndex('id')
-    search.addDocuments(items)
-    search.search(`${query}`)
-    
+    const [query, setQuery] = useState("")
 
-  function search() {
-    if (cache[`${items}`]) {
-        setItems(cache[`${items}`]);
-        
-    } else {
-        props.client.get(`/recipes/complexsearchbar?apiKey=8f5c95ab5ba54f428feb304dac547182&query=pasta`)
-        .then(response => {
-        //handle success
-        cache[`${items}`] = response.data;
-        setItems(response.data)
-        console.log(items)
-        
-        })
-        .catch(function(error) {
-        // handle error
-        console.log(error);
-        })
-        .finally(function() {
-        // always executed 
-        });
-        }
+    const handleChange = event => {
+        setQuery(event.target.value);
+        console.log('value is:', event.target.value);
     }
+    
+    
+    useEffect(() => {
+        if (cache[`${items}`]) {
+            setItems(cache[`${items}`]);
+        } else {
+             props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&query=${query}`)
+            .then(response => {
+            //handle success
+            cache[`${items}`] = response.data.results[0].title;
+            setItems(response.data.results[0].title)
+            console.log(`api: ${items}`)
+            })
+            .catch(function(error) {
+            // handle error
+            console.log(error);
+            })
+            .finally(function() {
+            // always executed 
+            });
+            }
+    }, [])
+    
     return (
-        <Form>
+        <>
+            <Form>
             <Form.Group>
                 <Form.Label>Type your search query</Form.Label>
                 <Form.Control 
@@ -48,17 +48,13 @@ export default function SearchItems(props) {
                     placeholder="search" 
                     controlid="header-search"
                     name="s"
-                    defaultValue={query}
-                    onChange={search}
+                    value={query}
+                    onChange={handleChange}
                 />
             </Form.Group>
         </Form>
-    )
-}
-
-export function Pippo() {
-    return(
-        <p>ciao</p>
+        </>
+        
     )
 }
 
