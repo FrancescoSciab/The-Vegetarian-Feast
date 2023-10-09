@@ -18,16 +18,9 @@ export default function NavbarComponent() {
         <Navbar style={{"justifyContent": "space-between", padding: "0 1rem"}}>
             
             <Navbar.Brand href='#'>The Vegetarian Feast</Navbar.Brand>
-        
             
-            {
-                searchActive ?
-                <Form>
-                <Form.Control placeholder="search"/>
-            </Form>
-            : 
-            <Button variant="outline-success" onClick={() => setSearchActive(!searchActive)}>{searchActive ? <Link to='searchbar'>&#10005;</Link> : <Link to='searchbar'>&#128269;</Link>}</Button>
-            }
+            <Button variant="outline-success"><Link to='searchbar'>&#128269;</Link></Button>
+
         </Navbar>       
        
     )

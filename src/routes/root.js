@@ -13,8 +13,8 @@ import Meal from './Meal';
 import Ingredients from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import SearchBar from './SearchBar';
 import SearchItems from './SearchBar';
+import filterPosts from 'js-search';
 
 const cache = {};
 const client = axios.create({
@@ -22,6 +22,9 @@ const client = axios.create({
   });
 
 export default function Root() {
+
+  
+
   const [randomFood, setRandomFood] = useState([])
 
     useEffect(() => {
@@ -55,7 +58,10 @@ return (
     <Container fluid>
       <Col>
         <Row id="navbar-row" style={{height: "10vh"}}>
-          <NavbarComponent />
+          <Routes>
+            <Route path='/' element={<NavbarComponent />}/>
+            <Route path='searchbar' element={<SearchItems client={client}/>}/>
+          </Routes>
         </Row>
       
         <Row id="recipe-carousel-row">
