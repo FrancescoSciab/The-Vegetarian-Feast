@@ -22,7 +22,7 @@ export default function SearchItems(props) {
         if (cache[`${items}`]) {
             setItems(cache[`${items}`]);
         } else {
-            props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=${query}`)
+            query && props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=${query}`)
             .then(response => {
             //handle success
             cache[`${items}`] = response.data.results;
