@@ -14,7 +14,6 @@ import Ingredients from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import SearchItems from './SearchBar';
-import filterPosts from 'js-search';
 
 const cache = {};
 const client = axios.create({
@@ -30,18 +29,13 @@ export default function Root() {
     useEffect(() => {
         if (cache[`${randomFood}`]) {
             setRandomFood(cache[`${randomFood}`]);
-            console.log(`in cache: ${randomFood}`)
         } else {
             client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=food&number=100")
             .then(response => {
             //handle success
             cache[`${randomFood}`] = response.data.searchResults[0].results;
             setRandomFood(response.data.searchResults[0].results)
-            console.log(randomFood)
             })
-
-      
-
             .catch(function(error) {
             // handle error
             console.log(error);
@@ -65,7 +59,7 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-          <RecipeCarousel randomFood={randomFood} />  
+          
         </Row>
 
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
@@ -96,7 +90,7 @@ return (
         </Row>
 
         <Row id="recipe-carousel-row">
-          <FoodMenu />
+          
         </Row>
         
         
