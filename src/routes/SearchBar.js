@@ -16,6 +16,7 @@ export default function SearchItems(props) {
 
     const handleChange = event => {
         setQuery(event.target.value);
+        console.log(query)
     }
 
     useEffect(() => {
@@ -27,7 +28,6 @@ export default function SearchItems(props) {
             //handle success
             cache[`${items}`] = response.data.results;
             setItems(response.data.results)
-            
             })
             .catch(function(error) {
             // handle error
@@ -35,7 +35,7 @@ export default function SearchItems(props) {
             })
             .finally(function() {
             // always executed 
-            console.log(query)
+            
             });
             }
     }, [query, items]) // both as dependencies
