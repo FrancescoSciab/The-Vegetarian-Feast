@@ -14,6 +14,7 @@ import Ingredients from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import SearchItems from './SearchBar';
+import { TikTokEmbed } from 'react-social-media-embed';
 
 const cache = {};
 const client = axios.create({
@@ -24,7 +25,8 @@ export default function Root() {
 
   
 
-  const [randomFood, setRandomFood] = useState([])
+  const [randomFood, setRandomFood] = useState([]);
+  
 
     useEffect(() => {
         if (cache[`${randomFood}`]) {
@@ -51,6 +53,7 @@ return (
   <div className="root">
     <Container fluid>
       <Col>
+       <script async src="https://www.tiktok.com/embed.js"></script>
         <Row id="navbar-row" style={{height: "10vh"}}>
           <Routes>
             <Route path='/' element={<NavbarComponent />}/>
@@ -59,7 +62,7 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-          
+          <RecipeCarousel randomFood={randomFood} />  
         </Row>
 
         <Row id="recipe-carousel-row" style={{height: "auto"}}>
@@ -93,12 +96,16 @@ return (
           
         </Row>
         
-        
+
       </Col>
 
       <Col id="desktop-ingredients-col">
         <RecipeCarousel id="desktop-ingredients-carousel" />
       </Col>
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <TikTokEmbed url="https://www.tiktok.com/@freddsters/video/7218251101919776043?is_from_webapp=1&sender_device=pc&web_id=7288717368065787425" width={325} />
+      </div>
     </Container>
 
   </div>
