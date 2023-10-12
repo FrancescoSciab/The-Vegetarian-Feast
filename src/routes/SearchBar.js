@@ -19,14 +19,11 @@ export default function SearchItems(props) {
         console.log(query)
     }
 
+    //no need to cache
     useEffect(() => {
-        if (cache[`${items}`]) {
-            setItems(cache[`${items}`]);
-        } else {
             query && props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=${query}`)
             .then(response => {
             //handle success
-            cache[`${items}`] = response.data.results;
             setItems(response.data.results)
             })
             .catch(function(error) {
@@ -37,8 +34,7 @@ export default function SearchItems(props) {
             // always executed 
             
             });
-            }
-    }, [query, items]) // both as dependencies
+    }, [query])
     
     return (
         <>
