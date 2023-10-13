@@ -53,7 +53,6 @@ return (
   <div className="root">
     <Container fluid>
       <Col>
-       <script async src="https://www.tiktok.com/embed.js"></script>
         <Row id="navbar-row" style={{height: "10vh"}}>
           <Routes>
             <Route path='/' element={<NavbarComponent />}/>
@@ -69,8 +68,6 @@ return (
 
             <Routes>
               <Route path='/' element={<MealItems client={client}/>} />
-
-              <Route path=':searchbar' element={<SearchItems client={client} />}/>
 
               {mealTypes.map((mealType) => (
                 <>
