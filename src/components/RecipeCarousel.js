@@ -16,7 +16,6 @@ export default function RecipeCarousel(props) {
                     
                     <img src={`${food.image}`} style={{width: "50%", borderRadius: "0.75rem"}}></img>
                     <Carousel.Caption>
-                        {console.log(props.randomFood)}
                     <Link to={`mealtype/overview/${food.id}`}><h3>{food.name}</h3></Link>
                         
                     </Carousel.Caption>

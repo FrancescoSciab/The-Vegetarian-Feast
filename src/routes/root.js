@@ -61,7 +61,9 @@ return (
         </Row>
       
         <Row id="recipe-carousel-row">
-          <RecipeCarousel randomFood={randomFood} />  
+          <Routes>
+            <Route path='/' element={<RecipeCarousel randomFood={randomFood} />}/>
+          </Routes>  
         </Row>
 
         <Row style={{height: "auto"}}>

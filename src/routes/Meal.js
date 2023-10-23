@@ -2,27 +2,27 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const cache = {};
 
 export default function Meal(props) {
 
-    const { mealType } = useParams()
+    const [mealType] = useSearchParams();
     const [meals, setMeals] = useState([mealType]);//when mealtype changes the api call will be triggered
-    console.log(`before useEffect: ${meals}`)
+    console.log(`useparams test in mealtype: ${mealType}`)
 
   useEffect(() => {
     if (cache[`${meals}`]) {
         setMeals(cache[`${meals}`]);
-        console.log(`in cache: ${meals}`)
+        
     } else {
         props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=${mealType}&number=100`)
         .then(response => {
         //handle success
         cache[`${meals}`] = response.data.results;
         setMeals(response.data.results)
-        console.log(`in useEffect: ${meals}`)
+        
         })
         .catch(function(error) {
         // handle error

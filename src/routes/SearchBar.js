@@ -3,20 +3,18 @@ import Form from "react-bootstrap/Form";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import { serialize } from "swr/_internal";
 
-
-const cache = {};
 
 
 export default function SearchItems(props) {
 
     const [items, setItems] = useState([]);
-    const [query, setQuery] = useState("")
+    const [query, setQuery] = useState("");
 
     const handleChange = event => {
-        setQuery(event.target.value);
-        console.log(query)
+        setQuery(event.target.value); 
     }
 
     //no need to cache
@@ -48,6 +46,7 @@ export default function SearchItems(props) {
                         name="s"
                         value={query}
                         onChange={handleChange}
+                        onSubmit={handleChange}
                     />
                 </Form.Group>
             </Form>
