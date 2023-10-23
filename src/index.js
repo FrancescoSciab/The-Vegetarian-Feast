@@ -9,18 +9,20 @@ import {
 } from "react-router-dom";
 import Root, { loader as rootLoader } from "./routes/root";
 import ErrorPage from "./error-page";
+import axios from 'axios';
+
+const client = axios.create({
+  baseURL: "https://api.spoonacular.com",
+});
+
+
 
 const router = createBrowserRouter([
   {
     path: "*",
     element: <Root />,
     errorElement: <ErrorPage />,
-    loader: async ({ request, params }) => {
-      const data =  fetch('https://example.com/api/data')
-       return defer({
-          results: data,
-        })
-    },
+    loader: rootLoader
   },
 ]);
 
