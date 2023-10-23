@@ -6,13 +6,11 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const cache = {};
 
-
-
 export default function RecipeCarousel(props) {
 
     
     const selectedFood = props.randomFood
-  console.log(selectedFood)
+  
     return (
         <Carousel fade={true} indicators={false} pause={"hover"} touch={"true"}>
             {selectedFood && selectedFood.map((food) => (
