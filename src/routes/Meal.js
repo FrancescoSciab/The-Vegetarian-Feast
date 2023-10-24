@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const cache = {};
 
@@ -36,10 +36,8 @@ export default function Meal(props) {
     
 
     return (
-     mealType !== "searchbar" 
-     
-     &&
-
+      mealType !== "searchbar"
+      &&
      <>
     <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {meals.map((meal) => (

@@ -16,38 +16,35 @@ import { useEffect, useState } from 'react';
 import SearchItems from './SearchBar';
 import { TikTokEmbed } from 'react-social-media-embed';
 
-// const cache = {};
+const cache = {};
 const client = axios.create({
     baseURL: "https://api.spoonacular.com",
   });
 
 export default function Root() {
-  
-  const { randomFood } = useLoaderData();
+
+  const [randomFood, setRandomFood] = useState([]);
   
 
-  // const [randomFood, setRandomFood] = useState([]);
-  
-
-  //   useEffect(() => {
-  //       if (cache[`${randomFood}`]) {
-  //           setRandomFood(cache[`${randomFood}`]);
-  //       } else {
-  //           client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=food&number=100")
-  //           .then(response => {
-  //           //handle success
-  //           cache[`${randomFood}`] = response.data.searchResults[0].results;
-  //           setRandomFood(response.data.searchResults[0].results)
-  //           })
-  //           .catch(function(error) {
-  //           // handle error
-  //           console.log(error);
-  //           })
-  //           .finally(function() {
-  //           // always executed 
-  //           });
-  //           }
-  //       }, [])
+    useEffect(() => {
+        if (cache[`${randomFood}`]) {
+            setRandomFood(cache[`${randomFood}`]);
+        } else {
+            client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=food&number=100")
+            .then(response => {
+            //handle success
+            cache[`${randomFood}`] = response.data.searchResults[0].results;
+            setRandomFood(response.data.searchResults[0].results)
+            })
+            .catch(function(error) {
+            // handle error
+            console.log(error);
+            })
+            .finally(function() {
+            // always executed 
+            });
+            }
+        }, [])
   const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
   
 return (
@@ -75,7 +72,7 @@ return (
               {mealTypes.map((mealType) => (
                 <>
                   <Route path={":mealType"} element={<Meal client={client} />} />
-                    <Route path={":mealType/overview/:id"} element={<Ingredients />} />
+                    <Route path={":mealType/overview/:id"} element={<Ingredients client={client}/>} />
                 </>
               ))}
               

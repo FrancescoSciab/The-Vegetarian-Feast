@@ -8,7 +8,6 @@ import {
   defer
 } from "react-router-dom";
 import Root from "./routes/root";
-import { loader as rootLoader, searchBarLoader } from "./api";
 import SearchBar from "./routes/SearchBar";
 import ErrorPage from "./error-page";
 import axios from 'axios';
@@ -18,18 +17,11 @@ const client = axios.create({
 });
 
 
-
 const router = createBrowserRouter([
   {
     path: "*",
     element: <Root />,
-    errorElement: <ErrorPage />,
-    loader: rootLoader,
-    children: [
-      {
-        
-      }
-    ]
+    errorElement: <ErrorPage />
   },
 ]);
 
