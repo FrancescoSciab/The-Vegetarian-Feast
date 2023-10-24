@@ -21,12 +21,6 @@ const client = axios.create({
     baseURL: "https://api.spoonacular.com",
   });
 
-export async function loader() {
-  const correctFood = await client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=food&number=100");
-  const randomFood = correctFood.data.searchResults[0].results;
-  return { randomFood }
-}
-
 export default function Root() {
   
   const { randomFood } = useLoaderData();
@@ -63,7 +57,7 @@ return (
         <Row id="navbar-row" style={{height: "10vh"}}>
           <Routes>
             <Route path='/' element={<NavbarComponent />}/>
-            <Route path='searchbar' element={<SearchItems />}/>
+            <Route path='searchbar' element={<SearchItems client={client} />}/>
           </Routes>
         </Row>
       
@@ -80,7 +74,7 @@ return (
 
               {mealTypes.map((mealType) => (
                 <>
-                  <Route path={":mealType"} element={<Meal  />} />
+                  <Route path={":mealType"} element={<Meal client={client} />} />
                     <Route path={":mealType/overview/:id"} element={<Ingredients />} />
                 </>
               ))}

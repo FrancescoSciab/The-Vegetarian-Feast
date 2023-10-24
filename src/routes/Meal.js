@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 const cache = {};
 
 export default function Meal(props) {
 
-    const [mealType] = useSearchParams();
+    const { mealType } = useParams();
     const [meals, setMeals] = useState([mealType]);//when mealtype changes the api call will be triggered
     console.log(`useparams test in mealtype: ${mealType}`)
 
@@ -36,6 +36,10 @@ export default function Meal(props) {
     
 
     return (
+     mealType !== "searchbar" 
+     
+     &&
+
      <>
     <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {meals.map((meal) => (

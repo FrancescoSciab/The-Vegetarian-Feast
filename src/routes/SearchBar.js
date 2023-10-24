@@ -3,9 +3,7 @@ import Form from "react-bootstrap/Form";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link, useSearchParams } from 'react-router-dom';
-import { serialize } from "swr/_internal";
-
+import { Link } from 'react-router-dom';
 
 
 export default function SearchItems(props) {
@@ -46,7 +44,9 @@ export default function SearchItems(props) {
                         name="s"
                         value={query}
                         onChange={handleChange}
-                        onSubmit={handleChange}
+                        onSubmit={event => {
+                            event.preventDefault();}}
+                        
                     />
                 </Form.Group>
             </Form>

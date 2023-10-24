@@ -4,12 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// API call to be moved to root component (?)
+
 
 
 
 function MealItems(props) {
-  const mealTypes = ["main course 🥘", "side dish 🍛", "dessert 🍰", "appetizer 🥪", "salad 🥗", "bread 🥖", "breakfast 🥛", "soup 🍜", "beverage 🍹", "sauce 🍯", "marinade 🍲", "fingerfood 🍟", "snack 🍿", "drink 🍸"]
+  const mealTypes = ["main course 🥘", "side dish 🍛", "dessert", "appetizer 🥪", "salad 🥗", "bread 🥖", "breakfast 🥛", "soup 🍜", "beverage 🍹", "sauce 🍯", "marinade 🍲", "fingerfood 🍟", "snack 🍿", "drink 🍸"]
     
     return (
     <>
@@ -25,7 +25,7 @@ function MealItems(props) {
                       <Card.Text>
                         Check out our new {mealType} ideas
                       </Card.Text>
-                      <Button variant="primary"><Link to={`${mealType}`}>Go Somewhere: {mealType}</Link></Button>
+                      <Button variant="primary"><Link to={mealType}>Go Somewhere: {mealType}</Link></Button>
                     </Card.Body>
                   </Card> 
                 ))}
