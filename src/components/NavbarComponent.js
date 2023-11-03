@@ -19,7 +19,7 @@ export default function NavbarComponent() {
             
             <Navbar.Brand href='#'>The Vegetarian Feast</Navbar.Brand>
             
-            <Button variant="outline-success"><Link to='searchbar'>&#128269;</Link></Button>
+            <Button variant="outline-dark"><Link to='searchbar'>&#128269;</Link></Button>
 
         </Navbar>       
        

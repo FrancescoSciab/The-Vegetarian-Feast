@@ -14,12 +14,19 @@ function MealItems(props) {
     
     return (
     <>
-        <CardGroup style={{display:"flex", flexDirection:"row", width:"100vw", overflow:"scroll"}}>
+        <CardGroup 
+        style={
+          {
+            display:"flex", 
+            flexDirection:"row", 
+            width:"100vw", 
+            overflow:"scroll",
+            }}>
 
                 {mealTypes.map((mealType) => (
-                    <Card style={{flex: "0 0 auto", maxWidth: "50%"}}>
+                    <Card style={{flex: "0 0 auto", maxWidth: "50%", borderRadius: "0.75rem"}}>
                     <Card.Img variant="top" />
-                    <Card.Body>
+                    <Card.Body style={{borderRadius: "0.75rem"}}>
                       <Card.Title>
                         {mealType}
                         </Card.Title>

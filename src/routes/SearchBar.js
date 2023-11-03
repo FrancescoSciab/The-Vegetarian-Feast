@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { useSearchParams } from "react-router-dom";
 
 
 export default function SearchItems(props) {
@@ -32,24 +33,24 @@ export default function SearchItems(props) {
             });
     }, [query])
     
+    
     return (
         <>
             <Form>
                 <Form.Group>
                     <Form.Label>Type your search query</Form.Label>
                     <Form.Control 
+                        disabled
                         type="search" 
-                        placeholder="search" 
+                        placeholder="Search" 
                         controlid="header-search"
                         name="s"
                         value={query}
                         onChange={handleChange}
-                        onSubmit={event => {
-                            event.preventDefault();}}
-                        
                     />
                 </Form.Group>
             </Form>
+            
 
             <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {items.map((item) => (

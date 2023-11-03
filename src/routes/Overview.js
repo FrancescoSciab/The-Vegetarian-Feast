@@ -35,7 +35,7 @@ export default function Ingredients(props) {
         });
         }
     }, [id])
-
+console.log(mealsInfo)
 
     return (
         
@@ -45,10 +45,34 @@ export default function Ingredients(props) {
             <Card.Img variant="top" src={mealsInfo.image} />
             <Card.Body>
               <Card.Title>{mealsInfo.title}</Card.Title>
+              <Card.Subtitle>
+                
+                <div style={{display: "flex", justifyContent: "space-around"}}>
+                <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                &#x1F550; {mealsInfo.cookingMinutes}
+                  <span>Minutes</span> 
+                </span>
+                 
+                <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                &#129382; {mealsInfo.healthScore}
+                  <span>HealthScore</span>
+                </span>  
+                
+                <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                &#x1F464; {mealsInfo.servings}
+                  <span>Serving</span>
+                  </span>
+                </div>
+
+              </Card.Subtitle>
               <Card.Text>
                 
               <p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(mealsInfo.summary)) }} />
+
+              <p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(mealsInfo.instructions))}} />
               </Card.Text>
+
+              
             </Card.Body>
           </Card> 
     </CardGroup>

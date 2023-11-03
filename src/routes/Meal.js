@@ -10,8 +10,7 @@ export default function Meal(props) {
 
     const { mealType } = useParams();
     const [meals, setMeals] = useState([mealType]);//when mealtype changes the api call will be triggered
-    console.log(`useparams test in mealtype: ${mealType}`)
-
+    
   useEffect(() => {
     if (cache[`${meals}`]) {
         setMeals(cache[`${meals}`]);
@@ -22,7 +21,6 @@ export default function Meal(props) {
         //handle success
         cache[`${meals}`] = response.data.results;
         setMeals(response.data.results)
-        
         })
         .catch(function(error) {
         // handle error
@@ -33,22 +31,30 @@ export default function Meal(props) {
         });
         }
     }, [mealType])
-    
 
     return (
       mealType !== "searchbar"
       &&
      <>
-    <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
+    <CardGroup 
+      style={
+        {
+          flexDirection:"row", 
+          width:"100vw", 
+          overflow:"scroll",
+          }
+          }>
         {meals.map((meal) => (
             <Card key={meal.id} style={{flex: "0 0 auto", maxWidth: "50%"}}>
             <Card.Img variant="top" src={meal.image} />
-            <Card.Body>
-              <Card.Title>{meal.name}</Card.Title>
+            <Card.Body 
+            style={
+              {
+                borderRadius: "0 0.75 rem 0.75 rem 0"}}>
+              <Card.Title>{meal.title}</Card.Title>
               <Card.Text>
-                {`mealType: ${mealType}`}
               </Card.Text>
-              <Button variant="primary"><Link to={`overview/${meal.id}`}>Go to: {meal.id}</Link></Button>
+              <Button variant="primary"><Link to={`overview/${meal.id}`}>View Recipe</Link></Button>
             </Card.Body>
           </Card> 
         ))}
