@@ -10,7 +10,8 @@ import RecipeCarousel from '../components/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
 import MealItems from '../components/MealType';
 import Meal from './Meal';
-import Ingredients from './Overview';
+import Ingredients from './Ingredients';
+import Overview from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import SearchItems from './SearchBar';
@@ -50,7 +51,7 @@ export default function Root() {
 return (
   <div className="root">
     <Container fluid>
-      <Col>
+      
         <Row id="navbar-row" style={{height: "10vh"}}>
           <Routes>
             <Route path='/' element={<NavbarComponent />}/>
@@ -58,6 +59,8 @@ return (
           </Routes>
         </Row>
       
+        <Row>
+        <Col sm={8}>
         <Row id="recipe-carousel-row">
           <Routes>
             <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
@@ -96,13 +99,16 @@ return (
 
       </Col>
 
-      <Col id="desktop-ingredients-col">
-        <RecipeCarousel id="desktop-ingredients-carousel" />
+      <Col sm={4} id="desktop-ingredients-col">
+        <Row>
+          <Overview randomFoodDetails={randomFood}/>
+        </Row>
       </Col>
+        </Row>
 
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
       <TikTokEmbed url="https://www.tiktok.com/@freddsters/video/7218251101919776043?is_from_webapp=1&sender_device=pc&web_id=7288717368065787425" width={325} />
-      </div>
+      </div> */}
     </Container>
 
   </div>

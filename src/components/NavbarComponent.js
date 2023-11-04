@@ -17,9 +17,9 @@ export default function NavbarComponent() {
         
         <Navbar style={{"justifyContent": "space-between", padding: "0 1rem"}}>
             
-            <Navbar.Brand href='#'>The Vegetarian Feast</Navbar.Brand>
+            <Navbar.Brand>The Vegetarian Feast</Navbar.Brand>
             
-            <Button variant="outline-dark"><Link to='searchbar'>&#128269;</Link></Button>
+            <Button id="search-icon"><Link to='searchbar'>&#128269;</Link></Button>
 
         </Navbar>       
        
