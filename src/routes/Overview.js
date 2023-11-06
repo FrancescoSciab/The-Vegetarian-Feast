@@ -6,18 +6,8 @@ import { useParams } from 'react-router-dom';
 
 export default function Overview(props) {
     
-    const carouselInfo = props.randomFoodDetails;
-    const [position, setPosition] = useState(0)
-    
-        useEffect(() => {
-            const carouselItems = Array.from(document.getElementsByClassName("carousel-item"))
-            let activeCarouselItem = carouselItems.findIndex((item) => item.classList.contains("active"))
-            
-            if (activeCarouselItem !== -1) {
-                setPosition(activeCarouselItem);
-              }
-
-        }, [])
+    const carouselInfo = props.food;
+    const position = props.position
         
     return (
         <>

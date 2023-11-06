@@ -18,8 +18,7 @@ function MealItems(props) {
         style={
           {
             display:"flex", 
-            flexDirection:"row", 
-            width:"100vw", 
+            flexDirection:"row",  
             overflow:"scroll",
             }}>
 

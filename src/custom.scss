@@ -34,7 +34,8 @@ a {
 
 #desktop-ingredients-col {
     display: none;
-    width: 100vw;
+    
+    background-color: aqua;
 }
 
 /* clears the ‘X’ from Chrome */
@@ -50,6 +51,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
 
     #desktop-ingredients-col {
-        display: flex !important;
+        display: block !important;
+        width: auto;
+        height: 100%;
     }
 }

@@ -14,7 +14,6 @@ export default function Meal(props) {
   useEffect(() => {
     if (cache[`${meals}`]) {
         setMeals(cache[`${meals}`]);
-        
     } else {
         props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=${mealType}&number=100`)
         .then(response => {

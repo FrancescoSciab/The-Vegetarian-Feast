@@ -59,16 +59,21 @@ return (
           </Routes>
         </Row>
       
-        <Row>
-        <Col sm={8}>
-        <Row id="recipe-carousel-row">
-          <Routes>
-            <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
-          </Routes>  
-        </Row>
+        <Col>
+          <Row>
+            <Col sm={8} >
+              <Row id="recipe-carousel-row">
+                <Routes>
+                  <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
+                </Routes> 
+              </Row> 
+            </Col>
+          </Row>
 
-        <Row style={{height: "auto"}}>
-
+          <Row style={{height: "auto"}}>
+            <Col sm={8}>
+            
+            
             <Routes>
               <Route path='/' element={<MealItems />} />
 
@@ -78,7 +83,9 @@ return (
                     <Route path={":mealType/overview/:id"} element={<Ingredients client={client}/>} />
                 </>
               ))}
+              </Routes>
               
+              </Col>
                 
 
               {/* <Route path='beverage' element={<Beverage client={client}/>} />
@@ -88,27 +95,24 @@ return (
 
                  
               
-            </Routes>
+            
           
-        </Row>
+          </Row>
 
         <Row>
           <FoodMenu />
         </Row>
+      
+
+      
         
-
-      </Col>
-
-      <Col sm={4} id="desktop-ingredients-col">
-        <Row>
-          <Overview randomFoodDetails={randomFood}/>
-        </Row>
-      </Col>
-        </Row>
-
       {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
       <TikTokEmbed url="https://www.tiktok.com/@freddsters/video/7218251101919776043?is_from_webapp=1&sender_device=pc&web_id=7288717368065787425" width={325} />
       </div> */}
+          
+        </Col>
+
+        
     </Container>
 
   </div>
