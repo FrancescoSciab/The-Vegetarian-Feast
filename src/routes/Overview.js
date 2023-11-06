@@ -12,7 +12,7 @@ export default function Overview(props) {
     return (
         <>
             {
-                carouselInfo.length > 0 && position >= 0 && position < carouselInfo.length && (
+                carouselInfo.length > 0 && (
                 
                 <CardGroup>
                     <Card>

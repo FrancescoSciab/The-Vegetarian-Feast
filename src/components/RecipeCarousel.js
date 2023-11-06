@@ -34,7 +34,7 @@ export default function RecipeCarousel(props) {
         indicators={false} 
         pause={"hover"} 
         touch={"true"}
-        onSelect={updateIndex}
+        onSlid={updateIndex}
         >
             {selectedFood && selectedFood.map((food) => (
                
