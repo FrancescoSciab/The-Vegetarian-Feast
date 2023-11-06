@@ -15,7 +15,7 @@ export default function RecipeCarousel(props) {
   
     return (
         <Carousel 
-        interval={null} 
+        interval={null}
         fade={true} 
         indicators={false} 
         pause={"hover"} 
@@ -25,7 +25,7 @@ export default function RecipeCarousel(props) {
                
                 <Carousel.Item key={food.id}>
                     <img src={`${food.image}`} style={{width: "50%", borderRadius: "0.75rem"}}></img>
-                    <Carousel.Caption>
+                    <Carousel.Caption> 
                     <Link to={`mealtype/overview/${food.id}`}><h3>{food.name}</h3></Link>
                     </Carousel.Caption>
                     
