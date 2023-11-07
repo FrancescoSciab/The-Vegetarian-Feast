@@ -18,7 +18,7 @@ export default function Overview(props) {
                     <Card>
                     <Card.Body>
                     <Card.Title>{carouselInfo[position].name}</Card.Title>
-                    {/* <Card.Subtitle><p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(carouselInfo[position].content))}} /></Card.Subtitle> */}
+                    <Card.Subtitle><p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(carouselInfo[position].content))}} /></Card.Subtitle>
                     </Card.Body>
                 </Card>
             </CardGroup>

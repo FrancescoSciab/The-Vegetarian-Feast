@@ -17,7 +17,6 @@ export default function Ingredients(props) {
   useEffect(() => {
     if (cache[`${mealsInfo}`]) {
         setMealsInfo(cache[`${mealsInfo}`]);
-        
     } else {
         props.client.get(`/recipes/${id}/information?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100`)
         .then(response => {

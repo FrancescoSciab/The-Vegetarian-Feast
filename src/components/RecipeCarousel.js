@@ -28,8 +28,10 @@ export default function RecipeCarousel(props) {
   
     return (
         <>
-        <Carousel 
         
+        <Col xs md={8} id="recipe-carousel-col" >
+        <Carousel 
+        interval={null}
         fade={true} 
         indicators={false} 
         pause={"hover"} 
@@ -46,12 +48,13 @@ export default function RecipeCarousel(props) {
                 </Carousel.Item>
             ))}
         </Carousel>
-
-        <Col sm={4} id="desktop-ingredients-col">
-            <Row>
-                <Overview food={selectedFood} position={position} />
-            </Row>
         </Col>
+        <Col xs={4} id="desktop-ingredients-col">
+            
+                <Overview food={selectedFood} position={position} />
+            
+        </Col>
+        
         </>
     )
 }
