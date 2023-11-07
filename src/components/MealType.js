@@ -6,8 +6,6 @@ import CardGroup from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
 function MealItems(props) {
   
   const mealTypes = ["main course 🥘", "side dish 🍛", "dessert", "appetizer 🥪", "salad 🥗", "bread 🥖", "breakfast 🥛", "soup 🍜", "beverage 🍹", "sauce 🍯", "marinade 🍲", "fingerfood 🍟", "snack 🍿", "drink 🍸"]
@@ -23,7 +21,11 @@ function MealItems(props) {
             }}>
 
                 {mealTypes.map((mealType) => (
-                    <Card style={{flex: "0 0 auto", maxWidth: "50%", borderRadius: "0.75rem"}}>
+                    <Card style={{
+                      flex: "0 0 auto", 
+                      maxWidth: "50%", 
+                      margin: "0 16px 8px 0"
+                      }}>
                     <Card.Img variant="top" />
                     <Card.Body style={{borderRadius: "0.75rem"}}>
                       <Card.Title>

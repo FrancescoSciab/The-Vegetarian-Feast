@@ -24,7 +24,6 @@ a {
 .card{
     background: none !important;
     border: none !important;
-    margin: 0 16px 8px 0 !important;
 }
 
 .card-body{
@@ -47,7 +46,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     
     #desktop-ingredients-col {
         display: block !important;
-        height: 40vh !important;
-        overflow: scroll;
+        margin: "0";
+        border: "0.75rem"
     }
 }

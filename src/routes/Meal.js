@@ -44,12 +44,21 @@ export default function Meal(props) {
           }
           }>
         {meals.map((meal) => (
-            <Card key={meal.id} style={{flex: "0 0 auto", maxWidth: "50%"}}>
-            <Card.Img variant="top" src={meal.image} />
+            <Card key={meal.id} style={{
+              flex: "0 0 auto", 
+              maxWidth: "50%",
+              margin: "0 16px 8px 0"
+              }}>
+            <Card.Img variant="top" src={meal.image} 
+            style={
+              {
+                borderTopLeftRadius: "0.75rem",
+                borderTopRightRadius: "0.75rem"}} />
             <Card.Body 
             style={
               {
-                borderRadius: "0 0.75 rem 0.75 rem 0"}}>
+                borderBottomLeftRadius: "0.75rem",
+                borderBottomRightRadius: "0.75rem"}}>
               <Card.Title>{meal.title}</Card.Title>
               <Card.Text>
               </Card.Text>

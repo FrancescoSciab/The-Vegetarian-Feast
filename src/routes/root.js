@@ -60,7 +60,7 @@ return (
         </Row>
       
         
-          <Row style={{width: "100vw"}}>
+          <Row style={{width: "100vw", marginBottom: "16px"}}>
             
               
                 <Routes>

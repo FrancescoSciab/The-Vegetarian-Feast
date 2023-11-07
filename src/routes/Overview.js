@@ -14,9 +14,9 @@ export default function Overview(props) {
             {
                 carouselInfo.length > 0 && (
                 
-                <CardGroup>
-                    <Card>
-                    <Card.Body>
+                <CardGroup style={{margin: "0", overflow: "scroll"}}>
+                    <Card style={{height: "40vh"}}>
+                    <Card.Body style={{borderRadius: "0.75rem"}}>
                     <Card.Title>{carouselInfo[position].name}</Card.Title>
                     <Card.Subtitle><p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(carouselInfo[position].content))}} /></Card.Subtitle>
                     </Card.Body>
