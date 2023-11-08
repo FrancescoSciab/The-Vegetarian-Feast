@@ -66,7 +66,7 @@ export default function Meal(props) {
               <Card.Title>{meal.title}</Card.Title>
               <Card.Text>
               </Card.Text>
-              <Button variant="primary"><Link to={`overview/${meal.id}`}>View Recipe</Link></Button>
+              <Button variant="primary"><Link to={`*/overview/${meal.id}`}>View Recipe</Link></Button>
             </Card.Body>
           </Card> 
         ))}
