@@ -14,7 +14,7 @@ import Ingredients from './Ingredients';
 import Overview from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import SearchItems from './SearchBar';
+import SearchItems from '../components/SearchBar';
 import { TikTokEmbed } from 'react-social-media-embed';
 
 const cache = {};
@@ -52,17 +52,12 @@ return (
   <div className="root">
     <Container fluid>
       
-        <Row id="navbar-row" style={{height: "10vh"}}>
-          <Routes>
-            <Route path='/' element={<NavbarComponent />}/>
-            <Route path='searchbar' element={<SearchItems client={client} />}/>
-          </Routes>
+        <Row id="navbar-row">
+          <NavbarComponent />
         </Row>
       
         
           <Row style={{width: "100vw", marginBottom: "16px"}}>
-            
-              
                 <Routes>
                   <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
                 </Routes> 

@@ -8,7 +8,7 @@ export default function Overview(props) {
     
     const carouselInfo = props.food;
     const position = props.position
-        
+        console.log(carouselInfo)
     return (
         <>
             {

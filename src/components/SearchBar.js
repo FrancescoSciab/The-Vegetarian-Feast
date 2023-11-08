@@ -36,11 +36,10 @@ export default function SearchItems(props) {
     
     return (
         <>
-            <Form>
+            <Form style={{width: "100%", marginRight: "16px"}}>
                 <Form.Group>
                     <Form.Label>Type your search query</Form.Label>
                     <Form.Control 
-                        disabled
                         type="search" 
                         placeholder="Search" 
                         controlid="header-search"
@@ -52,11 +51,12 @@ export default function SearchItems(props) {
             </Form>
             
 
-            <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
+            {/* <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {items.map((item) => (
-            <Card key={item.id} style={{flex: "0 0 auto", maxWidth: "50%"}}>
+            <Card key={item.id} style={{flex: "0 0 auto", maxWidth: "50%", margin: "0 16px 8px 0", }}>
             <Card.Img variant="top" src={item.image} />
-            <Card.Body>
+            <Card.Body style={{
+                borderBottomLeftRadius: "0.75rem",borderBottomRightRadius: "0.75rem"}}>
               <Card.Title>{item.title}</Card.Title>
               <Card.Text>
                 {`itemType: ${item}`}
@@ -65,7 +65,7 @@ export default function SearchItems(props) {
             </Card.Body>
           </Card> 
         ))}
-    </CardGroup>
+    </CardGroup> */}
         </>
         
     )
