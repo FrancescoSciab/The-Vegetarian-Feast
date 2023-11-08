@@ -1,0 +1,24 @@
+//navigation components css
+
+.card{
+    background: none !important;
+    border: none !important;
+}
+
+.card-body{
+    background-color: #e9e9e9 !important;
+    border: none !important;
+}
+
+#desktop-ingredients-col {
+    display: none;
+}
+
+@media (min-width:600px) {
+    
+    #desktop-ingredients-col {
+        display: block !important;
+        margin: "0";
+        border: "0.75rem"
+    }
+}

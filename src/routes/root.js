@@ -1,5 +1,5 @@
 import '../root.css';
-import '../custom.scss';
+import '../scss/custom.scss';
 import { Outlet, Route, Routes, useLoaderData, useParams } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';

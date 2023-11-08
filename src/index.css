@@ -1,11 +1,8 @@
+
+
 body {
   margin: 0;
   height: 100vh;
-  background: rgb(251,250,246); /* Old browsers */
-background: -moz-linear-gradient(-45deg,  rgba(251,250,246,1) 9%, rgba(212,206,191,1) 74%, rgba(212,206,191,1) 74%, rgba(212,206,191,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg,  rgba(251,250,246,1) 9%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg,  rgba(251,250,246,1) 9%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 100%); 
-
 }
 
 code {

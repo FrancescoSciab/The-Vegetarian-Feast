@@ -1,0 +1,25 @@
+
+@use 'navbar';
+@use 'navigation';
+@use 'carousel';
+@import 'colors';
+
+
+//general css
+body {
+    background-color: $background-color !important;
+}
+
+a {
+    color: #e9e9e9 !important;
+    text-decoration: none !important;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+
+
