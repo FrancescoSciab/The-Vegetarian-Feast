@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Route, Routes, useParams } from 'react-router-dom';
+import Ingredients from './Ingredients';
 
 const cache = {};
 
@@ -15,7 +16,7 @@ export default function Meal(props) {
     if (cache[`${meals}`]) {
         setMeals(cache[`${meals}`]);
     } else {
-        props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=${mealType}&number=100`)
+        mealType && props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=${mealType}&number=100`)
         .then(response => {
         //handle success
         cache[`${meals}`] = response.data.results;
@@ -32,9 +33,12 @@ export default function Meal(props) {
     }, [mealType])
 
     return (
-      mealType !== "searchbar"
-      &&
-     <>
+      <>
+      <Routes>
+
+        <Route path="*" element={
+          
+     
     <CardGroup 
       style={
         {
@@ -67,6 +71,12 @@ export default function Meal(props) {
           </Card> 
         ))}
     </CardGroup>
-    </>
+    
+  } />
+
+        <Route path=':mealType/overview/:id' element={<Ingredients client={props.client}/>} />
+
+      </Routes>
+      </>
     )
 }

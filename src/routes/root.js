@@ -8,9 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/NavbarComponent';
 import RecipeCarousel from '../components/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
-import MealItems from '../components/MealType';
-import Meal from './Meal';
-import Ingredients from './Ingredients';
+import MealItems from './MealType';
+import Meal from '../components/Meal';
+import Ingredients from '../components/Ingredients';
 import Overview from './Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -52,26 +52,27 @@ return (
   <div className="root">
     <Container fluid>
       
-        <Row id="navbar-row">
+        <Row id="navbar-row" >
           <NavbarComponent />
         </Row>
       
         
           <Row style={{width: "100vw", marginBottom: "16px"}}>
                 <Routes>
-                  <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
+                  <Route path='*' element={<RecipeCarousel randomFood={randomFood}/>} />
                 </Routes> 
           </Row>
           <Row>
             <Routes>
-              <Route path='/' element={<MealItems />} />
+              <Route path="*" element={<MealItems client={client}/>} />
+              {/* <Route path='/' element={<MealItems />} />
 
               {mealTypes.map((mealType) => (
                 <>
                   <Route path={":mealType"} element={<Meal client={client} />} />
                     <Route path={":mealType/overview/:id"} element={<Ingredients client={client}/>} />
                 </>
-              ))}
+              ))} */}
               </Routes>
           
             </Row>
