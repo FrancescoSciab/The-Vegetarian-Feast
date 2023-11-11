@@ -1,4 +1,5 @@
 //navigation components css
+@import 'colors';
 
 .card{
     background: none !important;
@@ -6,8 +7,19 @@
 }
 
 .card-body{
-    background-color: #e9e9e9 !important;
+    background-color: $primary-bg;
     border: none !important;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.btn{
+    background-color: $secondary-color !important;
+    border-color: $secondary-color !important;
+    :hover {
+        color: $secondary-color;
+        background-color: $primary-bg;
+        border-color: $secondary-color;
+    }
 }
 
 #desktop-ingredients-col {
@@ -19,6 +31,10 @@
     #desktop-ingredients-col {
         display: block !important;
         margin: "0";
-        border: "0.75rem"
+        border: "0.75rem";
+    }
+
+    #overview_card{
+        background-color: $primary-bg !important;
     }
 }

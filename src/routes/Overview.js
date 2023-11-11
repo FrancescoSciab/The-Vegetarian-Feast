@@ -8,7 +8,7 @@ export default function Overview(props) {
     
     const carouselInfo = props.food;
     const position = props.position
-        console.log(carouselInfo)
+        
     return (
         <>
             {
@@ -16,7 +16,7 @@ export default function Overview(props) {
                 
                 <CardGroup style={{margin: "0", overflow: "scroll"}}>
                     <Card style={{height: "40vh"}}>
-                    <Card.Body style={{borderRadius: "0.75rem"}}>
+                    <Card.Body  id='overview_card' style={{borderRadius: "0.75rem"}}>
                     <Card.Title>{carouselInfo[position].name}</Card.Title>
                     <Card.Subtitle><p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(carouselInfo[position].content))}} /></Card.Subtitle>
                     </Card.Body>

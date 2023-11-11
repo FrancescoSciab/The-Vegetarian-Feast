@@ -7,11 +7,26 @@
 
 //general css
 body {
-    background-color: $background-color !important;
+    background-color: $primary-bg !important;
+    background-image: radial-gradient(
+  circle at 200% 20%,
+  $gradient-one 60%,
+  
+  $gradient-two 100%
+);
+
+}
+
+.h2, .h3, .h4, .h5, .h6 {
+    color: $heading-color !important;
+}
+
+p {
+    color: $primary-text
 }
 
 a {
-    color: #e9e9e9 !important;
+    color: $primary-text !important;
     text-decoration: none !important;
 }
 
