@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Meal from '../components/Meal';
+import Meal from './Meal';
 
 
 function MealItems(props) {

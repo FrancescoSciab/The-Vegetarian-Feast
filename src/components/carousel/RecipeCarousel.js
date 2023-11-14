@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import Overview from '../routes/Overview';
+import Overview from './Overview';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 

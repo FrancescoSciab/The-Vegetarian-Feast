@@ -5,16 +5,16 @@ import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarComponent from '../components/NavbarComponent';
-import RecipeCarousel from '../components/RecipeCarousel';
+import NavbarComponent from '../components/navbar/NavbarComponent';
+import RecipeCarousel from '../components/carousel/RecipeCarousel';
 import FoodMenu from '../components/FoodMenu';
-import MealItems from './MealType';
-import Meal from '../components/Meal';
-import Ingredients from '../components/Ingredients';
-import Overview from './Overview';
+import MealItems from '../components/navigation/MealType';
+import Meal from '../components/navigation/Meal';
+import Ingredients from '../components/navigation/Ingredients';
+import Overview from '../components/carousel/Overview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import SearchItems from '../components/SearchBar';
+import SearchItems from '../components/navbar/SearchBar';
 import { TikTokEmbed } from 'react-social-media-embed';
 
 const cache = {};
@@ -53,7 +53,7 @@ return (
     <Container fluid>
       
         <Row id="navbar-row" >
-          <NavbarComponent client={client}/>
+          <NavbarComponent client={client} />
         </Row>
       
         

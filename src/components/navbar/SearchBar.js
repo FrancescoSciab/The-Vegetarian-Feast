@@ -10,10 +10,8 @@ import { useSearchParams } from "react-router-dom";
 
 export default function SearchItems(props) {
 
-    const client = props.client
     const [items, setItems] = useState([]);
     const [query, setQuery] = useState("");
-
 
     const handleChange = event => {
         setQuery(event.target.value); 
