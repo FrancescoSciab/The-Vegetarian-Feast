@@ -13,7 +13,7 @@ import Meal from '../components/navigation/Meal';
 import Ingredients from '../components/navigation/Ingredients';
 import Overview from '../components/carousel/Overview';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import SearchItems from '../components/navbar/SearchBar';
 import { TikTokEmbed } from 'react-social-media-embed';
 
@@ -21,6 +21,7 @@ const cache = {};
 const client = axios.create({
     baseURL: "https://api.spoonacular.com",
   });
+
 
 export default function Root() {
 

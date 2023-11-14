@@ -31,12 +31,12 @@ export default function NavbarComponent(props) {
             }
             }>
             
-            
-            <Routes>
-                <Route path="*" element={<Navbar.Brand>The Vegetarian Feast</Navbar.Brand>} />
-                <Route path="searchbar" element={<SearchItems client={client} />} />
-                
-            </Routes>
+            {searchActive 
+            ?
+            <SearchItems client={client} />
+            :
+            <Navbar.Brand>The Vegetarian Feast</Navbar.Brand>
+            }
             
             
             
@@ -44,9 +44,9 @@ export default function NavbarComponent(props) {
                 
                 {searchActive
                 ?
-                <span><Link to="/">&#10006;</Link></span>
+                <span>&#10006;</span>
                 :
-                <span><Link to='searchbar'>&#128269;</Link></span>
+                <span>&#128269;</span>
             }
                  
             </Button>

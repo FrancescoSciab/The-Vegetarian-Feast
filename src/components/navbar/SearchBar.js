@@ -3,8 +3,9 @@ import Form from "react-bootstrap/Form";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, redirect } from 'react-router-dom';
 import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -12,26 +13,16 @@ export default function SearchItems(props) {
 
     const [items, setItems] = useState([]);
     const [query, setQuery] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = event => {
         setQuery(event.target.value); 
+        
     }
 
     //no need to cache
     useEffect(() => {
-        query && props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=${query}`)
-        .then(response => {
-        //handle success
-        setItems(response.data.results)
-        })
-        .catch(function(error) {
-        // handle error
-        console.log(error);
-        })
-        .finally(function() {
-        // always executed 
-        
-        });
+        navigate(query); 
 }, [query])
     
     
