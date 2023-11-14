@@ -53,13 +53,13 @@ return (
     <Container fluid>
       
         <Row id="navbar-row" >
-          <NavbarComponent />
+          <NavbarComponent client={client}/>
         </Row>
       
         
           <Row style={{width: "100vw", marginBottom: "16px"}}>
                 <Routes>
-                  <Route path='*' element={<RecipeCarousel randomFood={randomFood}/>} />
+                  <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
                 </Routes> 
           </Row>
           <Row>

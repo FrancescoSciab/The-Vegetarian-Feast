@@ -5,15 +5,18 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Route, Routes, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import  Form  from 'react-bootstrap/Form';
 import SearchItems from './SearchBar';
 
 
 //called navbar component to not conflict with bootstrap navbar
-export default function NavbarComponent() {
+export default function NavbarComponent(props) {
+
+    const client = props.client;
     const [searchActive, setSearchActive] = useState(false)
+
 
     function handleClick() {
         setSearchActive(!searchActive)
@@ -28,19 +31,24 @@ export default function NavbarComponent() {
             }
             }>
             
-            {searchActive 
-            ?
-            <SearchItems />
-            :
-            <Navbar.Brand>The Vegetarian Feast</Navbar.Brand>}
+            
+            <Routes>
+                <Route path="*" element={<Navbar.Brand>The Vegetarian Feast</Navbar.Brand>} />
+                <Route path="searchbar" element={<SearchItems client={client} />} />
+                
+            </Routes>
+            
+            
             
             <Button id="search-icon" onClick={handleClick}>
-                {searchActive 
+                
+                {searchActive
                 ?
-                <span>&#10006;</span>
+                <span><Link to="/">&#10006;</Link></span>
                 :
-                <Link to='/'>&#128269;</Link>
-                }
+                <span><Link to='searchbar'>&#128269;</Link></span>
+            }
+                 
             </Button>
 
         </Navbar>       

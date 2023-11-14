@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 import { useSearchParams } from "react-router-dom";
 
 
+
 export default function SearchItems(props) {
 
+    const client = props.client
     const [items, setItems] = useState([]);
     const [query, setQuery] = useState("");
+
 
     const handleChange = event => {
         setQuery(event.target.value); 
@@ -18,20 +21,20 @@ export default function SearchItems(props) {
 
     //no need to cache
     useEffect(() => {
-            query && props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=${query}`)
-            .then(response => {
-            //handle success
-            setItems(response.data.results)
-            })
-            .catch(function(error) {
-            // handle error
-            console.log(error);
-            })
-            .finally(function() {
-            // always executed 
-            
-            });
-    }, [query])
+        query && props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100&query=${query}`)
+        .then(response => {
+        //handle success
+        setItems(response.data.results)
+        })
+        .catch(function(error) {
+        // handle error
+        console.log(error);
+        })
+        .finally(function() {
+        // always executed 
+        
+        });
+}, [query])
     
     
     return (
@@ -49,9 +52,8 @@ export default function SearchItems(props) {
                     />
                 </Form.Group>
             </Form>
-            
 
-            {/* <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
+            <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
         {items.map((item) => (
             <Card key={item.id} style={{flex: "0 0 auto", maxWidth: "50%", margin: "0 16px 8px 0", }}>
             <Card.Img variant="top" src={item.image} />
@@ -65,7 +67,7 @@ export default function SearchItems(props) {
             </Card.Body>
           </Card> 
         ))}
-    </CardGroup> */}
+    </CardGroup>
         </>
         
     )

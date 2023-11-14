@@ -35,6 +35,7 @@ export default function Ingredients(props) {
         }
     }, [id])
 
+    
 
     return (
          
