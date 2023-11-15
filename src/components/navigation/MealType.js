@@ -46,7 +46,7 @@ function MealItems(props) {
             </CardGroup>
           } />
 
-          <Route path=':mealType/*' element={<Meal client={props.client}/>} />
+          <Route path=':mealType/*' element={<Meal client={props.client} mealTypes={mealTypes} />} />
 
         </Routes>
     </>

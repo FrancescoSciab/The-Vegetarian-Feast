@@ -17,7 +17,6 @@ export default function SearchItems(props) {
 
     const handleChange = event => {
         setQuery(event.target.value); 
-        
     }
 
     //no need to cache

@@ -13,19 +13,22 @@ export default function Meal(props) {
     const { mealType } = useParams();
     const [meals, setMeals] = useState([]);//when mealtype changes the api call will be triggered
     const location = useLocation()
-
+    const availableMealTypes = props.mealTypes
+    const query = availableMealTypes.map((availableMealType) => (
+     mealType !== availableMealType
+    ))
     
   useEffect(() => {
     
     if (cache[mealType]) {
       setMeals(cache[mealType]);
   } else {
-      props.client.get(`/recipes/complexSearch?apiKey=8f5c95ab5ba54f428feb304dac547182&type=${mealType}&number=100`)
+      props.client.get(`/recipes/random?apiKey=8f5c95ab5ba54f428feb304dac547182&tags=${mealType}&number=100`)
       .then(response => {
       //handle success
-      cache[`${meals}`] = response.data.results;
-      setMeals(response.data.results)
-      console.log(location)
+      cache[`${meals}`] = response.data.recipes;
+      setMeals(response.data.recipes)
+      console.log(meals)
       })
       .catch(function(error) {
       // handle error
@@ -41,6 +44,7 @@ export default function Meal(props) {
 
 
     return (
+      
       <>
       
       <Routes>
