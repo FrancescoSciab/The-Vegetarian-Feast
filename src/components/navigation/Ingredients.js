@@ -48,18 +48,18 @@ export default function Ingredients(props) {
               <Card.Title>{mealsInfo.title}</Card.Title>
               <Card.Subtitle>
                 
-                <div style={{display: "flex", justifyContent: "space-around"}}>
-                <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <div id="recipe-card-info-container">
+                <span id="recipe-card-info-span">
                 &#x1F550; {mealsInfo.cookingMinutes}
                   <span>Minutes</span> 
                 </span>
                  
-                <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <span id="recipe-card-info-span">
                 &#129382; {mealsInfo.healthScore}
                   <span>HealthScore</span>
                 </span>  
                 
-                <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <span id="recipe-card-info-span">
                 &#x1F464; {mealsInfo.servings}
                   <span>Serving</span>
                   </span>

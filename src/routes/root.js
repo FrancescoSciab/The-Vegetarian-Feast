@@ -1,21 +1,15 @@
 import '../root.css';
 import '../scss/custom.scss';
-import { Outlet, Route, Routes, useLoaderData, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/navbar/NavbarComponent';
 import RecipeCarousel from '../components/carousel/RecipeCarousel';
-import FoodMenu from '../components/FoodMenu';
 import MealItems from '../components/navigation/MealType';
-import Meal from '../components/navigation/Meal';
-import Ingredients from '../components/navigation/Ingredients';
-import Overview from '../components/carousel/Overview';
 import axios from 'axios';
-import { createContext, useEffect, useState } from 'react';
-import SearchItems from '../components/navbar/SearchBar';
-import { TikTokEmbed } from 'react-social-media-embed';
+import { useEffect, useState } from 'react';
+
 
 const cache = {};
 const client = axios.create({
@@ -47,7 +41,7 @@ export default function Root() {
             });
             }
         }, [])
-  const mealTypes = ["main course", "side dish", "dessert", "appetizer", "salad", "bread", "breakfast", "soup", "beverage", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
+  
   
 return (
   <div className="root">

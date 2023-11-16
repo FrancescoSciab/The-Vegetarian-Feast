@@ -1,8 +1,6 @@
 import DOMPurify from 'dompurify';
-import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import { useParams } from 'react-router-dom';
 
 export default function Overview(props) {
     

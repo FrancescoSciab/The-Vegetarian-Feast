@@ -3,8 +3,7 @@ import Form from "react-bootstrap/Form";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link, Navigate, redirect } from 'react-router-dom';
-import { useSearchParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 

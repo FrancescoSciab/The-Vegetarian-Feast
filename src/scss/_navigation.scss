@@ -26,6 +26,11 @@
     display: none;
 }
 
+#recipe-card-info-span {
+    display: flex;
+    flex-direction: column; 
+}
+
 @media (min-width:600px) {
     
     #desktop-ingredients-col {
@@ -36,5 +41,16 @@
 
     #overview_card{
         background-color: $primary-bg !important;
+    }
+
+    #recipe-card-info-container {
+        display: flex; 
+        justify-content: space-around;
+    }
+
+    #recipe-card-info-span {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
     }
 }

@@ -8,7 +8,7 @@ import {
   defer
 } from "react-router-dom";
 import Root from "./routes/root";
-import SearchBar from "./components/navbar/SearchBar";
+
 import ErrorPage from "./error-page";
 import axios from 'axios';
 

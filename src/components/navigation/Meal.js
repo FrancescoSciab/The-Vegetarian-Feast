@@ -28,7 +28,6 @@ export default function Meal(props) {
       //handle success
       cache[`${meals}`] = response.data.recipes;
       setMeals(response.data.recipes)
-      console.log(meals)
       })
       .catch(function(error) {
       // handle error
@@ -77,9 +76,28 @@ style={
         borderBottomLeftRadius: "0.75rem",
         borderBottomRightRadius: "0.75rem"}}>
       <Card.Title>{meal.title}</Card.Title>
+      <Card.Subtitle>
+      <div id="recipe-card-info-container">
+                <span id="recipe-card-info-span">
+                &#x1F550; {meal.readyInMinutes}
+                  <span>Minutes</span> 
+                </span>
+
+                <span id="recipe-card-info-span">
+                &#x1F464; {meal.servings}
+                  <span>Servings</span> 
+                </span>
+
+                <span id="recipe-card-info-span">
+                &#129382; {meal.healthScore}
+                  <span>HealthScore</span> 
+                </span>
+      </div>
+        
+        </Card.Subtitle>
       <Card.Text>
       </Card.Text>
-      <Button variant="primary"><Link to={`*/overview/${meal.id}`}>View Recipe</Link></Button>
+      <Button variant="primary"><Link to={`overview/${meal.id}`}>View Recipe</Link></Button>
     </Card.Body>
   </Card> 
 ))}
@@ -87,7 +105,7 @@ style={
 
 } />
 
-<Route path=':mealType/overview/:id' element={<Ingredients client={props.client}/>} />
+<Route path='overview/:id' element={<Ingredients client={props.client}/>} />
 
 </Routes>
       
