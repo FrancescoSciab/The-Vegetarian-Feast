@@ -39,22 +39,6 @@ export default function SearchItems(props) {
                     />
                 </Form.Group>
             </Form>
-
-            <CardGroup style={{flexDirection:"row", width:"100vw", overflow:"scroll"}}>
-        {items.map((item) => (
-            <Card key={item.id} style={{flex: "0 0 auto", maxWidth: "50%", margin: "0 16px 8px 0", }}>
-            <Card.Img variant="top" src={item.image} />
-            <Card.Body style={{
-                borderBottomLeftRadius: "0.75rem",borderBottomRightRadius: "0.75rem"}}>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text>
-                {`itemType: ${item}`}
-              </Card.Text>
-              <Button variant="primary"><Link to={`overview/${item.id}`}>Go to: {item.id}</Link></Button>
-            </Card.Body>
-          </Card> 
-        ))}
-    </CardGroup>
         </>
         
     )

@@ -22,8 +22,10 @@ body {
 
 }
 
-.card {
+.card, .card-body {
     max-height: 100vh !important;
+    overflow-y: auto;
+    margin-bottom: 8px;
 }
 
 .h2, .h3, .h4, .h5, .h6 {

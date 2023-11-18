@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import SearchItems from './SearchBar';
+import { Link } from 'react-router-dom';
 
 
 //called navbar component to not conflict with bootstrap navbar
@@ -32,7 +33,7 @@ export default function NavbarComponent(props) {
                 
                 {searchActive
                 ?
-                <span>&#10006;</span>
+                <span><Link to="/">&#10006;</Link></span>
                 :
                 <span>&#128269;</span>
             }

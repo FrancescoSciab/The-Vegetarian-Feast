@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 //sanitizing summary html below
 import DOMPurify from 'dompurify';
+import SimilarRecipes from "./SimilarRecipes";
 
 const cache = {};
 
@@ -41,7 +42,7 @@ export default function Ingredients(props) {
          
         
         <>
-    <CardGroup>
+    <CardGroup> 
             <Card key={mealsInfo.id}>
             <Card.Img variant="top" src={mealsInfo.image} />
             <Card.Body>
@@ -77,6 +78,10 @@ export default function Ingredients(props) {
             </Card.Body>
           </Card> 
     </CardGroup>
+
+      <Card.Subtitle>Similar recipes you might like:</Card.Subtitle>
+
+    <SimilarRecipes id={id} client={props.client} />
     </>
     )
 }
