@@ -6,7 +6,12 @@
 
 
 //general css
+.root {
+    height: 100vh;
+    overflow-y: auto;
+}
 body {
+    margin: 0;
     background-color: $primary-bg !important;
     background-image: radial-gradient(
   circle at 200% 20%,
@@ -15,6 +20,10 @@ body {
   $gradient-two 100%
 );
 
+}
+
+.card {
+    max-height: 100vh !important;
 }
 
 .h2, .h3, .h4, .h5, .h6 {

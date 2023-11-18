@@ -1,6 +1,17 @@
 // Navbar css
 @import 'colors';
 
+#navbar-row{
+    height: 10vh;
+}
+
+.navbar {
+    position: fixed !important;
+    justify-content: space-between !important; 
+    padding: 0 1rem !important; 
+    margin: 16px 0 !important;
+    z-index: 100;
+}
 
 .navbar-brand {
     color: $heading-color;

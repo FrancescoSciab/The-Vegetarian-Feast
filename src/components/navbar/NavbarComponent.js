@@ -17,13 +17,7 @@ export default function NavbarComponent(props) {
     }
     return (
         
-        <Navbar style={
-            {
-                justifyContent: "space-between", 
-                padding: "0 1rem", 
-                margin: "16px 0"
-            }
-            }>
+        <Navbar>
             
             {searchActive 
             ?
