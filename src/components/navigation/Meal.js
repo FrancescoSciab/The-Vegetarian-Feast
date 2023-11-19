@@ -13,10 +13,6 @@ export default function Meal(props) {
     const { mealType } = useParams();
     const [meals, setMeals] = useState([]);//when mealtype changes the api call will be triggered
     const location = useLocation()
-    const availableMealTypes = props.mealTypes
-    const query = availableMealTypes.map((availableMealType) => (
-     mealType !== availableMealType
-    ))
     
   useEffect(() => {
     
@@ -39,7 +35,7 @@ export default function Meal(props) {
       }
   
     
-    }, [mealType, location.pathname, props.client])
+    }, [mealType, location.pathname, props.client, meals])
 
 
     return (
@@ -105,7 +101,12 @@ style={
 
 } />
 
-<Route path='overview/:id' element={<Ingredients client={props.client}/>} />
+<Route 
+path='overview/:id' 
+element={<Ingredients 
+          client={props.client}
+          mealType={mealType}
+          />} />
 
 </Routes>
       

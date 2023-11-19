@@ -34,7 +34,7 @@ export default function Ingredients(props) {
         // always executed 
         });
         }
-    }, [id])
+    }, [id, mealsInfo, props.client])
 
     
 
@@ -81,7 +81,11 @@ export default function Ingredients(props) {
 
       <Card.Subtitle>Similar recipes you might like:</Card.Subtitle>
 
-    <SimilarRecipes id={id} client={props.client} />
+      <SimilarRecipes 
+      id={id} 
+      client={props.client}
+      mealType={props.mealType}
+       />
     </>
     )
 }

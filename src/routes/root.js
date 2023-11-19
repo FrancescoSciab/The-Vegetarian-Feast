@@ -40,7 +40,7 @@ export default function Root() {
             // always executed 
             });
             }
-        }, [])
+        }, [randomFood])
   
   
 return (

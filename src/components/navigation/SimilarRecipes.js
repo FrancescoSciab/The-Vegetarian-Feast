@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const cache = {}
@@ -10,6 +10,9 @@ const cache = {}
 export default function SimilarRecipes(props) {
     const id = props.id;
     const [similarRecipes, setSimilarRecipes] = useState([]);
+    const navigate = useNavigate();
+
+
 
     useEffect(() => {
         if (cache[`${similarRecipes}`]) {
@@ -31,7 +34,7 @@ export default function SimilarRecipes(props) {
             // always executed 
             });
             }
-        }, [id])
+        }, [id, similarRecipes, props.client])
     return(
 <>
 {console.log(similarRecipes)}
@@ -77,7 +80,7 @@ style={
         </Card.Subtitle>
       <Card.Text>
       </Card.Text>
-      <Button variant="primary"><Link to={`overview/${similarRecipe.id}`}>View Recipe</Link></Button>
+      <Button variant="primary" ><Link to={`/${props.mealType}/overview/${similarRecipe.id}`} replace>View Recipe</Link></Button>
     </Card.Body>
   </Card> 
 ))}
