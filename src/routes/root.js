@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/navbar/NavbarComponent';
 import RecipeCarousel from '../components/carousel/RecipeCarousel';
 import MealItems from '../components/navigation/MealType';
+import SocialSection from '../components/social/SocialSection'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -52,49 +53,21 @@ return (
         </Row>
       
         
-          <Row style={{width: "100vw", marginBottom: "16px"}}>
-                <Routes>
-                  <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
-                </Routes> 
-          </Row>
-          <Row>
-            <Routes>
-              <Route path="*" element={<MealItems client={client}/>} />
-              {/* <Route path='/' element={<MealItems />} />
-
-              {mealTypes.map((mealType) => (
-                <>
-                  <Route path={":mealType"} element={<Meal client={client} />} />
-                    <Route path={":mealType/overview/:id"} element={<Ingredients client={client}/>} />
-                </>
-              ))} */}
-              </Routes>
-          
-            </Row>
+        <Row style={{width: "100vw", marginBottom: "16px"}}>
+              <Routes>
+                <Route path='/' element={<RecipeCarousel randomFood={randomFood}/>} />
+              </Routes> 
+        </Row>
+        <Row>
+          <Routes>
+            <Route path="*" element={<MealItems client={client}/>} />  
+          </Routes>
+        </Row>
                 
+        <Row>
+          <SocialSection />
+        </Row>
 
-              {/* <Route path='beverage' element={<Beverage client={client}/>} />
-              <Route path='beverage/overview/:id' element={<Ingredients />} />
-
-              <Route path='dessert' element={<Dessert client={client}/>} /> */}
-
-                 
-              
-            
-          
-          
-
-        {/* <Row>
-          <FoodMenu />
-        </Row> */}
-      
-
-      
-        
-      {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <TikTokEmbed url="https://www.tiktok.com/@freddsters/video/7218251101919776043?is_from_webapp=1&sender_device=pc&web_id=7288717368065787425" width={325} />
-      </div> */}
-          
         
 
         

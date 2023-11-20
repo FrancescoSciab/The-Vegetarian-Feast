@@ -5,16 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
-  defer
 } from "react-router-dom";
 import Root from "./routes/root";
 
 import ErrorPage from "./error-page";
-import axios from 'axios';
 
-const client = axios.create({
-  baseURL: "https://api.spoonacular.com",
-});
+
+
 
 
 const router = createBrowserRouter([
