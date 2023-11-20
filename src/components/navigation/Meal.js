@@ -35,7 +35,7 @@ export default function Meal(props) {
       }
   
     
-    }, [mealType, location.pathname, props.client, meals])
+    }, [mealType, location.pathname, props.client])
 
 
     return (
@@ -47,30 +47,14 @@ export default function Meal(props) {
 <Route path="*" element={
   
 
-<CardGroup 
-style={
-{
-  flexDirection:"row", 
-  width:"100vw", 
-  overflow:"scroll",
-  }
-  }>
+<CardGroup id="card-group-meal">
 {meals.map((meal) => (
-    <Card key={meal.id} style={{
-      flex: "0 0 auto", 
-      maxWidth: "50%",
-      margin: "0 16px 8px 0"
-      }}>
-    <Card.Img variant="top" src={meal.image} 
-    style={
-      {
-        borderTopLeftRadius: "0.75rem",
-        borderTopRightRadius: "0.75rem"}} />
-    <Card.Body 
-    style={
-      {
-        borderBottomLeftRadius: "0.75rem",
-        borderBottomRightRadius: "0.75rem"}}>
+    <Card id="card-meal" key={meal.id} >
+    <Card.Img 
+      id="card-img-meal" 
+      variant="top" 
+      src={meal.image} />
+    <Card.Body  id="card-body-meal">
       <Card.Title>{meal.title}</Card.Title>
       <Card.Subtitle>
       <div id="recipe-card-info-container">

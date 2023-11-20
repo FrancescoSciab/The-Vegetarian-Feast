@@ -40,7 +40,7 @@ export default function RecipeCarousel(props) {
             {selectedFood && selectedFood.map((food) => (
                
                 <Carousel.Item key={food.id}>
-                    <img src={`${food.image}`} style={{width: "50%", borderRadius: "0.75rem"}}></img>
+                    <img src={`${food.image}`} style={{width: "100%", borderRadius: "0.75rem"}}></img>
                     <Carousel.Caption> 
                     <Link to={`mealtype/overview/${food.id}`}><h3>{food.name}</h3></Link>
                     </Carousel.Caption>
