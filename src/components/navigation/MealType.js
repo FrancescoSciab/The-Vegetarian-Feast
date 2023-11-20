@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Meal from './Meal';
+import { Animate } from "react-simple-animate";
 
 
 function MealItems(props) {
@@ -15,7 +16,11 @@ function MealItems(props) {
         <Routes>
 
           <Route path="*" element={
-            <CardGroup 
+            <Animate play 
+                      start={{ opacity: 0 }} 
+                      end={{ opacity: 1 }} 
+                      duration={0.75}>
+              <CardGroup 
             style={
               {
                 display:"flex", 
@@ -43,6 +48,7 @@ function MealItems(props) {
                     ))}
     
             </CardGroup>
+            </Animate>
           } />
 
           <Route path=':mealType/*' element={<Meal client={props.client} mealTypes={mealTypes} />} />

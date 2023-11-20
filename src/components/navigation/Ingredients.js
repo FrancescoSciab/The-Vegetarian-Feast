@@ -5,6 +5,7 @@ import CardGroup from 'react-bootstrap/Card';
 //sanitizing summary html below
 import DOMPurify from 'dompurify';
 import SimilarRecipes from "./SimilarRecipes";
+import { Animate } from "react-simple-animate";
 
 const cache = {};
 
@@ -42,6 +43,10 @@ export default function Ingredients(props) {
          
         
         <>
+        <Animate play 
+                      start={{ opacity: 0 }} 
+                      end={{ opacity: 1 }} 
+                      duration={0.75}>
     <CardGroup> 
             <Card key={mealsInfo.id}>
             <Card.Img variant="top" src={mealsInfo.image} />
@@ -86,6 +91,7 @@ export default function Ingredients(props) {
       client={props.client}
       mealType={props.mealType}
        />
+       </Animate>
     </>
     )
 }

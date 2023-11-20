@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import SearchItems from './SearchBar';
 import { Link } from 'react-router-dom';
+import { Animate, AnimateGroup } from "react-simple-animate";
+
 
 
 //called navbar component to not conflict with bootstrap navbar
@@ -17,14 +19,23 @@ export default function NavbarComponent(props) {
         setSearchActive(!searchActive)
     }
     return (
-        
+        <AnimateGroup>
         <Navbar>
             
             {searchActive 
             ?
-            <SearchItems client={client} />
+            <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
+                <SearchItems client={client} />
+            </Animate>
+
             :
-            <Navbar.Brand>The Vegetarian Feast</Navbar.Brand>
+            
+            <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }} duration={0.75}>
+                <Navbar.Brand>The Vegetarian Feast</Navbar.Brand>
+            </Animate>
+                
+            
+            
             }
             
             
@@ -40,7 +51,8 @@ export default function NavbarComponent(props) {
                  
             </Button>
 
-        </Navbar>       
+        </Navbar> 
+        </AnimateGroup>      
        
     )
 }

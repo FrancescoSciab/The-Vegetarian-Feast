@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import Ingredients from './Ingredients';
+import { Animate } from "react-simple-animate";
 
 const cache = {};
 
@@ -46,7 +47,10 @@ export default function Meal(props) {
 
 <Route path="*" element={
   
-
+<Animate play 
+        start={{ opacity: 0 }} 
+        end={{ opacity: 1 }} 
+        duration={0.75}>
 <CardGroup id="card-group-meal">
 {meals.map((meal) => (
     <Card id="card-meal" key={meal.id} >
@@ -82,6 +86,7 @@ export default function Meal(props) {
   </Card> 
 ))}
 </CardGroup>
+</Animate>
 
 } />
 
