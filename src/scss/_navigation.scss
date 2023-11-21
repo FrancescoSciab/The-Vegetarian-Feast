@@ -22,28 +22,6 @@
     }
 }
 
-#card-group-meal {
-    flex-direction:row;
-    width:100vw;
-    overflow: scroll;
-}
-
-#card-meal {
-    flex: "0 0 auto"; 
-    max-width: "50%";
-    margin: "0 16px 8px 0";
-}
-
-#card-img-meal {
-    border-top-left-radius: "0.75rem";
-    border-top-right-radius: "0.75rem";
-}
-
-#card-body-meal {
-    border-bottom-left-radius: "0.75rem";
-    border-bottom-right-radius: "0.75rem";
-}
-
 #desktop-ingredients-col {
     display: none;
 }
@@ -56,23 +34,42 @@
 p {
     padding: 5px;
 }
-
 #recipe-card-info-span {
-    display: flex;
-    flex-direction: column; 
-    padding: 5px;
+    display: flex !important;
+    flex-direction: column !important; 
+    padding: 5px !important;
+}
+#card-group-meal {
+    flex-direction:row !important;
+    width:100vw !important;
+    overflow: scroll !important;
+}
+
+#card-meal {
+    flex: 0 0 auto !important; 
+    max-width: 50% !important;
+    margin: 0 16px 8px 0 !important;
+}
+
+#card-img-meal {
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
+}
+
+#card-body-meal {
+    border-bottom-left-radius: 0.75rem !important;
+    border-bottom-right-radius: 0.75rem !important;
+    width: 100%;
 }
 
 @media (min-width:600px) {
-
-    #card-group-meal {
-        flex-direction:column;
-    }
+    
+    
     
     #desktop-ingredients-col {
         display: block !important;
-        margin: "0";
-        border: "0.75rem";
+        margin: 0 !important;
+        border: 0.75rem !important;
     }
 
     #overview_card{
