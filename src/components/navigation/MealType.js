@@ -20,20 +20,10 @@ function MealItems(props) {
                       start={{ opacity: 0 }} 
                       end={{ opacity: 1 }} 
                       duration={0.75}>
-              <CardGroup 
-            style={
-              {
-                display:"flex", 
-                flexDirection:"row",  
-                overflow:"scroll",
-                }}>
+              <CardGroup id="card-group-meal">
     
                     {mealTypes.map((mealType) => (
-                        <Card style={{
-                          flex: "0 0 auto", 
-                          maxWidth: "50%", 
-                          margin: "0 16px 8px 0"
-                          }}>
+                        <Card id="card-meal">
                         <Card.Img variant="top" />
                         <Card.Body style={{borderRadius: "0.75rem"}}>
                           <Card.Title>
