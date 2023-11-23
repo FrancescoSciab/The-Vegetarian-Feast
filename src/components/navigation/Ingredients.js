@@ -25,7 +25,6 @@ export default function Ingredients(props) {
         //handle success
         cache[`${mealsInfo}`] = response.data;
         setMealsInfo(response.data)
-        
         })
         .catch(function(error) {
         // handle error

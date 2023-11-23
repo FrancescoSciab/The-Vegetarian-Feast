@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router-dom';
+import { Animate } from "react-simple-animate";
 
 
 const cache = {}
@@ -23,8 +24,6 @@ export default function SimilarRecipes(props) {
             //handle success
             cache[`${similarRecipes}`] = response.data;
             setSimilarRecipes(response.data)
-            console.log(similarRecipes)
-            
             })
             .catch(function(error) {
             // handle error
@@ -47,7 +46,11 @@ style={
   }
   }>
 {similarRecipes.map((similarRecipe) => (
-    <Card key={similarRecipe.id} style={{
+<Animate play 
+    start={{ opacity: 0 }} 
+    end={{ opacity: 1 }} 
+    duration={0.75}>
+    <Card id="card-meal" key={similarRecipe.id} style={{
       flex: "0 0 auto", 
       maxWidth: "50%",
       margin: "0 16px 8px 0"
@@ -83,6 +86,7 @@ style={
       <Button variant="primary" ><Link to={`/${props.mealType}/overview/${similarRecipe.id}`} replace>View Recipe</Link></Button>
     </Card.Body>
   </Card> 
+</Animate>
 ))}
 </CardGroup>
 </>
