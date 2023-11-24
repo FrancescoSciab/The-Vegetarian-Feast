@@ -18,7 +18,7 @@ function MealItems(props) {
 
           <Route path="*" element={
             
-            <Col xs md={8} style={{display: "flex"}}>
+            <Col md={8} style={{display: "flex"}}>
               <CardGroup id="card-group-meal">
     
     {mealTypes.map((mealType) => (

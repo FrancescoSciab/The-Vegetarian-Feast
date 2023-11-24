@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Animate } from "react-simple-animate";
 
 
@@ -33,7 +33,7 @@ export default function SimilarRecipes(props) {
         }, [id, props.client])
     return(
 <>
-{console.log(similarRecipes)}
+
 <CardGroup 
 style={
 {
