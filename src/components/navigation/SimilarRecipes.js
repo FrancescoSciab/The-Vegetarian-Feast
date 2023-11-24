@@ -11,9 +11,6 @@ const cache = {}
 export default function SimilarRecipes(props) {
     const id = props.id;
     const [similarRecipes, setSimilarRecipes] = useState([]);
-    const navigate = useNavigate();
-
-
 
     useEffect(() => {
         if (cache[`${similarRecipes}`]) {

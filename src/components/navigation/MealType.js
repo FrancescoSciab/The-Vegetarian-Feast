@@ -5,6 +5,7 @@ import CardGroup from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Meal from './Meal';
 import { Animate } from "react-simple-animate";
+import Col from 'react-bootstrap/esm/Col';
 
 
 function MealItems(props) {
@@ -17,29 +18,31 @@ function MealItems(props) {
 
           <Route path="*" element={
             
+            <Col xs md={8} style={{display: "flex"}}>
               <CardGroup id="card-group-meal">
     
-                    {mealTypes.map((mealType) => (
-                    <Animate play 
-                      start={{ opacity: 0 }} 
-                      end={{ opacity: 1 }} 
-                      duration={0.75}>
-                        <Card id="card-meal">
-                        <Card.Img variant="top" />
-                        <Card.Body style={{borderRadius: "0.75rem"}}>
-                          <Card.Title>
-                            {mealType}
-                            </Card.Title>
-                          <Card.Text>
-                            Check out our new {mealType} ideas
-                          </Card.Text>
-                          <Button variant="primary"><Link to={mealType}>Go Somewhere: {mealType}</Link></Button>
-                        </Card.Body>
-                      </Card> 
-                    </Animate>
-                    ))}
-    
-            </CardGroup>
+    {mealTypes.map((mealType) => (
+    <Animate play 
+      start={{ opacity: 0 }} 
+      end={{ opacity: 1 }} 
+      duration={0.75}>
+        <Card id="card-meal">
+        <Card.Img variant="top" />
+        <Card.Body style={{borderRadius: "0.75rem"}}>
+          <Card.Title>
+            {mealType}
+            </Card.Title>
+          <Card.Text>
+            Check out our new {mealType} ideas
+          </Card.Text>
+          <Button variant="primary"><Link to={mealType}>Go Somewhere: {mealType}</Link></Button>
+        </Card.Body>
+      </Card> 
+    </Animate>
+    ))}
+
+</CardGroup>
+            </Col>
             
           } />
 

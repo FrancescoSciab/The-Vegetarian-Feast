@@ -27,7 +27,6 @@ export default function RecipeCarousel(props) {
   
     return (
         <>
-        
         <Col xs md={8} id="recipe-carousel-col" >
         <Carousel 
         interval={null}

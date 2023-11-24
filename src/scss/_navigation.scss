@@ -66,9 +66,14 @@ p {
     
     
     #desktop-ingredients-col {
-        display: block !important;
+        display: flex !important;
+        position: absolute;
         margin: 0 !important;
         border: 0.75rem !important;
+        right: 4px;
+        top: 40vh;
+        
+        justify-content: center;
     }
 
     #overview_card{
