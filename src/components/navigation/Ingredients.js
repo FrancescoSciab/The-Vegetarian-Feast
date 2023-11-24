@@ -17,13 +17,13 @@ export default function Ingredients(props) {
     
 
   useEffect(() => {
-    if (cache[`${mealsInfo}`]) {
-        setMealsInfo(cache[`${mealsInfo}`]);
+    if (cache[`${id}`]) {
+        setMealsInfo(cache[`${id}`]);
     } else {
         props.client.get(`/recipes/${id}/information?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100`)
         .then(response => {
         //handle success
-        cache[`${mealsInfo}`] = response.data;
+        cache[`${id}`] = response.data;
         setMealsInfo(response.data)
         })
         .catch(function(error) {
@@ -34,7 +34,7 @@ export default function Ingredients(props) {
         // always executed 
         });
         }
-    }, [id, mealsInfo, props.client])
+    }, [id, props.client])
 
     
 

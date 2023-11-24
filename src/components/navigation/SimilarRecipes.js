@@ -33,7 +33,7 @@ export default function SimilarRecipes(props) {
             // always executed 
             });
             }
-        }, [id, similarRecipes, props.client])
+        }, [id, props.client])
     return(
 <>
 {console.log(similarRecipes)}
