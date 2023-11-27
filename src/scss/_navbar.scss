@@ -13,8 +13,12 @@
     z-index: 100;
 }
 
+.nav-link {
+    display: flex !important;
+}
 .navbar-brand {
     color: $heading-color;
+    margin: 0 !important;
 }
 
 #search-icon {

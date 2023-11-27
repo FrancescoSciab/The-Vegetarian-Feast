@@ -49,7 +49,7 @@ return (
     <Container fluid>
       
         <Row id="navbar-row" >
-          <NavbarComponent client={client} />
+          <NavbarComponent />
         </Row>
       
         
