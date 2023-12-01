@@ -14,7 +14,14 @@ export default function ErrorPage() {
     <div id="error-page">
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurrrrred.</p>
-      <p>{error.code}
+      <p>{
+          error.status == 402
+          ?
+          error.status || error.message
+          :
+          "Looks like our API is down"
+          
+          }
       </p>
     </div>
   );

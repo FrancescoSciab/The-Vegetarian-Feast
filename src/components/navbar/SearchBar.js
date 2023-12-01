@@ -33,7 +33,7 @@ export default function SearchItems(props) {
                         type="search" 
                         placeholder="Search" 
                         controlid="header-search"
-                        name="s"
+                        name="query"
                         value={query}
                         onChange={handleChange}
                     />

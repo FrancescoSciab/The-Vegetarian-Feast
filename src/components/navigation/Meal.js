@@ -16,6 +16,8 @@ export default function Meal(props) {
 
     
     const { mealType } = useParams();
+    
+    
     const [meals, setMeals] = useState({
       loading: true,
       response: [],
