@@ -47,7 +47,7 @@ p {
 
 #card-meal {
     flex: 0 0 auto !important; 
-    max-width: 100% !important;
+    width: max-content !important;
     margin: 0 16px 8px 0 !important;
 }
 
@@ -91,7 +91,5 @@ p {
         align-items: center;
     }
 
-    #navigation-col {
-        padding: 0 12vh;
-    }
+    
 }

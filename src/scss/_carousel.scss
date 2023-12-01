@@ -6,15 +6,12 @@
 
 .carousel {
     border-radius: 0.75rem;
-    padding: 0px 16px;
+    
 }
 
 .carousel-caption {
     top: 2rem !important;
 }
 
-@media (min-width:768px) {
-    #recipe-carousel-col {
-        padding: 0 12vh;
-    }
-}
+
+

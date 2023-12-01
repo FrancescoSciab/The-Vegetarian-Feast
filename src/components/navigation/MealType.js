@@ -33,9 +33,9 @@ function MealItems(props) {
             {mealType}
             </Card.Title>
           <Card.Text>
-            Check out our new {mealType} ideas
+            New {mealType} ideas
           </Card.Text>
-          <Button variant="primary"><Link to={mealType}>Go Somewhere: {mealType}</Link></Button>
+          <Button variant="primary"><Link to={mealType}>{mealType} recipes</Link></Button>
         </Card.Body>
       </Card> 
     </Animate>

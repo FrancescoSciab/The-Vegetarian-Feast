@@ -6,10 +6,10 @@ import CardGroup from 'react-bootstrap/Card';
 export default function SocialMedia() {
     return(
 
-          <Col md={8} id="tiktok-col" style={{display: "flex", justifyContent: "center", padding: "0 12vh"}}>
-            <CardGroup>
-              <Card>
-                <Card.Body>
+          <Col md={8} id="tiktok-col" style={{display: "flex", justifyContent: "center"}}>
+            
+              <Card id="tiktok-card" style={{width: "100%"}}>
+                <Card.Body style={{width: "100%"}}>
                 <Card.Title>Looking for inspirations?</Card.Title>
                     <TikTokEmbed 
                       url="https://www.tiktok.com/@freddsters/video/7218251101919776043?is_from_webapp=1&sender_device=pc&web_id=7288717368065787425"   
@@ -19,7 +19,7 @@ export default function SocialMedia() {
                   <Card.Subtitle>Check out the latest tiktoks</Card.Subtitle>
                 </Card.Body>
               </Card>
-            </CardGroup>
+            
           </Col>
     )
 }
