@@ -28,7 +28,7 @@ function MealItems(props) {
       duration={0.75}>
         <Card id="card-meal">
         <Card.Img variant="top" />
-        <Card.Body style={{borderRadius: "0.75rem"}}>
+        <Card.Body style={{borderRadius: "0.75rem", width: "max-content"}}>
           <Card.Title>
             {mealType}
             </Card.Title>

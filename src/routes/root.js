@@ -3,7 +3,7 @@ import '../scss/custom.scss';
 import { Route, Routes } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/navbar/NavbarComponent';
 import RecipeCarousel from '../components/carousel/RecipeCarousel';
@@ -64,7 +64,7 @@ return (
             </Routes>
           </Row>
 
-          <Row>
+          <Row id="social-row">
             <SocialSection />
           </Row>
         

@@ -46,7 +46,7 @@ export default function Ingredients(props) {
                       start={{ opacity: 0 }} 
                       end={{ opacity: 1 }} 
                       duration={0.75}>
-    <CardGroup> 
+    <CardGroup style={{padding: "0 20vw"}}> 
             <Card key={mealsInfo.id}>
             <Card.Img variant="top" src={mealsInfo.image} />
             <Card.Body>
@@ -83,7 +83,7 @@ export default function Ingredients(props) {
           </Card> 
     </CardGroup>
 
-      <Card.Subtitle>Similar recipes you might like:</Card.Subtitle>
+      <Card.Subtitle id="similar-recipes-subtitle">Similar recipes you might like:</Card.Subtitle>
 
       <SimilarRecipes 
       id={id} 

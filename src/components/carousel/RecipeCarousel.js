@@ -2,12 +2,12 @@ import Carousel from 'react-bootstrap/Carousel';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Overview from './Overview';
 import Col from 'react-bootstrap/esm/Col';
 
-const cache = {};
+// const cache = {};
 
 export default function RecipeCarousel(props) {
 
@@ -39,7 +39,13 @@ export default function RecipeCarousel(props) {
             {selectedFood && selectedFood.map((food) => (
                
                 <Carousel.Item key={food.id}>
-                    <img src={`${food.image}`} style={{width: "100%", borderRadius: "0.75rem"}}></img>
+                    <img 
+                        src={`${food.image}`} 
+                        alt={food.name}
+                        style={
+                            {width: "100%", 
+                            borderRadius: "0.75rem"}
+                            }></img>
                     <Carousel.Caption> 
                     <Link to={`mealtype/overview/${food.id}`}><h3>{food.name}</h3></Link>
                     </Carousel.Caption>

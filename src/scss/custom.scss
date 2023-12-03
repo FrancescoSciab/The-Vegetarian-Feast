@@ -3,6 +3,7 @@
 @use 'navigation';
 @use 'carousel';
 @import 'colors';
+@import 'social';
 
 
 //general css
@@ -42,11 +43,7 @@ a {
     text-decoration: none !important;
 }
 
-@media (min-width:768px) {
-    .row {
-        padding: 0 12vh;
-    }
-}
+
 
 
 /* clears the ‘X’ from Chrome */

@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 
 
 export default function SearchItems(props) {
 
-    const [items, setItems] = useState([]);
+    
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
 

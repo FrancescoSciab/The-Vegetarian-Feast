@@ -3,11 +3,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import SearchItems from './SearchBar';
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import { Animate, AnimateGroup } from "react-simple-animate";
-import { useLocation } from 'react-router-dom';
-import DOMPurify from 'dompurify';
+
 
 
 
@@ -16,11 +15,7 @@ export default function NavbarComponent(props) {
 
     const client = props.client;
     const [searchActive, setSearchActive] = useState(false)
-    const location = useLocation();
-    const decodedPath = decodeURIComponent(location.pathname) 
     
-
-
     function handleClick() {
         setSearchActive(!searchActive)
     }

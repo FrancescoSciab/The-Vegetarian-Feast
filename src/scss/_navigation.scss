@@ -47,7 +47,6 @@ p {
 
 #card-meal {
     flex: 0 0 auto !important; 
-    width: max-content !important;
     margin: 0 16px 8px 0 !important;
 }
 
@@ -71,7 +70,7 @@ p {
         margin: 0 !important;
         border: 0.75rem !important;
         right: 4px;
-        top: 40vh;
+        top: 25vh;
         
         justify-content: center;
     }
@@ -91,5 +90,14 @@ p {
         align-items: center;
     }
 
-    
+    #similar-recipes-card-group {
+        flex-direction: row; 
+        width: 100vw; 
+        overflow: scroll;
+        padding: 0 20vw;
+    }
+
+    #similar-recipes-subtitle {
+        padding: 0 20vw;
+    }
 }

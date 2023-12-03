@@ -15,7 +15,7 @@ export default function ErrorPage() {
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurrrrred.</p>
       <p>{
-          error.status == 402
+          error.status === 402
           ?
           error.status || error.message
           :

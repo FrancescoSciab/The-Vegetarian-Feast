@@ -34,14 +34,7 @@ export default function SimilarRecipes(props) {
     return(
 <>
 
-<CardGroup 
-style={
-{
-  flexDirection:"row", 
-  width:"100vw", 
-  overflow:"scroll",
-  }
-  }>
+<CardGroup id="similar-recipes-card-group">
 {similarRecipes.map((similarRecipe) => (
 <Animate play 
     start={{ opacity: 0 }} 
@@ -49,7 +42,7 @@ style={
     duration={0.75}>
     <Card id="card-meal" key={similarRecipe.id} style={{
       flex: "0 0 auto", 
-      maxWidth: "50%",
+      
       margin: "0 16px 8px 0"
       }}>
     <Card.Img variant="top" src={similarRecipe.img} 
@@ -60,6 +53,7 @@ style={
     <Card.Body 
     style={
       {
+        
         borderBottomLeftRadius: "0.75rem",
         borderBottomRightRadius: "0.75rem"}}>
       <Card.Title>{similarRecipe.title}</Card.Title>
