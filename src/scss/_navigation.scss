@@ -75,6 +75,10 @@ p {
     width: 100%;
 }
 
+#similar-recipes-card-group {
+    flex-direction: row; 
+}
+
 @media (min-width:768px) {
     
 
@@ -125,6 +129,10 @@ p {
 
     #navigation-col {
         padding: 0;
+    }
+
+    #card-group-ingredients {
+        padding: 0 20vw;
     }
     
 }

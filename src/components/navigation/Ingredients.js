@@ -46,7 +46,7 @@ export default function Ingredients(props) {
                       start={{ opacity: 0 }} 
                       end={{ opacity: 1 }} 
                       duration={0.75}>
-    <CardGroup style={{padding: "0 20vw"}}> 
+    <CardGroup id="card-group-ingredients"> 
             <Card key={mealsInfo.id}>
             <Card.Img variant="top" src={mealsInfo.image} />
             <Card.Body>
