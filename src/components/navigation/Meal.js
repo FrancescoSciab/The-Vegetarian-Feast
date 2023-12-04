@@ -21,7 +21,7 @@ export default function Meal(props) {
     const [meals, setMeals] = useState({
       loading: true,
       response: [],
-      error: null
+      errorCode: null
     });//when mealtype changes the api call will be triggered
     const location = useLocation()
     
@@ -31,7 +31,7 @@ export default function Meal(props) {
       setMeals({
         loading: false,
         response: cache[mealType],
-        error: null
+        errorCode: null
       })
   } else {
       props.client.get(`/recipes/random?apiKey=8f5c95ab5ba54f428feb304dac547182&tags=${mealType}&number=100`)
@@ -41,29 +41,28 @@ export default function Meal(props) {
       setMeals({
         loading: false,
         response: response.data.recipes,
-        error: null
+        errorCode: null
       })
       })
       .catch(error => {
       // handle error
-      setMeals({
-        loading: false,
-        response: null,
-        error: <ErrorPage />
-      })})
+        setMeals({
+          loading: false,
+          response: null,
+          errorCode: error.request.status
+        })
+      })
       .finally(function() {
       // always executed 
       });
       }
-  
-    
     }, [mealType, props.client])
 
 
     return (
       
       <>
-      {meals.error ? <ErrorPage /> : null}
+      {meals.errorCode ? <ErrorPage errorStatus={meals.errorCode}/> : null}
       <Routes>
 
 <Route path="*" element={
