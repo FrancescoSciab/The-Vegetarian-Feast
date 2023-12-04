@@ -68,10 +68,10 @@ export default function Meal(props) {
 
         ? 
         (
-          <>
-            {Array.from({ length: 6 }).map((_, index) => (
+          <CardGroup id="card-group-placeholder">
+            {Array.from({ length: 12 }).map((_, index) => (
     
-              <Card id="card-meal" key={`placeholder-${index}`}>
+              <Card id="placeholder-card" key={`placeholder-${index}`}>
                 <Card.Body id="card-body-meal">
                   <Placeholder as={Card.Title} animation="glow">
                     <Placeholder xs={6} />
@@ -84,7 +84,7 @@ export default function Meal(props) {
                 </Card.Body>
               </Card>
             ))}
-          </>
+          </CardGroup>
         )
        
         :
@@ -133,7 +133,7 @@ export default function Meal(props) {
             ))}
             </CardGroup>
             )
-  } />
+   } />
 
 <Route 
 path='overview/:id' 

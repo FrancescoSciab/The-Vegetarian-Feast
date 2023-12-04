@@ -50,6 +50,20 @@ p {
     margin: 0 16px 8px 0 !important;
 }
 
+#card-group-placeholder {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    
+}
+
+#placeholder-card {
+    flex: 0 0 30vw;
+    margin: 0 16px 8px 0;
+}
+
 #card-img-meal {
     border-top-left-radius: 0.75rem !important;
     border-top-right-radius: 0.75rem !important;
@@ -100,4 +114,17 @@ p {
     #similar-recipes-subtitle {
         padding: 0 20vw;
     }
+
+    #recipe-carousel-col {
+        padding-left: 20vw;
+    }
+
+    #card-group-meal {
+        padding-left: 20vw;
+    }
+
+    #navigation-col {
+        padding: 0;
+    }
+    
 }
