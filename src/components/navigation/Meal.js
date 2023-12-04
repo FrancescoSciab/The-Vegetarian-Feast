@@ -28,12 +28,16 @@ export default function Meal(props) {
   useEffect(() => {
     
     if (cache[mealType]) {
-      setMeals(cache[mealType]);
+      setMeals({
+        loading: false,
+        response: cache[mealType],
+        error: null
+      })
   } else {
       props.client.get(`/recipes/random?apiKey=8f5c95ab5ba54f428feb304dac547182&tags=${mealType}&number=100`)
       .then(response => {
       //handle success
-      cache[`${meals}`] = response.data.recipes;
+      cache[mealType] = response.data.recipes;
       setMeals({
         loading: false,
         response: response.data.recipes,
@@ -53,7 +57,7 @@ export default function Meal(props) {
       }
   
     
-    }, [mealType, location.pathname, props.client])
+    }, [mealType, props.client])
 
 
     return (
