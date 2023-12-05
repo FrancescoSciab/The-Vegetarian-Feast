@@ -9,22 +9,39 @@ import { Animate } from "react-simple-animate";
 const cache = {}
 
 export default function SimilarRecipes(props) {
+
     const id = props.id;
-    const [similarRecipes, setSimilarRecipes] = useState([]);
+    const [similarRecipes, setSimilarRecipes] = useState({
+      loading: true,
+      response: [],
+      errorCode: null
+    });
 
     useEffect(() => {
-        if (cache[`${similarRecipes}`]) {
-            setSimilarRecipes(cache[`${similarRecipes}`]);
+        if (cache[id]) {
+            setSimilarRecipes({
+              loading: false,
+              response: cache[id],
+              errorCode: null
+            });
         } else {
             props.client.get(`/recipes/${id}/similar?apiKey=8f5c95ab5ba54f428feb304dac547182&number=100`)
             .then(response => {
             //handle success
-            cache[`${similarRecipes}`] = response.data;
-            setSimilarRecipes(response.data)
+            cache[id] = response.data;
+            setSimilarRecipes({
+              loading: false,
+              response: response.data,
+              errorCode: null
+            })
             })
             .catch(function(error) {
-            // handle error
-            console.log(error);
+              // the error is gonna be loaded below before rendering
+              setSimilarRecipes({
+                loading: false,
+                response: null,
+                errorCode: error.request.status
+              })
             })
             .finally(function() {
             // always executed 
@@ -35,14 +52,13 @@ export default function SimilarRecipes(props) {
 <>
 
 <CardGroup id="similar-recipes-card-group">
-{similarRecipes.map((similarRecipe) => (
+{similarRecipes.response.map((similarRecipe) => (
 <Animate play 
     start={{ opacity: 0 }} 
     end={{ opacity: 1 }} 
     duration={0.75}>
     <Card id="card-meal" key={similarRecipe.id} style={{
       flex: "0 0 auto", 
-      
       margin: "0 16px 8px 0"
       }}>
     <Card.Img variant="top" src={similarRecipe.img} 

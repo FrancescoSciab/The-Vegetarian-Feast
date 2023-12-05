@@ -16,8 +16,6 @@ export default function Meal(props) {
 
     
     const { mealType } = useParams();
-    
-    
     const [meals, setMeals] = useState({
       loading: true,
       response: [],
@@ -45,7 +43,7 @@ export default function Meal(props) {
       })
       })
       .catch(error => {
-      // handle error
+      // the error is gonna be loaded below before rendering
         setMeals({
           loading: false,
           response: null,
