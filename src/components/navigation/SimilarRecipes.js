@@ -69,7 +69,6 @@ export default function SimilarRecipes(props) {
     <Card.Body 
     style={
       {
-        
         borderBottomLeftRadius: "0.75rem",
         borderBottomRightRadius: "0.75rem"}}>
       <Card.Title>{similarRecipe.title}</Card.Title>
@@ -84,13 +83,12 @@ export default function SimilarRecipes(props) {
                 &#x1F464; {similarRecipe.servings}
                   <span>Servings</span> 
                 </span>
-
       </div>
         
         </Card.Subtitle>
       <Card.Text>
       </Card.Text>
-      <Button variant="primary" ><Link to={`/${props.mealType}/overview/${similarRecipe.id}`} replace>View Recipe</Link></Button>
+      <Button variant="primary"><Link to={`/${props.mealType}/overview/${similarRecipe.id}`} replace>View Recipe</Link></Button>
     </Card.Body>
   </Card> 
 </Animate>

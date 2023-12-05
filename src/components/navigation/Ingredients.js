@@ -37,7 +37,7 @@ export default function Ingredients(props) {
           loading: false,
           response: response.data,
           errorCode: null
-        })
+          })
         })
         .catch(function(error) {
         // the error is gonna be loaded below before rendering

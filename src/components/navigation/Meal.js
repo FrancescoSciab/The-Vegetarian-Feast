@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
@@ -138,10 +138,15 @@ export default function Meal(props) {
 
 <Route 
 path='overview/:id' 
-element={<Ingredients 
+element={
+<Suspense fallback={<div>Loading...</div>}>
+  <Ingredients 
           client={props.client}
           mealType={mealType}
-          />} />
+          />
+          </Suspense>
+          } 
+          />
 
 </Routes>
       
