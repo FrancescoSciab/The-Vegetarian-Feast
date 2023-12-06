@@ -10,17 +10,10 @@
 .root {
     height: 100vh;
     overflow-y: auto;
+    background-color: $primary-bg !important;
 }
 body {
     margin: 0;
-    background-color: $primary-bg !important;
-    background-image: radial-gradient(
-  circle at 200% 20%,
-  $gradient-one 60%,
-  
-  $gradient-two 100%
-);
-
 }
 
 .card, .card-body {
@@ -28,10 +21,14 @@ body {
     overflow-y: auto;
     margin-bottom: 8px;
     width: fit-content;
+    background-color: $primary-bg;
+    border: 1px solid $primary-text;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
 }
 
 .h2, .h3, .h4, .h5, .h6 {
-    color: $heading-color !important;
+    color: $primary-text !important;
 }
 
 p {

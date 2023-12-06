@@ -18,7 +18,7 @@ function MealItems(props) {
 
           <Route path="*" element={
             
-            <Col id="navigation-col" md={8} style={{display: "flex"}}>
+            <Col id="navigation-col" md={8}>
               <CardGroup id="card-group-meal">
     
     {mealTypes.map((mealType) => (
@@ -28,14 +28,14 @@ function MealItems(props) {
       duration={0.75}>
         <Card id="card-meal">
         <Card.Img variant="top" />
-        <Card.Body style={{borderRadius: "0.75rem", width: "max-content"}}>
+        <Card.Body id="card-body-mealtype">
           <Card.Title>
             {mealType}
             </Card.Title>
           <Card.Text>
             New {mealType} ideas
           </Card.Text>
-          <Button variant="primary"><Link to={mealType}>{mealType} recipes</Link></Button>
+          <Button><Link to={mealType}>{mealType} recipes</Link></Button>
         </Card.Body>
       </Card> 
     </Animate>

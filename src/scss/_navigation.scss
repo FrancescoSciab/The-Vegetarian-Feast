@@ -8,8 +8,8 @@
 
 .card-body{
     background-color: $primary-bg;
-    border: none !important;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border: 1px solid $primary-text !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .btn{
@@ -20,6 +20,10 @@
         background-color: $primary-bg;
         border-color: $secondary-color;
     }
+}
+
+#navigation-col {
+    display: flex;
 }
 
 #desktop-ingredients-col {
@@ -39,6 +43,12 @@ p {
     flex-direction: column !important; 
     padding: 5px !important;
 }
+
+#card-body-mealtype {
+    border-radius: 0.75rem;
+    width: max-content;
+}
+
 #card-group-meal {
     flex-direction:row !important;
     width:100vw !important;
@@ -72,6 +82,7 @@ p {
 #card-body-meal {
     border-bottom-left-radius: 0.75rem !important;
     border-bottom-right-radius: 0.75rem !important;
+    border: 1px solid $primary-text;
     width: 100%;
 }
 
