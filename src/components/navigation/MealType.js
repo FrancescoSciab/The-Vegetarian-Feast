@@ -21,11 +21,12 @@ function MealItems(props) {
             <Col id="navigation-col" md={8}>
               <CardGroup id="card-group-meal">
     
-    {mealTypes.map((mealType) => (
+    {mealTypes.map((mealType, index) => (
     <Animate play 
-      start={{ opacity: 0 }} 
-      end={{ opacity: 1 }} 
-      duration={0.75}>
+    key={mealType}
+    sequenceIndex={index}
+    end={{ opacity: 1, transform: 'translateY(0)' }}
+    start={{ opacity: 0, transform: 'translateY(-10px)' }}>
         <Card id="card-meal">
         <Card.Img variant="top" />
         <Card.Body id="card-body-mealtype">

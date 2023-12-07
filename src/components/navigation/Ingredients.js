@@ -7,6 +7,7 @@ import DOMPurify from 'dompurify';
 import SimilarRecipes from "./SimilarRecipes";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
+import Placeholder from 'react-bootstrap/Placeholder';
 
 const cache = {};
 
@@ -60,11 +61,30 @@ export default function Ingredients(props) {
         
         <>
         {mealsInfo.errorCode ? <ErrorPage errorStatus={mealsInfo.response.errorCode}/> : null}
-        <Animate play 
-                      start={{ opacity: 0 }} 
-                      end={{ opacity: 1 }} 
-                      duration={0.75}>
+
+        {mealsInfo.loading
+        ?
+        <CardGroup id="card-group-placeholder">
+        <Card id="placeholder-card">
+          <Card.Body id="placeholder-card-body">
+            <Placeholder as={Card.Title} animation="glow">
+                  <Placeholder xs={6} />
+                </Placeholder>
+                <Placeholder as={Card.Text} animation="glow">
+                  <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+                  <Placeholder xs={6} /> <Placeholder xs={8} />
+                  <Placeholder.Button variant="primary" xs={6} />
+              </Placeholder>
+          </Card.Body>
+        </Card>
+        </CardGroup>
+        
+          :
     <CardGroup id="card-group-ingredients"> 
+    <Animate play 
+            start={{ opacity: 0 }} 
+            end={{ opacity: 1 }} 
+            duration={0.75}>
             <Card key={mealsInfo.response.id}>
             <Card.Img variant="top" src={mealsInfo.response.image} />
             <Card.Body>
@@ -99,7 +119,9 @@ export default function Ingredients(props) {
               
             </Card.Body>
           </Card> 
-    </CardGroup>
+          </Animate>
+    </CardGroup>}
+  
 
       <Card.Subtitle id="similar-recipes-subtitle">Similar recipes you might like:</Card.Subtitle>
 
@@ -108,7 +130,7 @@ export default function Ingredients(props) {
       client={props.client}
       mealType={props.mealType}
        />
-       </Animate>
+       
     </>
     )
 }

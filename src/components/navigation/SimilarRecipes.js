@@ -57,20 +57,9 @@ export default function SimilarRecipes(props) {
     start={{ opacity: 0 }} 
     end={{ opacity: 1 }} 
     duration={0.75}>
-    <Card id="card-meal" key={similarRecipe.id} style={{
-      flex: "0 0 auto", 
-      margin: "0 16px 8px 0"
-      }}>
-    <Card.Img variant="top" src={similarRecipe.img} 
-    style={
-      {
-        borderTopLeftRadius: "0.75rem",
-        borderTopRightRadius: "0.75rem"}} />
+    <Card id="card-meal" key={similarRecipe.id}>
     <Card.Body 
-    style={
-      {
-        borderBottomLeftRadius: "0.75rem",
-        borderBottomRightRadius: "0.75rem"}}>
+    style={{borderRadius: "0.75rem"}}>
       <Card.Title>{similarRecipe.title}</Card.Title>
       <Card.Subtitle>
       <div id="recipe-card-info-container">

@@ -63,10 +63,16 @@ p {
 #card-group-placeholder {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     overflow-x: auto;
     overflow-y: hidden;
     width: 100%;
-    
+}
+
+#similar-recipes-card-group {
+    flex-direction: row; 
+    width: 100vw; 
+    overflow: scroll;
 }
 
 #placeholder-card {
@@ -85,6 +91,11 @@ p {
     border: 1px solid $primary-text;
     width: 100%;
 }
+#placeholder-card-body{
+    border-radius: 0.75rem !important;
+    border: 1px solid $primary-text;
+    width: 100%;
+}
 
 #similar-recipes-card-group {
     flex-direction: row; 
@@ -100,7 +111,6 @@ p {
         border: 0.75rem !important;
         right: 4px;
         top: 25vh;
-        
         justify-content: center;
     }
 
@@ -120,9 +130,6 @@ p {
     }
 
     #similar-recipes-card-group {
-        flex-direction: row; 
-        width: 100vw; 
-        overflow: scroll;
         padding: 0 20vw;
     }
 

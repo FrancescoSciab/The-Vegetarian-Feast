@@ -2,7 +2,7 @@ import { useEffect, useState, Suspense } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
-import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom';
+import { Link, Route, Routes, useParams } from 'react-router-dom';
 import Ingredients from './Ingredients';
 import { Animate } from "react-simple-animate";
 import ErrorPage from '../../error-page';
@@ -21,7 +21,6 @@ export default function Meal(props) {
       response: [],
       errorCode: null
     });//when mealtype changes the api call will be triggered
-    const location = useLocation()
     
   useEffect(() => {
     
@@ -66,14 +65,12 @@ export default function Meal(props) {
 <Route path="*" element={
   
         meals.loading 
-
         ? 
         (
           <CardGroup id="card-group-placeholder">
             {Array.from({ length: 12 }).map((_, index) => (
-    
               <Card id="placeholder-card" key={`placeholder-${index}`}>
-                <Card.Body id="card-body-meal">
+                <Card.Body id="placeholder-card-body">
                   <Placeholder as={Card.Title} animation="glow">
                     <Placeholder xs={6} />
                   </Placeholder>
@@ -92,12 +89,13 @@ export default function Meal(props) {
 
         (
           <CardGroup id="card-group-meal">
-            {meals.response && meals.response.map((meal) => (
+            {meals.response && meals.response.map((meal, index) => (
     
               <Animate play 
-              start={{ opacity: 0 }} 
-              end={{ opacity: 1 }} 
-              duration={0.75}>
+              key={meal}
+              sequenceIndex={index}
+              end={{ opacity: 1, transform: 'translateY(0px)' }}
+              start={{ opacity: 0, transform: 'translateY(-10px)' }}>
                 <Card id="card-meal" key={meal.id} >
                 <Card.Img 
                   id="card-img-meal" 

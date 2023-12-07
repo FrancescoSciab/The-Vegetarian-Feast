@@ -5,7 +5,9 @@ import { useState } from 'react';
 import SearchItems from './SearchBar';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
-import { Animate, AnimateGroup } from "react-simple-animate";
+import { Animate, AnimateKeyframes } from "react-simple-animate";
+
+
 
 
 
@@ -20,44 +22,76 @@ export default function NavbarComponent(props) {
         setSearchActive(!searchActive)
     }
     return (
-        <AnimateGroup>
+
+        
+        
         <Navbar>
             
             {searchActive 
             ?
-            <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
-                <SearchItems client={client} />
-            </Animate>
-
+                <Animate play
+                start={{ opacity: 0, filter: 'blur(10px)' }}
+                end={{ opacity: 1, filter: 'blur(0)' }}>
+                    <SearchItems client={client} />
+                </Animate>
             :
-            
-            <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }} duration={0.75}>
                 <Nav>
+                    
                     <Navbar.Brand>
-                        <Link to="/" >The Vegetarian Feast</Link>
+                    
+                        <Link to="/" style={{display: "flex"}}>
+                        <AnimateKeyframes play
+                            iterationCount="infinite"
+                            direction="alternate"
+                            duration={5}
+                            keyframes={[
+                              'transform: rotateX(0) rotateY(0) rotateZ(0)',
+                              'transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg)',
+                            ]}>
+                            <span 
+                            class="material-symbols-outlined">egg_alt</span>
+                            </AnimateKeyframes>
+                            <Animate play
+                                    start={{ opacity: 0, filter: 'blur(10px)' }}
+                                    end={{ opacity: 1, filter: 'blur(0)' }}>
+                                The Vegetarian Feast
+                            </Animate>
+                            
+                            
+                            
+                        </Link>
+                        
                     </Navbar.Brand>
-                </Nav>
-            </Animate>
                 
-            
+                </Nav>
+                
             
             }
             
             
             
             <Button id="search-icon" onClick={handleClick}>
-                
+            
                 {searchActive
                 ?
-                <span><Link to="/">&#10006;</Link></span>
+                
+                    <span>
+                        <Link to="/">
+                                <span class="material-symbols-outlined">close</span>
+                        </Link>
+                </span>
+                
                 :
-                <span>&#128269;</span>
+                
+                    <span class="material-symbols-outlined">search</span>
+                
             }
+            
                  
             </Button>
 
         </Navbar> 
-        </AnimateGroup>      
+        
        
     )
 }

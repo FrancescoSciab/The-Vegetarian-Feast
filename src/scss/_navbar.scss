@@ -9,8 +9,19 @@
     position: fixed !important;
     justify-content: space-between !important; 
     padding: 0 1rem !important; 
-    margin: 16px 0 !important;
+    padding: 16px 1rem !important;
     z-index: 100;
+    background-color: $primary-bg;
+}
+
+
+.material-symbols-outlined {
+    color: $secondary-color;
+  font-variation-settings:
+  'FILL' 20,
+  'wght' 900,
+  'GRAD' 0,
+  'opsz' 48,
 }
 
 .nav-link {
@@ -19,6 +30,15 @@
 .navbar-brand {
     color: $secondary-color;
     margin: 0 !important;
+}
+
+#search-icon {
+    background: none !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none !important;
+    padding-right: 0;
 }
 
 
