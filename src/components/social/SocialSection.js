@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 export default function SocialMedia() {
     return(
 
-          <Col md={8} lg id="tiktok-col">
+          <Col md={8} lg={8} id="tiktok-col">
             
               <Card id="tiktok-card">
                 <Card.Body id="tiktok-card-body">
