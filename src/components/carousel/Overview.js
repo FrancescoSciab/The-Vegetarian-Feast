@@ -1,18 +1,21 @@
 import DOMPurify from 'dompurify';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/Card';
+import { Animate } from "react-simple-animate";
 
 export default function Overview(props) {
     
     const carouselInfo = props.food;
-    const position = props.position
+    const position = props.position;
         
     return (
         
         <>
             {
                 carouselInfo.length > 0 && (
-                
+                <Animate play
+                start={{ opacity: 0, filter: 'blur(10px)' }}
+                end={{ opacity: 1, filter: 'blur(0)' }}>
                 <CardGroup >
                     <Card style={{height: "40vh"}}>
                     <Card.Body  id='overview_card' style={{borderRadius: "0.75rem"}}>
@@ -23,6 +26,7 @@ export default function Overview(props) {
                     </Card.Body>
                 </Card>
             </CardGroup>
+            </Animate>
             )}
             
         </>
