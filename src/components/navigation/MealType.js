@@ -25,8 +25,9 @@ function MealItems(props) {
     <Animate play 
     key={mealType}
     sequenceIndex={index}
-    end={{ opacity: 1, transform: 'translateY(0)' }}
-    start={{ opacity: 0, transform: 'translateY(-10px)' }}>
+    start={{ opacity: 0, transform: 'translateX(20px)' }}
+    end={{ opacity: 1, transform: 'translateX(0)' }}
+    >
         <Card id="card-meal">
         <Card.Img variant="top" />
         <Card.Body id="card-body-mealtype">

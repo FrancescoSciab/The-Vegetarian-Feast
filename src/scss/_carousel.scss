@@ -1,3 +1,5 @@
+@import 'colors';
+
 //recipe carousel css
 
 #recipe-carousel-row{
@@ -6,7 +8,19 @@
 
 .carousel {
     border-radius: 0.75rem;
-    
+}
+
+#carousel-item-img {
+    width: 100%;
+    border-radius: 0.75rem;
+}
+
+#carousel-item-link {
+    border: 1px solid $secondary-color;
+    border-radius: 0.75rem;
+    background-color: $secondary-color;
+    color: $primary-text;
+    box-shadow: rgba(00.5, 0.5, 0.5, 0.5) 0px 3px 8px;
 }
 
 .carousel-caption {

@@ -94,8 +94,8 @@ export default function Meal(props) {
               <Animate play 
               key={meal}
               sequenceIndex={index}
-              end={{ opacity: 1, transform: 'translateY(0px)' }}
-              start={{ opacity: 0, transform: 'translateY(-10px)' }}>
+              start={{ opacity: 0, transform: 'translateX(20px)' }}
+              end={{ opacity: 1, transform: 'translateX(0)' }}>
                 <Card id="card-meal" key={meal.id} >
                 <Card.Img 
                   id="card-img-meal" 

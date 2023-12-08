@@ -15,21 +15,25 @@ export default function RecipeCarousel(props) {
     const selectedFood = props.randomFood
     const [position, setPosition] = useState(0)
     
-
+    //index to be passed to Overview component
     function updateIndex() {
+        //gathering items
         const carouselItems = Array.from(document.getElementsByClassName("carousel-item"))
-            let activeCarouselItem = carouselItems.findIndex((item) => item.classList.contains("active"))
-            
-            if (activeCarouselItem !== -1) {
-                setPosition(activeCarouselItem);
-              }
+
+        //storing active item index
+        let activeCarouselItem = carouselItems.findIndex((item) => item.classList.contains("active"))
+        
+        //updating index
+        if (activeCarouselItem !== -1) {
+            setPosition(activeCarouselItem);
+          }
     }
   
     return (
         <>
         <Col xs md={8} id="recipe-carousel-col" >
         <Carousel 
-        interval={null}
+        interval={2500}
         fade={true} 
         indicators={false} 
         pause={"hover"} 
@@ -39,15 +43,12 @@ export default function RecipeCarousel(props) {
             {selectedFood && selectedFood.map((food) => (
                
                 <Carousel.Item key={food.id}>
-                    <img 
+                    <img id="carousel-item-img"
                         src={`${food.image}`} 
-                        alt={food.name}
-                        style={
-                            {width: "100%", 
-                            borderRadius: "0.75rem"}
-                            }></img>
+                        alt={food.name}>
+                    </img>
                     <Carousel.Caption> 
-                    <Link to={`mealtype/overview/${food.id}`}><h3>{food.name}</h3></Link>
+                    <Link to={`mealtype/overview/${food.id}`}><h3 id="carousel-item-link">{food.name}</h3></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             ))}
@@ -55,7 +56,9 @@ export default function RecipeCarousel(props) {
         </Col>
         <Col xs={4} id="desktop-ingredients-col">
             
-                <Overview food={selectedFood} position={position} />
+                <Overview 
+                food={selectedFood} 
+                position={position} />
             
         </Col>
         
