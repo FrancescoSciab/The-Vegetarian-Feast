@@ -13,9 +13,17 @@
 }
 
 #tiktok-card-body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     width: 100%;
     border-top-right-radius: 0.75rem;
     border-top-left-radius: 0.75rem;
+}
+
+#tiktok-card-title,
+#tiktok-card-subtitle{
+    margin: 5px;
 }
 
 @media (min-width:768px) {

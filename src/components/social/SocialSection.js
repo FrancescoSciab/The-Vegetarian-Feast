@@ -10,13 +10,13 @@ export default function SocialMedia() {
             
               <Card id="tiktok-card">
                 <Card.Body id="tiktok-card-body">
-                <Card.Title>Looking for inspirations?</Card.Title>
+                <Card.Title id="tiktok-card-title">Looking for inspirations?</Card.Title>
                     <TikTokEmbed 
                       url="https://www.tiktok.com/@freddsters/video/7218251101919776043?is_from_webapp=1&sender_device=pc&web_id=7288717368065787425"   
-                      width={325}
-                      height={"20vh"}    
+                      maxWidth={325}
+                      height={"30vh"}    
                     />
-                  <Card.Subtitle>Check out the latest tiktoks</Card.Subtitle>
+                  <Card.Subtitle id="tiktok-card-subtitle">Check out the latest tiktoks</Card.Subtitle>
                 </Card.Body>
               </Card>
             
