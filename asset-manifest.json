@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/The-Vegetarian-Feast/static/css/main.9d61c74e.css",
-    "main.js": "/The-Vegetarian-Feast/static/js/main.3673f001.js",
+    "main.js": "/The-Vegetarian-Feast/static/js/main.3a4b391c.js",
     "static/js/787.28cb0dcd.chunk.js": "/The-Vegetarian-Feast/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/The-Vegetarian-Feast/index.html",
     "main.9d61c74e.css.map": "/The-Vegetarian-Feast/static/css/main.9d61c74e.css.map",
-    "main.3673f001.js.map": "/The-Vegetarian-Feast/static/js/main.3673f001.js.map",
+    "main.3a4b391c.js.map": "/The-Vegetarian-Feast/static/js/main.3a4b391c.js.map",
     "787.28cb0dcd.chunk.js.map": "/The-Vegetarian-Feast/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9d61c74e.css",
-    "static/js/main.3673f001.js"
+    "static/js/main.3a4b391c.js"
   ]
 }
