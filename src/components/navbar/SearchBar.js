@@ -19,7 +19,6 @@ export default function SearchItems(props) {
         navigate(query); 
 }, [query])
     
-
     
     return (
         <>
