@@ -3,7 +3,6 @@ import '../scss/custom.scss';
 import { Route, Routes } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from '../components/navbar/NavbarComponent';
 import RecipeCarousel from '../components/carousel/RecipeCarousel';
@@ -11,6 +10,7 @@ import MealItems from '../components/navigation/MealType';
 import SocialSection from '../components/social/SocialSection'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Footer from '../components/footer/footer';
 
 
 const cache = {};
@@ -67,8 +67,10 @@ return (
           <Row id="social-row">
             <SocialSection />
           </Row>
-        
 
+          <Row>
+            <Footer />
+          </Row>
         
     </Container>
 
