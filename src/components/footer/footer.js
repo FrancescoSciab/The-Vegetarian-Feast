@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/esm/Col';
+import Logo from '../navbar/Logo';
 
 
 export default function Footer() {
@@ -19,7 +20,12 @@ export default function Footer() {
             </Col>
 
             <Col id="footer-col">
-            <Card.Link id="footer-link" href="#">Logo</Card.Link>
+            <Card.Link 
+                id="footer-link" 
+                to="/"
+                style={{display: "flex"}}>
+                <Logo />
+            </Card.Link>
             </Col>
       </Card.Footer>
     )
