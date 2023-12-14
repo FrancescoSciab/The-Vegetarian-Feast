@@ -10,12 +10,12 @@ export default function Footer() {
                 <Card.Link 
                     id="footer-link" 
                     target="_blank"
-                    href="https://www.linkedin.com/in/francesco-sciabbarrasi-94231a212/">Linkedin</Card.Link>
+                    href="https://www.linkedin.com/in/francesco-sciabbarrasi-94231a212/">Linkedin<i class="fa fa-linkedin-square" style={{fontSize: "1rem", padding: "0.25rem"}}></i></Card.Link>
                 <Card.Link 
                     id="footer-link" 
                     target="_blank"
-                    href="https://github.com/FrancescoSciab">GitHub</Card.Link>
-                <Card.Link id="footer-link" href="#">Email</Card.Link>
+                    href="https://github.com/FrancescoSciab">GitHub<i class="fa fa-github" style={{fontSize: "1rem", padding: "0.25rem"}}></i></Card.Link>
+                <Card.Link id="footer-link" href="#">Email<i class="fa fa-envelope" style={{fontSize: "1rem", padding: "0.25rem"}}></i></Card.Link>
             </Col>
 
             <Col id="footer-col">
