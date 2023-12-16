@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import Col from 'react-bootstrap/esm/Col';
 import Logo from '../navbar/Logo';
 
@@ -20,12 +21,12 @@ export default function Footer() {
             </Col>
 
             <Col id="footer-col">
-            <Card.Link 
+            <Link 
                 id="footer-link" 
                 to="/"
                 style={{display: "flex"}}>
                 <Logo />
-            </Card.Link>
+            </Link>
             </Col>
       </Card.Footer>
     )

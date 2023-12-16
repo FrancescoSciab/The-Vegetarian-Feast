@@ -112,7 +112,7 @@ export default function Ingredients(props) {
               <Card.Text>
                 
               <p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(mealsInfo.response.summary)) }} />
-
+              <h5>Instructions:</h5>
               <p dangerouslySetInnerHTML={{ __html: (DOMPurify.sanitize(mealsInfo.response.instructions))}} />
               </Card.Text>
 

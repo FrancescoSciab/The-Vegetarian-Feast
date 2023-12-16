@@ -11,6 +11,8 @@ import SocialSection from '../components/social/SocialSection'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Footer from '../components/footer/footer';
+// With API Key and params option
+require("dotenv").config();
 
 
 const cache = {};
@@ -28,7 +30,7 @@ export default function Root() {
         if (cache[`${randomFood}`]) {
             setRandomFood(cache[`${randomFood}`]);
         } else {
-            client.get("/food/search?apiKey=8f5c95ab5ba54f428feb304dac547182&query=food&number=100")
+            client.get(`/food/search?api_key=${process.env.SPOONACULAR_API_KEY}&query=food&number=100`)
             .then(response => {
             //handle success
             cache[`${randomFood}`] = response.data.searchResults[0].results;
