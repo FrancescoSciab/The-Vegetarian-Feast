@@ -50,14 +50,16 @@ p {
 }
 
 #card-group-meal {
+    display: flex;
     flex-direction:row !important;
     width:100vw !important;
     overflow: scroll !important;
+    gap: 16px;
 }
 
 #card-meal {
-    flex: 0 0 auto !important; 
-    margin: 0 16px 8px 0 !important;
+    display: flex;
+    
 }
 
 #card-group-placeholder {
@@ -142,7 +144,7 @@ p {
     }
 
     #card-group-meal {
-        padding-left: 20vw;
+        margin-left: 20vw;
         margin-right: 12px;
     }
 
