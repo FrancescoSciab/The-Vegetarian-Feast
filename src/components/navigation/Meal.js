@@ -6,6 +6,8 @@ import { Link, Route, Routes, useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Placeholder from "react-bootstrap/Placeholder";
 
 const cache = {};
@@ -77,7 +79,7 @@ export default function Meal(props) {
                 ))}
               </CardGroup>
             ) : (
-              <CardGroup id="card-group-meal">
+              <Row xs={1} md={2} className="g-4">
                 {meals.response &&
                   meals.response.map((meal, index) => (
                     <Animate
@@ -121,7 +123,7 @@ export default function Meal(props) {
                       </Card>
                     </Animate>
                   ))}
-              </CardGroup>
+              </Row>
             )
           }
         />
