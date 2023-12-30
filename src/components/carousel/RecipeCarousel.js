@@ -1,5 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
-
+import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useState } from "react";
@@ -44,18 +44,36 @@ export default function RecipeCarousel(props) {
         >
           {selectedFood &&
             selectedFood.map((food) => (
-              <Carousel.Item key={food.id}>
-                <img
-                  id="carousel-item-img"
+              <Carousel.Item>
+                <Card.Img
                   src={`${food.image}`}
                   alt={food.name}
-                ></img>
-                <Carousel.Caption>
+                  id="carousel-item-img"
+                />
+                <Card.ImgOverlay>
                   <Link to={`mealtype/overview/${food.id}`}>
-                    <h3 id="carousel-item-link">{food.name}</h3>
+                    <Card.Title id="carousel-title">{food.name}</Card.Title>
+                    {/* <Card.Text id="carousel-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </Card.Text> */}
                   </Link>
-                </Carousel.Caption>
+                </Card.ImgOverlay>
               </Carousel.Item>
+
+              // <Carousel.Item key={food.id}>
+              //   <img
+              //     id="carousel-item-img"
+              //     src={`${food.image}`}
+              //     alt={food.name}
+              //   ></img>
+              //   <Carousel.Caption>
+              //     <Link to={`mealtype/overview/${food.id}`}>
+              //       <h3 id="carousel-item-link">{food.name}</h3>
+              //     </Link>
+              //   </Carousel.Caption>
+              // </Carousel.Item>
             ))}
         </Carousel>
       </Col>
