@@ -6,6 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Meal from "./Meal";
 import { Animate } from "react-simple-animate";
 import Col from "react-bootstrap/esm/Col";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function MealItems(props) {
   const mealTypes = [
@@ -25,6 +28,16 @@ function MealItems(props) {
     "drink 🍸",
   ];
 
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+    variableWidth: true,
+  };
+
   return (
     <>
       <Routes>
@@ -33,26 +46,28 @@ function MealItems(props) {
           element={
             <Col id="navigation-col" md={8}>
               <CardGroup id="card-group-meal">
-                {mealTypes.map((mealType, index) => (
-                  <Animate
-                    play
-                    key={mealType}
-                    sequenceIndex={index}
-                    start={{ opacity: 0, transform: "translateX(20px)" }}
-                    end={{ opacity: 1, transform: "translateX(0)" }}
-                  >
-                    <Card id="card-meal">
-                      <Card.Img variant="top" />
-                      <Card.Body id="card-body-mealtype">
-                        <Card.Title>{mealType}</Card.Title>
-                        <Card.Text>New {mealType} ideas</Card.Text>
-                        <Button>
-                          <Link to={mealType}>{mealType} recipes</Link>
-                        </Button>
-                      </Card.Body>
-                    </Card>
-                  </Animate>
-                ))}
+                <Slider {...settings}>
+                  {mealTypes.map((mealType, index) => (
+                    <Animate
+                      play
+                      key={mealType}
+                      sequenceIndex={index}
+                      start={{ opacity: 0, transform: "translateX(20px)" }}
+                      end={{ opacity: 1, transform: "translateX(0)" }}
+                    >
+                      <Card id="card-meal">
+                        <Card.Img variant="top" />
+                        <Card.Body id="card-body-mealtype">
+                          <Card.Title>{mealType}</Card.Title>
+                          <Card.Text>New {mealType} ideas</Card.Text>
+                          <Button>
+                            <Link to={mealType}>{mealType} recipes</Link>
+                          </Button>
+                        </Card.Body>
+                      </Card>
+                    </Animate>
+                  ))}
+                </Slider>
               </CardGroup>
             </Col>
           }

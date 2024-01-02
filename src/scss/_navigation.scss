@@ -50,16 +50,18 @@ p {
 }
 
 #card-group-meal {
-    display: flex;
-    flex-direction:row !important;
-    width:100vw !important;
-    overflow: scroll !important;
+    overflow: hidden;
+}
+
+.slick-track {
+    width: 100vw !important;
+    display: flex !important;
+    justify-content: space-around;
     gap: 16px;
 }
 
 #card-meal {
     display: flex;
-    
 }
 
 #card-group-placeholder {
