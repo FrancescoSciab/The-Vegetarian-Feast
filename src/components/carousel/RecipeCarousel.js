@@ -45,21 +45,21 @@ export default function RecipeCarousel(props) {
           {selectedFood &&
             selectedFood.map((food) => (
               <Carousel.Item>
-                <Card.Img
-                  src={`${food.image}`}
-                  alt={food.name}
-                  id="carousel-item-img"
-                />
-                <Card.ImgOverlay>
-                  <Link to={`mealtype/overview/${food.id}`}>
+                <Link to={`mealtype/overview/${food.id}`}>
+                  <Card.Img
+                    src={`${food.image}`}
+                    alt={food.name}
+                    id="carousel-item-img"
+                  />
+                  <Card.ImgOverlay>
                     <Card.Title id="carousel-title">{food.name}</Card.Title>
                     {/* <Card.Text id="carousel-text">
                       This is a wider card with supporting text below as a
                       natural lead-in to additional content. This content is a
                       little bit longer.
                     </Card.Text> */}
-                  </Link>
-                </Card.ImgOverlay>
+                  </Card.ImgOverlay>
+                </Link>
               </Carousel.Item>
 
               // <Carousel.Item key={food.id}>
