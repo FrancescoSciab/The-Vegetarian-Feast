@@ -1,6 +1,6 @@
 #social-row {
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
 
 #tiktok-col {
@@ -24,10 +24,4 @@
 #tiktok-card-title,
 #tiktok-card-subtitle{
     margin: 5px;
-}
-
-@media (min-width:768px) {
-    #tiktok-col{
-        padding-left: 20vw;
-    }
 }

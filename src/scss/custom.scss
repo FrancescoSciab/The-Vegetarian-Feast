@@ -17,6 +17,12 @@ body {
     margin: 0;
 }
 
+//to add once the new layout is ready
+.row {
+    display: flex !important;
+    justify-content: center;
+}
+
 .card, .card-body {
     max-height: 100vh !important;
     overflow-y: auto;

@@ -77,9 +77,9 @@ export default function RecipeCarousel(props) {
             ))}
         </Carousel>
       </Col>
-      <Col xs={4} id="desktop-ingredients-col">
+      {/* <Col xs={4} id="desktop-ingredients-col">
         <Overview food={selectedFood} position={position} />
-      </Col>
+      </Col> */}
     </>
   );
 }
