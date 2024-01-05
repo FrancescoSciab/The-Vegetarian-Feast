@@ -1,5 +1,7 @@
 //navigation components css
 @import 'colors';
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 .card{
     background: none !important;
@@ -61,6 +63,7 @@ p {
     display: flex !important;
     justify-content: space-around;
     gap: 16px;
+    
 }
 
 .slick-prev, .slick-next {
@@ -86,12 +89,6 @@ p {
     width: 100%;
 }
 
-#similar-recipes-card-group {
-    flex-direction: row; 
-    width: 100vw; 
-    overflow: scroll;
-}
-
 #placeholder-card {
     flex: 0 0 30vw;
     margin: 0 16px 8px 0;
@@ -114,9 +111,6 @@ p {
     width: 100%;
 }
 
-#similar-recipes-card-group {
-    flex-direction: row; 
-}
 
 @media (min-width:768px) {
     

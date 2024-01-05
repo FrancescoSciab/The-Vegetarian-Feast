@@ -7,8 +7,6 @@ import Meal from "./Meal";
 import { Animate } from "react-simple-animate";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 function MealItems(props) {
   const mealTypes = [
@@ -27,6 +25,7 @@ function MealItems(props) {
     "snack 🍿",
     "drink 🍸",
   ];
+
   //automatic behavior if slidesToShow is not set
   const settings = {
     infinite: false,
