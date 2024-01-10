@@ -31,6 +31,7 @@ function MealItems(props) {
     infinite: false,
     speed: 500,
     swipeToSlide: true,
+    slidesToScroll: 3,
     variableWidth: true,
     adaptiveHeight: true,
     arrows: true,
@@ -40,6 +41,7 @@ function MealItems(props) {
         breakpoint: 768,
         settings: {
           arrows: false,
+
           infinite: true,
         },
       },
