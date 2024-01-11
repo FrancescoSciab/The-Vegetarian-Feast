@@ -7,14 +7,13 @@ export default function SearchItems(props) {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  // Specify the debounce time (500 milliseconds in this example)
+  // delaying api request when searching
   const [debouncedQuery] = useDebounce(query, 500);
 
   const handleChange = (event) => {
     setQuery(event.target.value);
   };
 
-  // Use the debouncedQuery in the useEffect
   useEffect(() => {
     navigate(debouncedQuery);
   }, [debouncedQuery, navigate]);
