@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import { useDebounce } from "use-debounce";
 
 export default function SearchItems(props) {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
+  // Specify the debounce time (500 milliseconds in this example)
+  const [debouncedQuery] = useDebounce(query, 500);
+
   const handleChange = (event) => {
     setQuery(event.target.value);
   };
 
-  //no need to cache
+  // Use the debouncedQuery in the useEffect
   useEffect(() => {
-    navigate(query);
-  }, [query]);
+    navigate(debouncedQuery);
+  }, [debouncedQuery, navigate]);
 
   return (
     <>
