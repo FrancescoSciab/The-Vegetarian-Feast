@@ -38,22 +38,26 @@ export default function Footer() {
           ></i>
         </Card.Link>
         {/* <Card.Link id="footer-link" href="#"> */}
-        <>
-          <Button
-            onClick={() => setOpen(!open)}
-            aria-controls="example-collapse-text"
-            aria-expanded={open}
-          >
-            Send Email
-            <i
-              class="fa fa-envelope"
-              style={{ fontSize: "1rem", padding: "0.25rem" }}
-            ></i>
-          </Button>
-        </>
+
+        <Button
+          onClick={() => setOpen(!open)}
+          aria-controls="example-collapse-text"
+          aria-expanded={open}
+        >
+          Write Email
+          {/* <i
+            class="fa fa-envelope"
+            style={{ fontSize: "1rem", padding: "0.25rem" }}
+          ></i> */}
+        </Button>
+
         {/* </Card.Link> */}
+
         <Collapse in={open}>
-          <EmailSection />
+          {/**div necessary to make transition work */}
+          <div>
+            <EmailSection />
+          </div>
         </Collapse>
       </Col>
 
