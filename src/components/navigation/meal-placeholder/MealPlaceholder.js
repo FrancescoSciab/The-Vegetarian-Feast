@@ -4,9 +4,16 @@ import Placeholder from "react-bootstrap/Placeholder";
 
 export default function MealPlaceholder() {
   return (
-    <CardGroup id="card-group-placeholder">
+    <>
       {Array.from({ length: 12 }).map((_, index) => (
         <Card id="placeholder-card" key={`placeholder-${index}`}>
+          <Placeholder
+            id="placeholder-img-glow"
+            as={Card.Text}
+            animation="glow"
+          >
+            <Placeholder id="placeholder-img" xs={6} />
+          </Placeholder>
           <Card.Body id="placeholder-card-body">
             <Placeholder as={Card.Title} animation="glow">
               <Placeholder xs={6} />
@@ -20,6 +27,6 @@ export default function MealPlaceholder() {
           </Card.Body>
         </Card>
       ))}
-    </CardGroup>
+    </>
   );
 }

@@ -84,18 +84,16 @@ p {
     display: flex;
 }
 
-#card-group-placeholder {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    overflow-x: auto;
-    overflow-y: hidden;
+#placeholder-img {
+    height: 15rem;
     width: 100%;
+    border-top-right-radius: 0.75rem;
+    border-top-left-radius: 0.75rem;
 }
 
-#placeholder-card {
-    flex: 0 0 30vw;
-    margin: 0 16px 8px 0;
+#placeholder-img-glow{
+    margin: 0;
+    padding: 0;
 }
 
 #card-img-meal {
@@ -109,11 +107,11 @@ p {
     border: 1px solid $primary-text;
     width: 100%;
 }
-#placeholder-card-body{
-    border-radius: 0.75rem !important;
-    border: 1px solid $primary-text;
-    width: 100%;
-}
+// #placeholder-card-body{
+//     border-radius: 0.75rem !important;
+//     border: 1px solid $primary-text;
+//     width: 100%;
+// }
 
 
 @media (min-width:768px) {

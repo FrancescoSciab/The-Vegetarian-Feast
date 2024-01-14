@@ -58,7 +58,9 @@ export default function Meal(props) {
           path="*"
           element={
             meals.loading ? (
-              <MealPlaceholder />
+              <Row xs={1} md={2} className="g-4">
+                <MealPlaceholder />
+              </Row>
             ) : (
               <Row xs={1} md={2} className="g-4" id="meal-row">
                 {meals.response.length ? (
@@ -67,8 +69,8 @@ export default function Meal(props) {
                       play
                       key={meal}
                       sequenceIndex={index}
-                      start={{ opacity: 0, transform: "translateX(20px)" }}
-                      end={{ opacity: 1, transform: "translateX(0)" }}
+                      start={{ opacity: 0, transform: "translateY(20px)" }}
+                      end={{ opacity: 1, transform: "translateY(0)" }}
                     >
                       <MealCards meal={meal} />
                     </Animate>

@@ -34,7 +34,7 @@ body {
 }
 
 .card, .card-body {
-    width: fit-content;
+    width: initial;
     background-color: $primary-bg;
     border: 1px solid $primary-text;
     border-bottom-left-radius: 0.75rem;
