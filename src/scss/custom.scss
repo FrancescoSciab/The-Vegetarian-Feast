@@ -34,9 +34,6 @@ body {
 }
 
 .card, .card-body {
-    max-height: 100vh !important;
-    overflow-y: auto;
-    
     width: fit-content;
     background-color: $primary-bg;
     border: 1px solid $primary-text;
