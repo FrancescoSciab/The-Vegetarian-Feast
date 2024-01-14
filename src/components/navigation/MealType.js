@@ -28,20 +28,19 @@ function MealItems(props) {
 
   //automatic behavior if slidesToShow is not set
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 500,
     swipeToSlide: true,
-    slidesToScroll: 3,
+    slidesToScroll: 2,
     variableWidth: true,
     adaptiveHeight: true,
     arrows: true,
-    infinite: true,
     responsive: [
       {
         breakpoint: 768,
         settings: {
           arrows: false,
-
+          slidesToScroll: 1,
           infinite: true,
         },
       },

@@ -12,18 +12,19 @@ export default function SimilarRecipes(props) {
   const id = props.id;
 
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 500,
     swipeToSlide: true,
+    slidesToScroll: 2,
     variableWidth: true,
     adaptiveHeight: true,
     arrows: true,
-    infinite: true,
     responsive: [
       {
         breakpoint: 768,
         settings: {
           arrows: false,
+          slidesToScroll: 1,
           infinite: true,
         },
       },

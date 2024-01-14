@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -37,7 +36,6 @@ export default function Footer() {
             style={{ fontSize: "1rem", padding: "0.25rem" }}
           ></i>
         </Card.Link>
-        {/* <Card.Link id="footer-link" href="#"> */}
 
         <Button
           onClick={() => setOpen(!open)}
@@ -45,13 +43,11 @@ export default function Footer() {
           aria-expanded={open}
         >
           Write Email
-          {/* <i
+          <i
             class="fa fa-envelope"
             style={{ fontSize: "1rem", padding: "0.25rem" }}
-          ></i> */}
+          ></i>
         </Button>
-
-        {/* </Card.Link> */}
 
         <Collapse in={open}>
           {/**div necessary to make transition work */}

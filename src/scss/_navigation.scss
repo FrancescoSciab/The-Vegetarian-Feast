@@ -66,6 +66,10 @@ p {
     
 }
 
+.slick-slide {
+    height: max-content !important;
+}
+
 .slick-prev, .slick-next {
     left: 0 !important;
     right: 0 !important;
@@ -127,6 +131,10 @@ p {
 
     #overview_card{
         background-color: $primary-bg !important;
+    }
+
+    #card-meal {
+        width: initial;
     }
 
     #recipe-card-info-container {

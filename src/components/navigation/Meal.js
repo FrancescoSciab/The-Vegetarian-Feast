@@ -1,14 +1,11 @@
 import { useEffect, useState, Suspense } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/Card";
-import { Link, Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Placeholder from "react-bootstrap/Placeholder";
+import MealCards from "./meal-cards/MealCard";
+import MealPlaceholder from "./meal-placeholder/MealPlaceholder";
 
 const cache = {};
 
@@ -61,26 +58,10 @@ export default function Meal(props) {
           path="*"
           element={
             meals.loading ? (
-              <CardGroup id="card-group-placeholder">
-                {Array.from({ length: 12 }).map((_, index) => (
-                  <Card id="placeholder-card" key={`placeholder-${index}`}>
-                    <Card.Body id="placeholder-card-body">
-                      <Placeholder as={Card.Title} animation="glow">
-                        <Placeholder xs={6} />
-                      </Placeholder>
-                      <Placeholder as={Card.Text} animation="glow">
-                        <Placeholder xs={7} /> <Placeholder xs={4} />{" "}
-                        <Placeholder xs={4} /> <Placeholder xs={6} />{" "}
-                        <Placeholder xs={8} />
-                        <Placeholder.Button variant="primary" xs={6} />
-                      </Placeholder>
-                    </Card.Body>
-                  </Card>
-                ))}
-              </CardGroup>
+              <MealPlaceholder />
             ) : (
               <Row xs={1} md={2} className="g-4" id="meal-row">
-                {meals.response &&
+                {meals.response.length ? (
                   meals.response.map((meal, index) => (
                     <Animate
                       play
@@ -89,40 +70,14 @@ export default function Meal(props) {
                       start={{ opacity: 0, transform: "translateX(20px)" }}
                       end={{ opacity: 1, transform: "translateX(0)" }}
                     >
-                      <Card id="card-meal" key={meal.id}>
-                        <Card.Img
-                          id="card-img-meal"
-                          variant="top"
-                          src={meal.image}
-                        />
-                        <Card.Body id="card-body-meal">
-                          <Card.Title>{meal.title}</Card.Title>
-                          <Card.Subtitle>
-                            <div id="recipe-card-info-container">
-                              <span id="recipe-card-info-span">
-                                &#x1F550; {meal.readyInMinutes}
-                                <span>Minutes</span>
-                              </span>
-
-                              <span id="recipe-card-info-span">
-                                &#x1F464; {meal.servings}
-                                <span>Servings</span>
-                              </span>
-
-                              <span id="recipe-card-info-span">
-                                &#129382; {meal.healthScore}
-                                <span>HealthScore</span>
-                              </span>
-                            </div>
-                          </Card.Subtitle>
-                          <Card.Text></Card.Text>
-                          <Button variant="primary">
-                            <Link to={`overview/${meal.id}`}>View Recipe</Link>
-                          </Button>
-                        </Card.Body>
-                      </Card>
+                      <MealCards meal={meal} />
                     </Animate>
-                  ))}
+                  ))
+                ) : (
+                  <h5>
+                    No results found. I hope you're not looking for meat.. 😒
+                  </h5>
+                )}
               </Row>
             )
           }
