@@ -78,10 +78,13 @@ p {
     right: 0;
 }
 
+.slick-next::before, .slick-prev::before{
+    color: $primary-text !important;
+}
+
 .slick-arrow {
     position: absolute !important;
     z-index: 1;
-    background-color: $primary-text !important;
 }
 
 #card-meal {
@@ -151,7 +154,7 @@ p {
     }
 
     #similar-recipes-card-group {
-        margin: 0 20vw;
+        padding: 0 20vw;
     }
 
     #similar-recipes-subtitle {

@@ -4,6 +4,8 @@ import CardGroup from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { Animate } from "react-simple-animate";
+import Row from "react-bootstrap/esm/Row";
+import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
 
 const cache = {};
@@ -85,17 +87,12 @@ export default function SimilarRecipes(props) {
                 <Card.Body style={{ borderRadius: "0.75rem" }}>
                   <Card.Title>{similarRecipe.title}</Card.Title>
                   <Card.Subtitle>
-                    <div id="recipe-card-info-container">
-                      <span id="recipe-card-info-span">
-                        &#x1F550; {similarRecipe.readyInMinutes}
-                        <span>Minutes</span>
-                      </span>
-
-                      <span id="recipe-card-info-span">
-                        &#x1F464; {similarRecipe.servings}
-                        <span>Servings</span>
-                      </span>
-                    </div>
+                    <Row>
+                      <Col>
+                        &#x1F550; {similarRecipe.readyInMinutes} Minutes
+                      </Col>
+                      <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
+                    </Row>
                   </Card.Subtitle>
                   <Card.Text></Card.Text>
                   <Button variant="primary">
