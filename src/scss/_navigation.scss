@@ -89,6 +89,7 @@ p {
 
 #card-meal {
     display: flex;
+    min-width: 35vw;
 }
 
 #placeholder-img {
@@ -140,6 +141,7 @@ p {
 
     #card-meal {
         width: initial;
+        min-width: 20vw;
     }
 
     #recipe-card-info-container {
