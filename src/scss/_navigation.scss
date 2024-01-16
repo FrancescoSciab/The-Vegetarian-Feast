@@ -70,13 +70,17 @@ p {
     height: max-content !important;
 }
 
-.slick-prev, .slick-next {
-    left: 0 !important;
-    right: 0 !important;
+.slick-prev {
+    left: 0;
+}
+
+.slick-next {
+    right: 0;
 }
 
 .slick-arrow {
-    position: relative !important;
+    position: absolute !important;
+    z-index: 1;
     background-color: $primary-text !important;
 }
 
