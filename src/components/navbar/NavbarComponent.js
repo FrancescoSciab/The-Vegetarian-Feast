@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import SearchItems from "./SearchBar";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import { Animate } from "react-simple-animate";
 import Logo from "./Logo";
@@ -11,6 +11,10 @@ import Logo from "./Logo";
 //called navbar component to not conflict with bootstrap navbar
 export default function NavbarComponent(props) {
   const client = props.client;
+  const location = useLocation();
+  const { pathname } = location;
+  const homePage = pathname === "/";
+
   const [searchActive, setSearchActive] = useState(false);
 
   function handleClick() {
@@ -39,7 +43,7 @@ export default function NavbarComponent(props) {
               <Logo />
             </Link>
           </Navbar.Brand>
-          <Button onClick={goBack}>Back</Button>
+          {!homePage && <Button onClick={goBack}>Back</Button>}
         </Nav>
       )}
 
