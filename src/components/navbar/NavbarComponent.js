@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import SearchItems from "./SearchBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import { Animate } from "react-simple-animate";
 import Logo from "./Logo";
@@ -16,6 +16,12 @@ export default function NavbarComponent(props) {
   function handleClick() {
     setSearchActive(!searchActive);
   }
+
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <Navbar>
       {searchActive ? (
@@ -33,6 +39,7 @@ export default function NavbarComponent(props) {
               <Logo />
             </Link>
           </Navbar.Brand>
+          <Button onClick={goBack}>Back</Button>
         </Nav>
       )}
 

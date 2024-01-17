@@ -8,6 +8,9 @@ import SimilarRecipes from "./SimilarRecipes";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
 import Placeholder from "react-bootstrap/Placeholder";
+import Col from "react-bootstrap/esm/Col";
+import Row from "react-bootstrap/esm/Row";
+import MealPlaceholder from "./meal-placeholder/MealPlaceholder";
 
 const cache = {};
 
@@ -59,75 +62,61 @@ export default function Ingredients(props) {
       ) : null}
 
       {mealsInfo.loading ? (
-        <CardGroup id="card-group-placeholder">
-          <Card id="placeholder-card">
-            <Card.Body id="placeholder-card-body">
-              <Placeholder as={Card.Title} animation="glow">
-                <Placeholder xs={6} />
-              </Placeholder>
-              <Placeholder as={Card.Text} animation="glow">
-                <Placeholder xs={7} /> <Placeholder xs={4} />{" "}
-                <Placeholder xs={4} /> <Placeholder xs={6} />{" "}
-                <Placeholder xs={8} />
-                <Placeholder.Button variant="primary" xs={6} />
-              </Placeholder>
-            </Card.Body>
-          </Card>
-        </CardGroup>
+        <Col xs md={8}>
+          <MealPlaceholder />
+        </Col>
       ) : (
-        <CardGroup id="card-group-ingredients">
-          <Animate
-            play
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-            duration={0.75}
-          >
-            <Card key={mealsInfo.response.id}>
-              <Card.Img variant="top" src={mealsInfo.response.image} />
-              <Card.Body>
-                <Card.Title>{mealsInfo.response.title}</Card.Title>
-                <Card.Subtitle>
-                  <div id="recipe-card-info-container">
-                    <span id="recipe-card-info-span">
-                      &#x1F550; {mealsInfo.response.cookingMinutes}
-                      <span>Minutes</span>
-                    </span>
+        <Col xs md={8}>
+          <CardGroup id="card-group-ingredients">
+            <Animate
+              play
+              start={{ opacity: 0 }}
+              end={{ opacity: 1 }}
+              duration={0.75}
+            >
+              <Card key={mealsInfo.response.id}>
+                <Card.Img variant="top" src={mealsInfo.response.image} />
+                <Card.Body>
+                  <Card.Title>{mealsInfo.response.title}</Card.Title>
+                  <Card.Subtitle>
+                    <Row>
+                      <Col>
+                        &#x1F550; {mealsInfo.response.cookingMinutes} Minutes
+                      </Col>
+                      <Col>
+                        &#129382; {mealsInfo.response.healthScore} HealthScore
+                      </Col>
+                      <Col>&#x1F464; {mealsInfo.response.servings} Serving</Col>
+                    </Row>
+                  </Card.Subtitle>
+                  <Card.Text>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(mealsInfo.response.summary),
+                      }}
+                    />
 
-                    <span id="recipe-card-info-span">
-                      &#129382; {mealsInfo.response.healthScore}
-                      <span>HealthScore</span>
-                    </span>
-
-                    <span id="recipe-card-info-span">
-                      &#x1F464; {mealsInfo.response.servings}
-                      <span>Serving</span>
-                    </span>
-                  </div>
-                </Card.Subtitle>
-                <Card.Text>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(mealsInfo.response.summary),
-                    }}
-                  />
-
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(
-                        mealsInfo.response.instructions
-                      ),
-                    }}
-                  />
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Animate>
-        </CardGroup>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(
+                          mealsInfo.response.instructions
+                        ),
+                      }}
+                    />
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Animate>
+          </CardGroup>
+        </Col>
       )}
-
-      <Card.Subtitle id="similar-recipes-subtitle">
-        Similar recipes you might like:
-      </Card.Subtitle>
+      <Row>
+        <Col xs md={8}>
+          <Card.Subtitle id="similar-recipes-subtitle">
+            Similar recipes you might like:
+          </Card.Subtitle>
+        </Col>
+      </Row>
 
       <SimilarRecipes id={id} client={props.client} mealType={props.mealType} />
     </>

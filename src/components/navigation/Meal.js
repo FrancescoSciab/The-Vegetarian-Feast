@@ -59,10 +59,12 @@ export default function Meal(props) {
           element={
             meals.loading ? (
               <Row xs={1} md={2} className="g-4">
-                <MealPlaceholder />
+                {Array.from({ length: 12 }).map((_, index) => (
+                  <MealPlaceholder index={index} />
+                ))}
               </Row>
             ) : (
-              <Row xs={1} md={2} className="g-4" id="meal-row">
+              <Row xs={1} md={2} lg={3} className="g-4" id="meal-row">
                 {meals.response.length ? (
                   meals.response.map((meal, index) => (
                     <Animate

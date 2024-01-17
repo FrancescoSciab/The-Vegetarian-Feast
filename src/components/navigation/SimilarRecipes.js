@@ -72,7 +72,7 @@ export default function SimilarRecipes(props) {
     }
   }, [id, props.client]);
   return (
-    <>
+    <Col xs md={8}>
       <CardGroup id="similar-recipes-card-group">
         <Slider {...settings}>
           {similarRecipes.response.map((similarRecipe, index) => (
@@ -109,6 +109,6 @@ export default function SimilarRecipes(props) {
           ))}
         </Slider>
       </CardGroup>
-    </>
+    </Col>
   );
 }

@@ -11,6 +11,8 @@ import SocialSection from "../components/social/SocialSection";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "../components/footer/footer";
+import Col from "react-bootstrap/esm/Col";
+import MealPlaceholder from "../components/navigation/meal-placeholder/MealPlaceholder";
 
 const cache = {};
 const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
@@ -22,28 +24,44 @@ const client = axios.create({
 });
 
 export default function Root() {
-  const [randomFood, setRandomFood] = useState([]);
+  const [randomFood, setRandomFood] = useState({
+    loading: true,
+    response: [],
+    errorCode: null,
+  });
 
   useEffect(() => {
-    if (cache[`${randomFood}`]) {
-      setRandomFood(cache[`${randomFood}`]);
+    if (cache[randomFood.response]) {
+      setRandomFood({
+        loading: false,
+        response: cache[randomFood.response],
+        errorCode: null,
+      });
     } else {
       client
         .get(`/food/search?query=food&number=100`)
         .then((response) => {
           //handle success
-          cache[`${randomFood}`] = response.data.searchResults[0].results;
-          setRandomFood(response.data.searchResults[0].results);
+          cache[randomFood.response] = response.data.recipes;
+          setRandomFood({
+            loading: false,
+            response: response.data.recipes,
+            errorCode: null,
+          });
         })
         .catch(function (error) {
-          // handle error
-          console.log(error);
+          // the error is gonna be loaded below before rendering
+          setRandomFood({
+            loading: false,
+            response: null,
+            errorCode: error.request.status,
+          });
         })
         .finally(function () {
           // always executed
         });
     }
-  }, [randomFood]);
+  }, [randomFood.response]);
 
   return (
     <div className="root">
@@ -52,11 +70,19 @@ export default function Root() {
           <NavbarComponent />
         </Row>
 
-        <Row style={{ width: "100vw", marginBottom: "16px" }}>
+        <Row>
           <Routes>
             <Route
               path="/"
-              element={<RecipeCarousel randomFood={randomFood} />}
+              element={
+                randomFood.loading ? (
+                  <Col xs md={8}>
+                    <MealPlaceholder />
+                  </Col>
+                ) : (
+                  <RecipeCarousel randomFood={randomFood.response} />
+                )
+              }
             />
           </Routes>
         </Row>
