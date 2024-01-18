@@ -19,7 +19,7 @@ export default function SimilarRecipes(props) {
     swipeToSlide: true,
     slidesToScroll: 2,
     variableWidth: true,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     arrows: true,
     responsive: [
       {
@@ -83,28 +83,32 @@ export default function SimilarRecipes(props) {
               end={{ opacity: 1 }}
               duration={0.75}
             >
-              <Card id="card-meal" key={similarRecipe.id}>
-                <Card.Body style={{ borderRadius: "0.75rem" }}>
-                  <Card.Title>{similarRecipe.title}</Card.Title>
-                  <Card.Subtitle>
-                    <Row>
-                      <Col>
-                        &#x1F550; {similarRecipe.readyInMinutes} Minutes
-                      </Col>
-                      <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
-                    </Row>
-                  </Card.Subtitle>
-                  <Card.Text></Card.Text>
-                  <Button variant="primary">
-                    <Link
-                      to={`/${props.mealType}/overview/${similarRecipe.id}`}
-                      replace
-                    >
-                      View Recipe
-                    </Link>
-                  </Button>
-                </Card.Body>
-              </Card>
+              <Row>
+                <Col>
+                  <Card key={similarRecipe.id}>
+                    <Card.Body style={{ borderRadius: "0.75rem" }}>
+                      <Card.Title>{similarRecipe.title}</Card.Title>
+                      <Card.Subtitle>
+                        <Row>
+                          <Col>
+                            &#x1F550; {similarRecipe.readyInMinutes} Minutes
+                          </Col>
+                          <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
+                        </Row>
+                      </Card.Subtitle>
+                      <Card.Text></Card.Text>
+                      <Button variant="primary">
+                        <Link
+                          to={`/${props.mealType}/overview/${similarRecipe.id}`}
+                          replace
+                        >
+                          View Recipe
+                        </Link>
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
             </Animate>
           ))}
         </Slider>

@@ -3,80 +3,86 @@ import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/esm/Col";
+import { useEffect, useState } from "react";
+import MealPlaceholder from "../navigation/meal-placeholder/MealPlaceholder";
 
-// const cache = {};
+const cache = {};
 
 export default function RecipeCarousel(props) {
-  const selectedFood = props.randomFood;
-  // const [position, setPosition] = useState(0);
+  const [randomFood, setRandomFood] = useState({
+    loading: true,
+    response: [],
+    errorCode: null,
+  });
 
-  //index to be passed to Overview component
-  // function updateIndex() {
-  //   //gathering items
-  //   // const carouselItems = Array.from(
-  //   //   document.getElementsByClassName("carousel-item")
-  //   // );
+  const fetchData = async () => {
+    try {
+      const response = await props.client.get(
+        `/food/search?query=food&number=100`
+      );
+      const recipes = response.data.recipes;
+      cache[JSON.stringify(recipes)] = recipes;
 
-  //   //storing active item index
-  //   // let activeCarouselItem = carouselItems.findIndex((item) =>
-  //   //   item.classList.contains("active")
-  //   // );
+      setRandomFood({
+        loading: false,
+        response: recipes,
+        errorCode: null,
+      });
+    } catch (error) {
+      setRandomFood({
+        loading: false,
+        response: null,
+        errorCode: error.request.status,
+      });
+    }
+  };
 
-  //   //updating index
-  //   // if (activeCarouselItem !== -1) {
-  //   //   setPosition(activeCarouselItem);
-  //   // }
-  // }
+  useEffect(() => {
+    if (cache[JSON.stringify(randomFood.response)]) {
+      setRandomFood({
+        loading: false,
+        response: cache[JSON.stringify(randomFood.response)],
+        errorCode: null,
+      });
+    } else {
+      fetchData();
+    }
+  }, [randomFood.response]);
 
   return (
     <>
-      <Col xs md={8} id="recipe-carousel-col">
-        <Carousel
-          interval={2500}
-          fade={true}
-          indicators={false}
-          pause={"hover"}
-          touch={"true"}
-          // onSlid={updateIndex}
-        >
-          {selectedFood &&
-            selectedFood.map((food) => (
-              <Carousel.Item>
-                <Link to={`mealtype/overview/${food.id}`}>
-                  <Card.Img
-                    src={`${food.image}`}
-                    alt={food.name}
-                    id="carousel-item-img"
-                  />
-                  <Card.ImgOverlay>
-                    <Card.Title id="carousel-title">{food.name}</Card.Title>
-                    {/* <Card.Text id="carousel-text">
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </Card.Text> */}
-                  </Card.ImgOverlay>
-                </Link>
-              </Carousel.Item>
-
-              // <Carousel.Item key={food.id}>
-              //   <img
-              //     id="carousel-item-img"
-              //     src={`${food.image}`}
-              //     alt={food.name}
-              //   ></img>
-              //   <Carousel.Caption>
-              //     <Link to={`mealtype/overview/${food.id}`}>
-              //       <h3 id="carousel-item-link">{food.name}</h3>
-              //     </Link>
-              //   </Carousel.Caption>
-              // </Carousel.Item>
-            ))}
-        </Carousel>
-      </Col>
-      {/* <Col xs={4} id="desktop-ingredients-col">
-        <Overview food={selectedFood} position={position} />
-      </Col> */}
+      {randomFood.loading ? (
+        <Col xs md={8}>
+          <MealPlaceholder />
+        </Col>
+      ) : (
+        <Col xs md={8} id="recipe-carousel-col">
+          <Carousel
+            interval={2500}
+            fade={true}
+            indicators={false}
+            pause={"hover"}
+            touch={"true"}
+            // onSlid={updateIndex}
+          >
+            {randomFood.response &&
+              randomFood.response.map((food) => (
+                <Carousel.Item>
+                  <Link to={`mealtype/overview/${food.id}`}>
+                    <Card.Img
+                      src={`${food.image}`}
+                      alt={food.name}
+                      id="carousel-item-img"
+                    />
+                    <Card.ImgOverlay>
+                      <Card.Title id="carousel-title">{food.name}</Card.Title>
+                    </Card.ImgOverlay>
+                  </Link>
+                </Carousel.Item>
+              ))}
+          </Carousel>
+        </Col>
+      )}
     </>
   );
 }

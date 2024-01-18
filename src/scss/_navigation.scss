@@ -54,20 +54,12 @@ p {
 #card-group-meal {
     overflow: scroll;
 }
-.slick-slider {
-    display: flex !important;
-}
 
 .slick-track {
-    width: 100vw !important;
+    max-width: 100% !important;
     display: flex !important;
     justify-content: space-around;
     gap: 16px;
-    
-}
-
-.slick-slide {
-    height: max-content !important;
 }
 
 .slick-prev {
@@ -89,7 +81,6 @@ p {
 
 #card-meal {
     display: flex;
-    min-width: 35vw;
 }
 
 #placeholder-img {

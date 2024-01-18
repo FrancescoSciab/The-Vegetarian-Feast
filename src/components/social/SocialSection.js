@@ -13,7 +13,6 @@ export default function SocialMedia() {
           <TikTokEmbed
             url="https://www.tiktok.com/@freddsters/video/7218251101919776043?is_from_webapp=1&sender_device=pc&web_id=7288717368065787425"
             maxWidth={325}
-            height={"30vh"}
           />
           <Card.Subtitle id="tiktok-card-subtitle">
             Check out the latest tiktoks
