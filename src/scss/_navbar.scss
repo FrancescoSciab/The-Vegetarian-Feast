@@ -32,6 +32,13 @@
     margin: 0 !important;
 }
 
+#back-button {
+    border: none;
+    background-color: $primary-bg !important;
+    color: $primary-text;
+    
+}
+
 #search-icon {
     background: none !important;
     display: flex;

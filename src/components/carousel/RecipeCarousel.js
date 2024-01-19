@@ -5,53 +5,13 @@ import { Link } from "react-router-dom";
 import Col from "react-bootstrap/esm/Col";
 import { useEffect, useState } from "react";
 import MealPlaceholder from "../navigation/meal-placeholder/MealPlaceholder";
-
-const cache = {};
+import ErrorPage from "../../error-page";
 
 export default function RecipeCarousel(props) {
-  const [randomFood, setRandomFood] = useState({
-    loading: true,
-    response: [],
-    errorCode: null,
-  });
-
-  const fetchData = async () => {
-    try {
-      const response = await props.client.get(
-        `/food/search?query=food&number=100`
-      );
-      const recipes = response.data.recipes;
-      cache[JSON.stringify(recipes)] = recipes;
-
-      setRandomFood({
-        loading: false,
-        response: recipes,
-        errorCode: null,
-      });
-    } catch (error) {
-      setRandomFood({
-        loading: false,
-        response: null,
-        errorCode: error.request.status,
-      });
-    }
-  };
-
-  useEffect(() => {
-    if (cache[JSON.stringify(randomFood.response)]) {
-      setRandomFood({
-        loading: false,
-        response: cache[JSON.stringify(randomFood.response)],
-        errorCode: null,
-      });
-    } else {
-      fetchData();
-    }
-  }, [randomFood.response]);
-
+  const randomFood = props.randomFood;
   return (
     <>
-      {randomFood.loading ? (
+      {!randomFood ? (
         <Col xs md={8}>
           <MealPlaceholder />
         </Col>
@@ -65,8 +25,8 @@ export default function RecipeCarousel(props) {
             touch={"true"}
             // onSlid={updateIndex}
           >
-            {randomFood.response &&
-              randomFood.response.map((food) => (
+            {randomFood &&
+              randomFood.map((food, index) => (
                 <Carousel.Item>
                   <Link to={`mealtype/overview/${food.id}`}>
                     <Card.Img

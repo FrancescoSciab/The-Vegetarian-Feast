@@ -69,7 +69,7 @@ function MealItems(props) {
                         <Card.Body id="card-body-mealtype">
                           <Card.Title>{mealType}</Card.Title>
                           <Card.Text>New {mealType} ideas</Card.Text>
-                          <Button>
+                          <Button variant="primary">
                             <Link to={mealType}>{mealType} recipes</Link>
                           </Button>
                         </Card.Body>

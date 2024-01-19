@@ -43,7 +43,11 @@ export default function NavbarComponent(props) {
               <Logo />
             </Link>
           </Navbar.Brand>
-          {!homePage && <Button onClick={goBack}>Back</Button>}
+          {!homePage && (
+            <Button id="back-button" onClick={goBack}>
+              &#60; Back
+            </Button>
+          )}
         </Nav>
       )}
 

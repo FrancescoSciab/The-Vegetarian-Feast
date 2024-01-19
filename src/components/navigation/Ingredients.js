@@ -57,68 +57,86 @@ export default function Ingredients(props) {
 
   return (
     <>
-      {mealsInfo.errorCode ? (
-        <ErrorPage errorStatus={mealsInfo.response.errorCode} />
-      ) : null}
+      <Col>
+        {mealsInfo.errorCode ? (
+          <ErrorPage errorStatus={mealsInfo.errorCode} />
+        ) : null}
 
-      {mealsInfo.loading ? (
-        <Col xs md={8}>
-          <MealPlaceholder />
-        </Col>
-      ) : (
-        <Col xs md={8}>
-          <CardGroup id="card-group-ingredients">
-            <Animate
-              play
-              start={{ opacity: 0 }}
-              end={{ opacity: 1 }}
-              duration={0.75}
-            >
-              <Card key={mealsInfo.response.id}>
-                <Card.Img variant="top" src={mealsInfo.response.image} />
-                <Card.Body>
-                  <Card.Title>{mealsInfo.response.title}</Card.Title>
-                  <Card.Subtitle>
-                    <Row>
-                      <Col>
-                        &#x1F550; {mealsInfo.response.cookingMinutes} Minutes
-                      </Col>
-                      <Col>
-                        &#129382; {mealsInfo.response.healthScore} HealthScore
-                      </Col>
-                      <Col>&#x1F464; {mealsInfo.response.servings} Serving</Col>
-                    </Row>
-                  </Card.Subtitle>
-                  <Card.Text>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(mealsInfo.response.summary),
-                      }}
-                    />
+        {mealsInfo.loading ? (
+          <Row>
+            <Col xs md={8}>
+              <MealPlaceholder />
+            </Col>
+          </Row>
+        ) : (
+          <Row>
+            <Col xs md={8}>
+              <CardGroup id="card-group-ingredients">
+                <Animate
+                  play
+                  start={{ opacity: 0 }}
+                  end={{ opacity: 1 }}
+                  duration={0.75}
+                >
+                  <Card key={mealsInfo.response.id}>
+                    <Card.Img variant="top" src={mealsInfo.response.image} />
+                    <Card.Body>
+                      <Card.Title>{mealsInfo.response.title}</Card.Title>
+                      <Card.Subtitle>
+                        <Row>
+                          <Col>
+                            &#x1F550; {mealsInfo.response.cookingMinutes}{" "}
+                            Minutes
+                          </Col>
+                          <Col>
+                            &#129382; {mealsInfo.response.healthScore}{" "}
+                            HealthScore
+                          </Col>
+                          <Col>
+                            &#x1F464; {mealsInfo.response.servings} Serving
+                          </Col>
+                        </Row>
+                      </Card.Subtitle>
+                      <Card.Text>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(
+                              mealsInfo.response.summary
+                            ),
+                          }}
+                        />
 
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(
-                          mealsInfo.response.instructions
-                        ),
-                      }}
-                    />
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Animate>
-          </CardGroup>
-        </Col>
-      )}
-      <Row>
-        <Col xs md={8}>
-          <Card.Subtitle id="similar-recipes-subtitle">
-            Similar recipes you might like:
-          </Card.Subtitle>
-        </Col>
-      </Row>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(
+                              mealsInfo.response.instructions
+                            ),
+                          }}
+                        />
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Animate>
+              </CardGroup>
+            </Col>
+          </Row>
+        )}
+        <Row>
+          <Col xs md={8}>
+            <Card.Subtitle id="similar-recipes-subtitle">
+              Similar recipes you might like:
+            </Card.Subtitle>
+          </Col>
+        </Row>
 
-      <SimilarRecipes id={id} client={props.client} mealType={props.mealType} />
+        <Row>
+          <SimilarRecipes
+            id={id}
+            client={props.client}
+            mealType={props.mealType}
+          />
+        </Row>
+      </Col>
     </>
   );
 }

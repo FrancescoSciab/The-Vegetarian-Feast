@@ -17,12 +17,12 @@
 .btn{
     background-color: $secondary-color !important;
     border-color: $secondary-color !important;
-    :hover {
-        color: $secondary-color;
-        background-color: $primary-bg;
-        border-color: $secondary-color;
-    }
+    
 }
+
+// #card-body-similar-recipe {
+//     min-width: 20vw;
+// }
 
 #navigation-col {
     display: flex;

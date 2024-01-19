@@ -10,7 +10,9 @@ import MealItems from "../components/navigation/MealType";
 import SocialSection from "../components/social/SocialSection";
 import axios from "axios";
 import Footer from "../components/footer/footer";
+import { useEffect, useState } from "react";
 
+const cache = {};
 const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
 const client = axios.create({
   baseURL: "https://api.spoonacular.com",
@@ -20,6 +22,28 @@ const client = axios.create({
 });
 
 export default function Root() {
+  const [randomFood, setRandomFood] = useState([]);
+
+  useEffect(() => {
+    if (cache[`${randomFood}`]) {
+      setRandomFood(cache[`${randomFood}`]);
+    } else {
+      client
+        .get("/food/search?query=food&number=100")
+        .then((response) => {
+          //handle success
+          cache[`${randomFood}`] = response.data.searchResults[0].results;
+          setRandomFood(response.data.searchResults[0].results);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+    }
+  }, [randomFood]);
   return (
     <div className="root">
       <Container fluid>
@@ -29,7 +53,10 @@ export default function Root() {
 
         <Row>
           <Routes>
-            <Route path="/" element={<RecipeCarousel client={client} />} />
+            <Route
+              path="/"
+              element={<RecipeCarousel randomFood={randomFood} />}
+            />
           </Routes>
         </Row>
         <Row>

@@ -17,20 +17,20 @@ export default function SimilarRecipes(props) {
     infinite: true,
     speed: 500,
     swipeToSlide: true,
-    slidesToScroll: 2,
+    // slidesToScroll: 2,
     variableWidth: false,
-    adaptiveHeight: false,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-    ],
+    // adaptiveHeight: false,
+    // arrows: true,
+    // responsive: [
+    //   {
+    //     breakpoint: 768,
+    //     settings: {
+    //       arrows: false,
+    //       slidesToScroll: 1,
+    //       infinite: true,
+    //     },
+    //   },
+    // ],
   };
 
   const [similarRecipes, setSimilarRecipes] = useState({
@@ -73,7 +73,42 @@ export default function SimilarRecipes(props) {
   }, [id, props.client]);
   return (
     <Col xs md={8}>
-      <CardGroup id="similar-recipes-card-group">
+      <Slider {...settings}>
+        {similarRecipes.response.map((similarRecipe) => (
+          <Card>
+            {console.log(similarRecipe)}
+            <Card.Body id="card-body-similar-recipe">
+              <Row>
+                <Col>
+                  <Card.Title>{similarRecipe.title}</Card.Title>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Card.Subtitle>
+                    <Row>
+                      <Col>
+                        &#x1F550; {similarRecipe.readyInMinutes} Minutes
+                      </Col>
+                      <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
+                    </Row>
+                  </Card.Subtitle>
+                  <Button>
+                    <Link
+                      to={`/${props.mealType}/overview/${similarRecipe.id}`}
+                      replace
+                    >
+                      View Recipe
+                    </Link>
+                  </Button>
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+        ))}
+      </Slider>
+
+      {/* <CardGroup id="similar-recipes-card-group">
         <Slider {...settings}>
           {similarRecipes.response.map((similarRecipe, index) => (
             <Animate
@@ -108,7 +143,7 @@ export default function SimilarRecipes(props) {
             </Animate>
           ))}
         </Slider>
-      </CardGroup>
+      </CardGroup> */}
     </Col>
   );
 }
