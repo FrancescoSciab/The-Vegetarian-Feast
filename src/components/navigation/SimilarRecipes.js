@@ -85,7 +85,7 @@ export default function SimilarRecipes(props) {
               </Row>
               <Row>
                 <Col>
-                  <Card.Subtitle>
+                  <Card.Subtitle id="similar-recipe-subtitle">
                     <Row>
                       <Col>
                         &#x1F550; {similarRecipe.readyInMinutes} Minutes
@@ -93,14 +93,18 @@ export default function SimilarRecipes(props) {
                       <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
                     </Row>
                   </Card.Subtitle>
-                  <Button>
-                    <Link
-                      to={`/${props.mealType}/overview/${similarRecipe.id}`}
-                      replace
-                    >
-                      View Recipe
-                    </Link>
-                  </Button>
+                  <Row>
+                    <Col>
+                      <Button>
+                        <Link
+                          to={`/${props.mealType}/overview/${similarRecipe.id}`}
+                          replace
+                        >
+                          View Recipe
+                        </Link>
+                      </Button>
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
             </Card.Body>

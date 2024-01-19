@@ -20,9 +20,18 @@
     
 }
 
-// #card-body-similar-recipe {
-//     min-width: 20vw;
-// }
+//to have same height and width
+#card-body-similar-recipe {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between;
+    height: 300px !important;
+    min-width: 200px !important;
+}
+
+#similar-recipe-subtitle {
+    padding: 20px 0;
+}
 
 #navigation-col {
     display: flex;
@@ -35,6 +44,7 @@
 #recipe-card-info-container {
     padding: 5px;
 }
+
 
 p {
     padding: 5px;
