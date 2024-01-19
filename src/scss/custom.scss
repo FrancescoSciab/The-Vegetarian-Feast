@@ -52,7 +52,11 @@ p {
 a {
     color: $primary-text !important;
     text-decoration: none !important;
-    
+    :hover {
+        color: $secondary-color !important;
+        background-color: $primary-bg !important;
+        border-color: $secondary-color !important;
+    }
 }
 
 

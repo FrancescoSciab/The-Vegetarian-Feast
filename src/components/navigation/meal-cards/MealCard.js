@@ -19,7 +19,7 @@ export default function MealCards(props) {
           </Row>
         </Card.Subtitle>
         <Card.Text></Card.Text>
-        <Button variant="primary">
+        <Button>
           <Link to={`overview/${meal.id}`}>View Recipe</Link>
         </Button>
       </Card.Body>
