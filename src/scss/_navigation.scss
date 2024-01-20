@@ -15,8 +15,12 @@
 }
 
 .btn{
-    background-color: $secondary-color !important;
-    border-color: $secondary-color !important;
+    background-color: $cta-color !important;
+    border-color: $cta-color !important;
+    &:hover {
+        background-color: $cta-hover-color !important;
+        border-color: $cta-hover-color !important;
+    }
     
 }
 
@@ -30,7 +34,7 @@
 }
 
 #similar-recipe-subtitle {
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 // #navigation-col {
@@ -62,7 +66,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 250px;
+    height: 280px;
 }
 
 #react-slick-card {
