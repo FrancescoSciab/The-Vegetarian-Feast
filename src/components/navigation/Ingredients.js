@@ -71,7 +71,7 @@ export default function Ingredients(props) {
         ) : (
           <Row>
             <Col xs md={8}>
-              <CardGroup id="card-group-ingredients">
+              <CardGroup>
                 <Animate
                   play
                   start={{ opacity: 0 }}
@@ -123,9 +123,7 @@ export default function Ingredients(props) {
         )}
         <Row>
           <Col xs md={8}>
-            <Card.Subtitle id="similar-recipes-subtitle">
-              Similar recipes you might like:
-            </Card.Subtitle>
+            <Card.Subtitle>Similar recipes you might like:</Card.Subtitle>
           </Col>
         </Row>
 

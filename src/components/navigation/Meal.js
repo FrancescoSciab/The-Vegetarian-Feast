@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
 import { Animate } from "react-simple-animate";
@@ -62,7 +62,7 @@ export default function Meal(props) {
                 <MealPlaceholder />
               </Row>
             ) : (
-              <Row xs={1} md={2} className="g-4" id="meal-row">
+              <Row xs={1} md={2} lg={3} className="g-4">
                 {meals.response ? (
                   meals.response.map((meal, index) => (
                     <Animate
@@ -87,11 +87,7 @@ export default function Meal(props) {
 
         <Route
           path="overview/:id"
-          element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Ingredients client={props.client} mealType={mealType} />
-            </Suspense>
-          }
+          element={<Ingredients client={props.client} mealType={mealType} />}
         />
       </Routes>
     </>

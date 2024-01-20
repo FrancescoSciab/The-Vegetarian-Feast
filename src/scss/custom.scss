@@ -24,13 +24,12 @@ body {
     flex-direction: column;
     justify-content: space-between;
     gap: 16px;
-    padding: 0 !important;
+    
 }
 //to add once the new layout is ready
 .row {
     display: flex !important;
     justify-content: center !important;
-    margin: 0 !important;
 }
 
 .card, .card-body {
@@ -52,11 +51,6 @@ p {
 a {
     color: $primary-text !important;
     text-decoration: none !important;
-    :hover {
-        color: $secondary-color !important;
-        background-color: $primary-bg !important;
-        border-color: $secondary-color !important;
-    }
 }
 
 

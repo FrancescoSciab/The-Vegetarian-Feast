@@ -7,7 +7,7 @@ import Row from "react-bootstrap/esm/Row";
 export default function MealCards(props) {
   const meal = props.meal;
   return (
-    <Card id="card-meal" key={meal.id}>
+    <Card key={meal.id}>
       <Card.Img id="card-img-meal" variant="top" src={meal.image} />
       <Card.Body id="card-body-meal">
         <Card.Title>{meal.title}</Card.Title>

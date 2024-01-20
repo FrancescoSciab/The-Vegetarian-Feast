@@ -5,7 +5,7 @@ export default function MealPlaceholder(props) {
   const index = props.index;
   return (
     <>
-      <Card id="placeholder-card" key={`placeholder-${index}`}>
+      <Card key={`placeholder-${index}`}>
         <Placeholder id="placeholder-img-glow" as={Card.Text} animation="glow">
           <Placeholder id="placeholder-img" xs={6} />
         </Placeholder>
@@ -16,7 +16,7 @@ export default function MealPlaceholder(props) {
           <Placeholder as={Card.Text} animation="glow">
             <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{" "}
             <Placeholder xs={6} /> <Placeholder xs={8} />
-            <Placeholder.Button variant="primary" xs={6} />
+            <Placeholder.Button xs={6} />
           </Placeholder>
         </Card.Body>
       </Card>

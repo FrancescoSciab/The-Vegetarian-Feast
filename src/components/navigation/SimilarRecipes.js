@@ -16,21 +16,37 @@ export default function SimilarRecipes(props) {
   const settings = {
     infinite: true,
     speed: 500,
-    swipeToSlide: true,
-    // slidesToScroll: 2,
-    variableWidth: false,
-    // adaptiveHeight: false,
-    // arrows: true,
-    // responsive: [
-    //   {
-    //     breakpoint: 768,
-    //     settings: {
-    //       arrows: false,
-    //       slidesToScroll: 1,
-    //       infinite: true,
-    //     },
-    //   },
-    // ],
+    arrows: true,
+    slidesToShow: 5,
+    slidesToScroll: 4,
+    initialSlide: 1,
+    adaptiveHeight: false,
+    responsive: [
+      {
+        breakpoint: 1190,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          arrows: true,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 530,
+        settings: {
+          slidesToScroll: 1,
+          slidesToShow: 2,
+          arrows: false,
+        },
+      },
+    ],
   };
 
   const [similarRecipes, setSimilarRecipes] = useState({
@@ -75,9 +91,8 @@ export default function SimilarRecipes(props) {
     <Col xs md={8}>
       <Slider {...settings}>
         {similarRecipes.response.map((similarRecipe) => (
-          <Card>
-            {console.log(similarRecipe)}
-            <Card.Body id="card-body-similar-recipe">
+          <Card id="similar-recipe-card">
+            <Card.Body id="card-body-react-slick">
               <Row>
                 <Col>
                   <Card.Title>{similarRecipe.title}</Card.Title>

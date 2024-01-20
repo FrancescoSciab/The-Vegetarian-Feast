@@ -11,6 +11,8 @@ import SocialSection from "../components/social/SocialSection";
 import axios from "axios";
 import Footer from "../components/footer/footer";
 import { useEffect, useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const cache = {};
 const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
@@ -51,14 +53,14 @@ export default function Root() {
           <NavbarComponent />
         </Row>
 
-        <Row>
-          <Routes>
-            <Route
-              path="/"
-              element={<RecipeCarousel randomFood={randomFood} />}
-            />
-          </Routes>
-        </Row>
+        {/**<Row> is in RecipeCarousel */}
+        <Routes>
+          <Route
+            path="/"
+            element={<RecipeCarousel randomFood={randomFood} />}
+          />
+        </Routes>
+
         <Row>
           <Routes>
             <Route path="*" element={<MealItems client={client} />} />
