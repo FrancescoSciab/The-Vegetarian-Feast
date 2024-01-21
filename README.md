@@ -28,8 +28,24 @@ Explore "The Vegetarian Feast" with these easy steps:
 - TikTok Inspiration:
   Looking for more? Explore the latest TikTok ideas featuring exciting vegetarian recipes.
 
-The site is accessible via the following link:
+The site is accessible via the following link: [https://francescosciab.github.io/The-Vegetarian-Feast/]
 
-Contributions
+## Contributions
 
 This project has been entirely developed by me as part of my course on Start2Impact.
+
+## Other main projects
+
+- [LifestyleApp](https://francescosciab.github.io/Lifestyle-App/)
+- [Tenzies](https://francescosciab.github.io/Tenzies-app/)
+- [Calculator](https://francescosciab.github.io/Calculator/)
+
+## Contacts
+
+Francesco Sciabbarrasi
+
+- [Send me an email](mailto:francesco.sciabbarrasii@gmail.com)
+- [Personal Website](https://francescosciab.github.io/EN-PersonalWebsite/)
+- [Linkedin profile](https://www.linkedin.com/in/francesco-sciabbarrasi-94231a212/?locale=en_US)
+- [GitHub profile](https://github.com/FrancescoSciab)
+- [Project link](https://francescosciab.github.io/The-Vegetarian-Feast/)
