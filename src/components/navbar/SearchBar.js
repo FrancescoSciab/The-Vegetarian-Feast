@@ -20,9 +20,9 @@ export default function SearchItems(props) {
 
   return (
     <>
-      <Form style={{ width: "100%", marginRight: "16px" }}>
+      <Form id="form-searchbar">
         <Form.Group>
-          <Form.Label>Type your search query</Form.Label>
+          <Form.Label id="searchbar-label">Type your search query</Form.Label>
           <Form.Control
             type="search"
             placeholder="Search"
