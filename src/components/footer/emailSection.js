@@ -31,11 +31,17 @@ export const EmailSection = () => {
       <Form ref={form} onSubmit={sendEmail}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="e.g. Paul" name="user_name" />
+          <Form.Control
+            required
+            type="text"
+            placeholder="e.g. Paul"
+            name="user_name"
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Email address</Form.Label>
           <Form.Control
+            required
             name="user_email"
             type="email"
             placeholder="name@example.com"
@@ -43,7 +49,7 @@ export const EmailSection = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Example textarea</Form.Label>
-          <Form.Control name="message" as="textarea" rows={3} />
+          <Form.Control required name="message" as="textarea" rows={3} />
         </Form.Group>
         <Button type="submit">Submit</Button>
       </Form>

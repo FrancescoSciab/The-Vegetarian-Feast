@@ -26,7 +26,9 @@ export default function Meal(props) {
       });
     } else {
       props.client
-        .get(`/recipes/random?tags=${mealType}&number=100`)
+        .get(
+          `/recipes/random?tags=${mealType}&include-tags=vegetarian&number=100`
+        )
         .then((response) => {
           //handle success
           cache[mealType] = response.data.recipes;
@@ -63,7 +65,7 @@ export default function Meal(props) {
               </Row>
             ) : (
               <Row xs={1} md={2} lg={3} className="g-4">
-                {meals.response ? (
+                {meals.response.length ? (
                   meals.response.map((meal, index) => (
                     <Animate
                       play

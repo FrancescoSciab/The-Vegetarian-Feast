@@ -32,11 +32,11 @@ export default function RecipeCarousel(props) {
                   <Link to={`mealtype/overview/${food.id}`}>
                     <Card.Img
                       src={`${food.image}`}
-                      alt={food.name}
+                      alt={food.title}
                       id="carousel-item-img"
                     />
                     <Card.ImgOverlay>
-                      <Card.Title id="carousel-title">{food.name}</Card.Title>
+                      <Card.Title id="carousel-title">{food.title}</Card.Title>
                     </Card.ImgOverlay>
                   </Link>
                 </Carousel.Item>

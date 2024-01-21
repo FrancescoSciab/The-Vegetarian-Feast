@@ -31,11 +31,11 @@ export default function Root() {
       setRandomFood(cache[`${randomFood}`]);
     } else {
       client
-        .get("/food/search?query=food&number=100")
+        .get("/recipes/complexSearch?diet=vegetarian&number=100")
         .then((response) => {
           //handle success
-          cache[`${randomFood}`] = response.data.searchResults[0].results;
-          setRandomFood(response.data.searchResults[0].results);
+          cache[`${randomFood}`] = response.data.results;
+          setRandomFood(response.data.results);
         })
         .catch(function (error) {
           // handle error
