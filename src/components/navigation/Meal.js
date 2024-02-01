@@ -11,6 +11,7 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
+  const isDrink = mealType === "drink";
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
@@ -18,6 +19,12 @@ export default function Meal(props) {
   }); //when mealtype changes the api call will be triggered
 
   useEffect(() => {
+    const params = {
+      "include-tags": isDrink ? null : "vegetarian",
+      number: 100,
+      tags: mealType,
+    };
+
     if (cache[mealType]) {
       setMeals({
         loading: false,
@@ -26,9 +33,7 @@ export default function Meal(props) {
       });
     } else {
       props.client
-        .get(
-          `/recipes/random?tags=${mealType}&include-tags=vegetarian&number=100`
-        )
+        .get(`/recipes/random`, { params })
         .then((response) => {
           //handle success
           cache[mealType] = response.data.recipes;

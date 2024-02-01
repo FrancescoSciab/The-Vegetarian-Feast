@@ -25,7 +25,7 @@ function MealItems(props) {
     "marinade 🍲",
     "fingerfood 🍟",
     "snack 🍿",
-    "drink 🍸",
+    "drink",
   ];
 
   //automatic behavior if slidesToShow is not set
