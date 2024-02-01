@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { Animate } from "react-simple-animate";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";

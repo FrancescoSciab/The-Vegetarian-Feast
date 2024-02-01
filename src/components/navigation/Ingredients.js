@@ -8,7 +8,6 @@ import SimilarRecipes from "./SimilarRecipes";
 import Container from "react-bootstrap/esm/Container";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
-import Placeholder from "react-bootstrap/Placeholder";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import MealPlaceholder from "./meal-placeholder/MealPlaceholder";

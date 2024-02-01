@@ -4,9 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
-import { useEffect, useState } from "react";
 import MealPlaceholder from "../navigation/meal-placeholder/MealPlaceholder";
-import ErrorPage from "../../error-page";
 
 export default function RecipeCarousel(props) {
   const randomFood = props.randomFood;

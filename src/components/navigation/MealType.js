@@ -1,8 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/Card";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import Meal from "./Meal";
 import { Animate } from "react-simple-animate";
