@@ -16,7 +16,7 @@
 
 
 .material-symbols-outlined {
-    color: $secondary-color;
+    color: $cta-color;
   font-variation-settings:
   'FILL' 20,
   'wght' 900,
@@ -28,10 +28,19 @@
     display: flex !important;
 }
 .navbar-brand {
-    color: $secondary-color;
+    color: $cta-color;
     margin: 0 !important;
 }
 
+#back-button {
+    border: none;
+    background-color: $primary-bg !important;
+    color: $primary-text;
+    
+}
+ #searchbar-label{
+    color: $primary-text;
+ }
 #search-icon {
     background: none !important;
     display: flex;
