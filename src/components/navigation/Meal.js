@@ -11,7 +11,7 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
-  const isDrink = mealType === "drink";
+  const isDrink = mealType === "drink" || mealType === "bread";
   const [meals, setMeals] = useState({
     loading: true,
     response: [],

@@ -15,7 +15,7 @@ function MealItems(props) {
     "dessert 🍰",
     "appetizer 🥪",
     "salad 🥗",
-    "bread 🥖",
+    "bread",
     "breakfast 🥛",
     "soup 🍜",
     "beverage 🍹",
