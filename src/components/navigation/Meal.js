@@ -11,12 +11,13 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
-  const tags = ["vegetarian", mealType];
+  const mealText = mealType.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
+  const tags = ["vegetarian", mealText];
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
     errorCode: null,
-  }); //when mealtype changes the api call will be triggered
+  }); //when mealText changes the api call will be triggered
 
   useEffect(() => {
     const params = {
@@ -24,10 +25,10 @@ export default function Meal(props) {
       number: 100,
     };
 
-    if (cache[mealType]) {
+    if (cache[mealText]) {
       setMeals({
         loading: false,
-        response: cache[mealType],
+        response: cache[mealText],
         errorCode: null,
       });
     } else {
@@ -35,7 +36,7 @@ export default function Meal(props) {
         .get(`/recipes/random`, { params })
         .then((response) => {
           //handle success
-          cache[mealType] = response.data.recipes;
+          cache[mealText] = response.data.recipes;
           setMeals({
             loading: false,
             response: response.data.recipes,
@@ -54,7 +55,7 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [mealType, props.client]);
+  }, [mealText, tags, props.client]);
 
   return (
     <>

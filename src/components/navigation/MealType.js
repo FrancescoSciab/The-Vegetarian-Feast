@@ -10,20 +10,20 @@ import Row from "react-bootstrap/esm/Row";
 
 function MealItems(props) {
   const mealTypes = [
-    "main course 🥘",
-    "side dish 🍛",
-    "dessert 🍰",
-    "appetizer 🥪",
-    "salad 🥗",
-    "bread",
-    "breakfast 🥛",
-    "soup 🍜",
-    "beverage 🍹",
-    "sauce 🍯",
-    "marinade 🍲",
-    "fingerfood 🍟",
-    "snack 🍿",
-    "drink",
+    "Main Course 🥘",
+    "Side Dish 🍛",
+    "Dessert 🍰",
+    "Appetizer 🥪",
+    "Salad 🥗",
+    "Bread",
+    "Breakfast 🥛",
+    "Soup 🍜",
+    "Beverage 🍹",
+    "Sauce 🍯",
+    "Marinade 🍲",
+    "Fingerfood 🍟",
+    "Snack 🍿",
+    "Drink",
   ];
 
   //automatic behavior if slidesToShow is not set
