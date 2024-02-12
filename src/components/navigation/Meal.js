@@ -11,7 +11,7 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
-  const isDrink = mealType === "drink" || mealType === "bread";
+  const tags = ["vegetarian", mealType];
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
@@ -20,9 +20,8 @@ export default function Meal(props) {
 
   useEffect(() => {
     const params = {
-      "include-tags": isDrink ? null : "vegetarian",
+      "include-tags": tags.join(","),
       number: 100,
-      tags: mealType,
     };
 
     if (cache[mealType]) {
