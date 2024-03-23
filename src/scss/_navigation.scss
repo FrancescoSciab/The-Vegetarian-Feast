@@ -3,16 +3,14 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-.card{
-    background: none !important;
-    border: none !important;
-}
+// .card{
+//     background: none !important;
+//     border: none !important;
+// }
 
-.card-body{
-    background-color: $primary-bg;
-    border: 1px solid $primary-text !important;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+// .card-body{
+    
+// }
 
 .btn{
     background-color: $cta-color !important;
@@ -60,13 +58,21 @@ p {
     padding: 5px !important;
 }
 
-#card-body-react-slick {
-    border-radius: 0.75rem;
-    margin-right: 16px;
-}
+// #card-body-react-slick {
+    
+// }
+
+// #card-footer-react-slick {
+//     margin-right: 16px;
+// }
 
 #react-slick-card {
-    height: 211px;
+    // height: 211px;
+    border-radius: 0.75rem;
+    margin-right: 16px;
+    background-color: $primary-bg;
+    border: 1px solid $primary-text !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 // #card-group-meal {
 //     overflow: scroll;

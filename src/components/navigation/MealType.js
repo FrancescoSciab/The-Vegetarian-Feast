@@ -84,7 +84,7 @@ function MealItems(props) {
                         <Card.Title>{mealType}</Card.Title>
                         <Card.Text>New {mealType} ideas</Card.Text>
                       </Card.Body>
-                      <Card.Footer id="card-body-react-slick">
+                      <Card.Footer id="card-footer-react-slick">
                         <Button>
                           <Link to={mealType}>View recipes</Link>
                         </Button>
