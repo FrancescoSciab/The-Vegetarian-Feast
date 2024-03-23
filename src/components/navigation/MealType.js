@@ -81,20 +81,14 @@ function MealItems(props) {
                   >
                     <Card id="react-slick-card">
                       <Card.Body id="card-body-react-slick">
-                        <Row>
-                          <Col>
-                            <Card.Title>{mealType}</Card.Title>
-                            <Card.Text>New {mealType} ideas</Card.Text>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col>
-                            <Button>
-                              <Link to={mealType}>View recipes</Link>
-                            </Button>
-                          </Col>
-                        </Row>
+                        <Card.Title>{mealType}</Card.Title>
+                        <Card.Text>New {mealType} ideas</Card.Text>
                       </Card.Body>
+                      <Card.Footer id="card-body-react-slick">
+                        <Button>
+                          <Link to={mealType}>View recipes</Link>
+                        </Button>
+                      </Card.Footer>
                     </Card>
                   </Animate>
                 ))}
