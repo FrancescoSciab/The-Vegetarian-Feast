@@ -89,38 +89,27 @@ export default function SimilarRecipes(props) {
     <Col xs md={8}>
       <Slider {...settings}>
         {similarRecipes.response.map((similarRecipe) => (
-          <Card id="similar-recipe-card">
+          <Card id="react-slick-card">
             <Card.Body id="card-body-react-slick">
-              <Row>
-                <Col>
-                  <Card.Title>{similarRecipe.title}</Card.Title>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Card.Subtitle id="similar-recipe-subtitle">
-                    <Row>
-                      <Col>
-                        &#x1F550; {similarRecipe.readyInMinutes} Minutes
-                      </Col>
-                      <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
-                    </Row>
-                  </Card.Subtitle>
-                  <Row>
-                    <Col>
-                      <Button>
-                        <Link
-                          to={`/${props.mealType}/overview/${similarRecipe.id}`}
-                          replace
-                        >
-                          View Recipe
-                        </Link>
-                      </Button>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
+              <Card.Title>{similarRecipe.title}</Card.Title>
+
+              <Card.Subtitle id="similar-recipe-subtitle">
+                <Row>
+                  <Col>&#x1F550; {similarRecipe.readyInMinutes} Minutes</Col>
+                  <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
+                </Row>
+              </Card.Subtitle>
             </Card.Body>
+            <Card.Footer>
+              <Button>
+                <Link
+                  to={`/${props.mealType}/overview/${similarRecipe.id}`}
+                  replace
+                >
+                  View Recipe
+                </Link>
+              </Button>
+            </Card.Footer>
           </Card>
         ))}
       </Slider>

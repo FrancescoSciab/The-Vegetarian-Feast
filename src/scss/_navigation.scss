@@ -23,13 +23,13 @@
 }
 
 //to have same height and width
-#card-body-similar-recipe {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between;
-    height: 300px !important;
-    min-width: 200px !important;
-}
+// #card-body-similar-recipe {
+//     display: flex !important;
+//     flex-direction: column !important;
+//     justify-content: space-between;
+//     height: 300px !important;
+//     min-width: 200px !important;
+// }
 
 #similar-recipe-subtitle {
     padding: 10px 0;
@@ -131,18 +131,15 @@ p {
 #placeholder-img-glow{
     margin: 0;
     padding: 0;
-    
 }
 
-#card-img-meal {
-    border-top-left-radius: 0.75rem !important;
-    border-top-right-radius: 0.75rem !important;
+#card-meal{
+    border: 1px solid $primary-text;
 }
 
 #card-body-meal {
     border-bottom-left-radius: 0.75rem !important;
     border-bottom-right-radius: 0.75rem !important;
-    border: 1px solid $primary-text;
     width: 100%;
 }
 // #placeholder-card-body{

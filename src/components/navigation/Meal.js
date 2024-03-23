@@ -55,7 +55,7 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [mealText, tags, props.client]);
+  }, [mealText]);
 
   return (
     <>
