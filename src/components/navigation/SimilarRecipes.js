@@ -89,8 +89,8 @@ export default function SimilarRecipes(props) {
     <Col xs md={8}>
       <Slider {...settings}>
         {similarRecipes.response.map((similarRecipe) => (
-          <Card id="react-slick-card">
-            <Card.Body id="card-body-react-slick">
+          <Card id="card-similar-recipe">
+            <Card.Body>
               <Card.Title>{similarRecipe.title}</Card.Title>
 
               <Card.Subtitle id="similar-recipe-subtitle">
@@ -113,43 +113,6 @@ export default function SimilarRecipes(props) {
           </Card>
         ))}
       </Slider>
-
-      {/* <CardGroup id="similar-recipes-card-group">
-        <Slider {...settings}>
-          {similarRecipes.response.map((similarRecipe, index) => (
-            <Animate
-              play
-              start={{ opacity: 0 }}
-              sequenceIndex={index}
-              end={{ opacity: 1 }}
-              duration={0.75}
-            >
-              <Card key={similarRecipe.id}>
-                <Card.Body style={{ borderRadius: "0.75rem" }}>
-                  <Card.Title>{similarRecipe.title}</Card.Title>
-                  <Card.Subtitle>
-                    <Row>
-                      <Col>
-                        &#x1F550; {similarRecipe.readyInMinutes} Minutes
-                      </Col>
-                      <Col>&#x1F464; {similarRecipe.servings} Servings</Col>
-                    </Row>
-                  </Card.Subtitle>
-                  <Card.Text></Card.Text>
-                  <Button variant="primary">
-                    <Link
-                      to={`/${props.mealType}/overview/${similarRecipe.id}`}
-                      replace
-                    >
-                      View Recipe
-                    </Link>
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Animate>
-          ))}
-        </Slider>
-      </CardGroup> */}
     </Col>
   );
 }

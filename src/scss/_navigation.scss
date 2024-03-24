@@ -30,6 +30,10 @@
 //     height: 300px !important;
 //     min-width: 200px !important;
 // }
+#card-similar-recipe{
+    width: auto !important;
+    margin-right: 16px;
+}
 
 #similar-recipe-subtitle {
     padding: 10px 0;
@@ -71,7 +75,6 @@ p {
     border-radius: 0.75rem;
     margin-right: 16px;
     background-color: $primary-bg;
-    border: 1px solid $primary-text !important;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 // #card-group-meal {
@@ -131,10 +134,6 @@ p {
 #placeholder-img-glow{
     margin: 0;
     padding: 0;
-}
-
-#card-meal{
-    border: 1px solid $primary-text;
 }
 
 #card-body-meal {
