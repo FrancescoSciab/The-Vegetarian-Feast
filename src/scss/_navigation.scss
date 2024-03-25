@@ -3,14 +3,6 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-// .card{
-//     background: none !important;
-//     border: none !important;
-// }
-
-// .card-body{
-    
-// }
 
 .btn{
     background-color: $cta-color !important;
@@ -22,14 +14,6 @@
     
 }
 
-//to have same height and width
-// #card-body-similar-recipe {
-//     display: flex !important;
-//     flex-direction: column !important;
-//     justify-content: space-between;
-//     height: 300px !important;
-//     min-width: 200px !important;
-// }
 #card-similar-recipe{
     width: auto !important;
     margin-right: 16px;
@@ -39,10 +23,6 @@
     padding: 10px 0;
 }
 
-// #navigation-col {
-//     display: flex;
-// }
-
 #desktop-ingredients-col {
     display: none !important;
 }
@@ -50,7 +30,6 @@
 #recipe-card-info-container {
     padding: 5px;
 }
-
 
 p {
     padding: 5px;
@@ -62,13 +41,6 @@ p {
     padding: 5px !important;
 }
 
-// #card-body-react-slick {
-    
-// }
-
-// #card-footer-react-slick {
-//     margin-right: 16px;
-// }
 
 #react-slick-card {
     // height: 211px;
@@ -77,52 +49,10 @@ p {
     background-color: $primary-bg;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-// #card-group-meal {
-//     overflow: scroll;
-// }
-
-// .slick-slide {
-//     margin: 0 10px;
-// }
-// .slick-list {
-//     margin: 0 -10px;
-// }
-
-// .slick-arrow{
-//     position: absolute !important;
-// }
-
-// .slick-next {
-//     right: 15px !important;
-// }
-
-// .slick-prev {
-//     left: 15px !important;
-// }
-
-// .slick-track {
-//     max-width: 100% !important;
-//     display: flex !important;
-//     justify-content: space-around;
-//     gap: 16px;
-// }
-
-// .slick-prev {
-//     left: 0;
-// }
-
-// .slick-next {
-//     right: 0;
-// }
 
 .slick-next::before, .slick-prev::before{
     color: $primary-text !important;
 }
-
-// .slick-arrow {
-//     position: absolute !important;
-//     z-index: 1;
-// }
 
 #placeholder-img {
     height: 15rem;
@@ -141,12 +71,6 @@ p {
     border-bottom-right-radius: 0.75rem !important;
     width: 100%;
 }
-// #placeholder-card-body{
-//     border-radius: 0.75rem !important;
-//     border: 1px solid $primary-text;
-//     width: 100%;
-// }
-
 
 @media (min-width:768px) {
     
