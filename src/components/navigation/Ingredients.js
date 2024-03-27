@@ -54,13 +54,13 @@ export default function Ingredients(props) {
         });
     }
   }, [id, props.client]);
+  if (mealsInfo.errorCode) {
+    console.log(mealsInfo.errorCode);
+    return <ErrorPage errorStatus={mealsInfo.errorCode} />;
+  }
 
   return (
     <Container fluid>
-      {mealsInfo.errorCode ? (
-        <ErrorPage errorStatus={mealsInfo.errorCode} />
-      ) : null}
-
       {mealsInfo.loading ? (
         <Row>
           <Col xs md={8}>

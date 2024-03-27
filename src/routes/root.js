@@ -63,7 +63,7 @@ export default function Root() {
 
         <Row>
           <Routes>
-            <Route path="*" element={<MealItems client={client} />} />
+            <Route path="/*" element={<MealItems client={client} />} />
           </Routes>
         </Row>
 

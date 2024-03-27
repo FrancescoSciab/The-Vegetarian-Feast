@@ -7,14 +7,18 @@ import reportWebVitals from "./reportWebVitals";
 //   RouterProvider,
 // } from "react-router-dom";
 import Root from "./routes/root";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import ErrorPage from "./error-page";
 // import ErrorPage from "./error-page";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <Root />
+      <Routes>
+        <Route exact path="/*" element={<Root />}></Route>
+        <Route exact path="*" element={<ErrorPage />}></Route>
+      </Routes>
     </HashRouter>
   </React.StrictMode>
 );

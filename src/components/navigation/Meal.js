@@ -57,9 +57,13 @@ export default function Meal(props) {
     }
   }, [mealText]);
 
+  if (meals.errorCode) {
+    console.log(meals.errorCode);
+    return <ErrorPage errorStatus={meals.errorCode} />;
+  }
+
   return (
     <>
-      {meals.errorCode ? <ErrorPage errorStatus={meals.errorCode} /> : null}
       <Routes>
         <Route
           path="*"
