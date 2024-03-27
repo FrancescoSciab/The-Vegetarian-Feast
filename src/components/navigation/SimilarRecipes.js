@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
+import LinesEllipsis from "react-lines-ellipsis";
 
 const cache = {};
 
@@ -91,7 +92,15 @@ export default function SimilarRecipes(props) {
         {similarRecipes.response.map((similarRecipe) => (
           <Card id="card-similar-recipe">
             <Card.Body>
-              <Card.Title>{similarRecipe.title}</Card.Title>
+              <Card.Title>
+                <LinesEllipsis
+                  text={similarRecipe.title}
+                  maxLine="2"
+                  ellipsis="..."
+                  trimRight
+                  basedOn="letters"
+                />
+              </Card.Title>
 
               <Card.Subtitle id="similar-recipe-subtitle">
                 <Row>
