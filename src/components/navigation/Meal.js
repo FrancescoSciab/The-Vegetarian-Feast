@@ -62,37 +62,39 @@ export default function Meal(props) {
     return <ErrorPage errorStatus={meals.errorCode} />;
   }
 
+  if (meals.loading) {
+    return (
+      <Row xs={1} md={2} className="g-4">
+        <MealPlaceholder />
+      </Row>
+    );
+  }
+
   return (
     <>
       <Routes>
         <Route
           path="*"
           element={
-            meals.loading ? (
-              <Row xs={1} md={2} className="g-4">
-                <MealPlaceholder />
-              </Row>
-            ) : (
-              <Row xs={1} md={2} lg={3} className="g-4">
-                {meals.response.length ? (
-                  meals.response.map((meal, index) => (
-                    <Animate
-                      play
-                      key={meal}
-                      sequenceIndex={index}
-                      start={{ opacity: 0, transform: "translateY(20px)" }}
-                      end={{ opacity: 1, transform: "translateY(0)" }}
-                    >
-                      <MealCards meal={meal} />
-                    </Animate>
-                  ))
-                ) : (
-                  <h5>
-                    No results found. I hope you're not looking for meat.. 😒
-                  </h5>
-                )}
-              </Row>
-            )
+            <Row xs={1} md={2} lg={3} className="g-4">
+              {meals.response.length ? (
+                meals.response.map((meal, index) => (
+                  <Animate
+                    play
+                    key={meal}
+                    sequenceIndex={index}
+                    start={{ opacity: 0, transform: "translateY(20px)" }}
+                    end={{ opacity: 1, transform: "translateY(0)" }}
+                  >
+                    <MealCards meal={meal} />
+                  </Animate>
+                ))
+              ) : (
+                <h5>
+                  No results found. I hope you're not looking for meat.. 😒
+                </h5>
+              )}
+            </Row>
           }
         />
 

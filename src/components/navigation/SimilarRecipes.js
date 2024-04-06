@@ -6,6 +6,8 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
 import LinesEllipsis from "react-lines-ellipsis";
+import MealPlaceholder from "./meal-placeholder/MealPlaceholder";
+import ErrorPage from "../../error-page";
 
 const cache = {};
 
@@ -86,6 +88,21 @@ export default function SimilarRecipes(props) {
         });
     }
   }, [id, props.client]);
+
+  if (similarRecipes.errorCode) {
+    console.log(similarRecipes.errorCode);
+    return <ErrorPage errorStatus={similarRecipes.errorCode} />;
+  }
+
+  if (similarRecipes.loading) {
+    return (
+      <Row>
+        <Col xs md={8}>
+          <MealPlaceholder />
+        </Col>
+      </Row>
+    );
+  }
   return (
     <Col xs md={8}>
       <Slider {...settings}>

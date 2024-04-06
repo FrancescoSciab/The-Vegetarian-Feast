@@ -6,7 +6,6 @@ import Meal from "./Meal";
 import { Animate } from "react-simple-animate";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
-import Row from "react-bootstrap/esm/Row";
 
 function MealItems(props) {
   const mealTypes = [
