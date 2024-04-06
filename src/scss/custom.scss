@@ -1,7 +1,7 @@
 
 @use 'navbar';
 @use 'navigation';
-@use 'carousel';
+@use 'carousel' ;
 @import 'colors';
 @import 'social';
 @import 'footer';
@@ -32,7 +32,7 @@ body {
     justify-content: center !important;
 }
 
-.card, .card-body {
+.card {
     width: initial;
     background-color: $primary-bg;
     border: 1px solid $primary-text;

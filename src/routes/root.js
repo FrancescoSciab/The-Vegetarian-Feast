@@ -13,6 +13,8 @@ import Footer from "../components/footer/footer";
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MealPlaceholder from "../components/navigation/meal-placeholder/MealPlaceholder";
+import ErrorPage from "../error-page";
 
 const cache = {};
 const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
@@ -24,28 +26,46 @@ const client = axios.create({
 });
 
 export default function Root() {
-  const [randomFood, setRandomFood] = useState([]);
+  const [randomFood, setRandomFood] = useState({
+    loading: true,
+    response: [],
+    errorCode: null,
+  });
 
   useEffect(() => {
     if (cache[`${randomFood}`]) {
-      setRandomFood(cache[`${randomFood}`]);
+      setRandomFood({
+        loading: false,
+        response: cache[`${randomFood}`],
+        errorCode: null,
+      });
     } else {
       client
         .get("/recipes/complexSearch?diet=vegetarian&number=100")
         .then((response) => {
           //handle success
           cache[`${randomFood}`] = response.data.results;
-          setRandomFood(response.data.results);
+          setRandomFood({
+            loading: false,
+            response: response.data.results,
+            errorCode: null,
+          });
         })
         .catch(function (error) {
           // handle error
           console.log(error);
+          setRandomFood({
+            loading: false,
+            response: null,
+            errorCode: error.request.status,
+          });
         })
         .finally(function () {
           // always executed
         });
     }
   }, [randomFood]);
+
   return (
     <div className="root">
       <Container fluid>
@@ -63,7 +83,7 @@ export default function Root() {
 
         <Row>
           <Routes>
-            <Route path="*" element={<MealItems client={client} />} />
+            <Route path="/*" element={<MealItems client={client} />} />
           </Routes>
         </Row>
 

@@ -11,7 +11,7 @@ export default function Footer() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Card.Footer>
+    <Card.Footer id="main-footer">
       <Col id="footer-col">
         <Card.Title id="footer-title">Contacts</Card.Title>
         <Card.Link
@@ -42,11 +42,7 @@ export default function Footer() {
           aria-controls="example-collapse-text"
           aria-expanded={open}
         >
-          Write Email
-          <i
-            class="fa fa-envelope"
-            style={{ fontSize: "1rem", padding: "0.25rem" }}
-          ></i>
+          {open ? "Close" : "Write Email"}
         </Button>
 
         <Collapse in={open}>

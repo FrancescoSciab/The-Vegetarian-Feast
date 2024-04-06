@@ -11,24 +11,24 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
-  const isDrink = mealType === "drink";
+  const mealText = mealType.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
+  const tags = ["vegetarian", mealText];
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
     errorCode: null,
-  }); //when mealtype changes the api call will be triggered
+  }); //when mealText changes the api call will be triggered
 
   useEffect(() => {
     const params = {
-      "include-tags": isDrink ? null : "vegetarian",
+      "include-tags": tags.join(","),
       number: 100,
-      tags: mealType,
     };
 
-    if (cache[mealType]) {
+    if (cache[mealText]) {
       setMeals({
         loading: false,
-        response: cache[mealType],
+        response: cache[mealText],
         errorCode: null,
       });
     } else {
@@ -36,7 +36,7 @@ export default function Meal(props) {
         .get(`/recipes/random`, { params })
         .then((response) => {
           //handle success
-          cache[mealType] = response.data.recipes;
+          cache[mealText] = response.data.recipes;
           setMeals({
             loading: false,
             response: response.data.recipes,
@@ -55,40 +55,46 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [mealType, props.client]);
+  }, [mealText]);
+
+  if (meals.errorCode) {
+    console.log(meals.errorCode);
+    return <ErrorPage errorStatus={meals.errorCode} />;
+  }
+
+  if (meals.loading) {
+    return (
+      <Row xs={1} md={2} className="g-4">
+        <MealPlaceholder />
+      </Row>
+    );
+  }
 
   return (
     <>
-      {meals.errorCode ? <ErrorPage errorStatus={meals.errorCode} /> : null}
       <Routes>
         <Route
           path="*"
           element={
-            meals.loading ? (
-              <Row xs={1} md={2} className="g-4">
-                <MealPlaceholder />
-              </Row>
-            ) : (
-              <Row xs={1} md={2} lg={3} className="g-4">
-                {meals.response.length ? (
-                  meals.response.map((meal, index) => (
-                    <Animate
-                      play
-                      key={meal}
-                      sequenceIndex={index}
-                      start={{ opacity: 0, transform: "translateY(20px)" }}
-                      end={{ opacity: 1, transform: "translateY(0)" }}
-                    >
-                      <MealCards meal={meal} />
-                    </Animate>
-                  ))
-                ) : (
-                  <h5>
-                    No results found. I hope you're not looking for meat.. 😒
-                  </h5>
-                )}
-              </Row>
-            )
+            <Row xs={1} md={2} lg={3} className="g-4">
+              {meals.response.length ? (
+                meals.response.map((meal, index) => (
+                  <Animate
+                    play
+                    key={meal}
+                    sequenceIndex={index}
+                    start={{ opacity: 0, transform: "translateY(20px)" }}
+                    end={{ opacity: 1, transform: "translateY(0)" }}
+                  >
+                    <MealCards meal={meal} />
+                  </Animate>
+                ))
+              ) : (
+                <h5>
+                  No results found. I hope you're not looking for meat.. 😒
+                </h5>
+              )}
+            </Row>
           }
         />
 

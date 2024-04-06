@@ -6,24 +6,23 @@ import Meal from "./Meal";
 import { Animate } from "react-simple-animate";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
-import Row from "react-bootstrap/esm/Row";
 
 function MealItems(props) {
   const mealTypes = [
-    "main course 🥘",
-    "side dish 🍛",
-    "dessert 🍰",
-    "appetizer 🥪",
-    "salad 🥗",
-    "bread 🥖",
-    "breakfast 🥛",
-    "soup 🍜",
-    "beverage 🍹",
-    "sauce 🍯",
-    "marinade 🍲",
-    "fingerfood 🍟",
-    "snack 🍿",
-    "drink",
+    "Main Course 🥘",
+    "Side Dish 🍛",
+    "Dessert 🍰",
+    "Appetizer 🥪",
+    "Salad 🥗",
+    "Bread",
+    "Breakfast 🥛",
+    "Soup 🍜",
+    "Beverage 🍹",
+    "Sauce 🍯",
+    "Marinade 🍲",
+    "Fingerfood 🍟",
+    "Snack 🍿",
+    "Drink",
   ];
 
   //automatic behavior if slidesToShow is not set
@@ -81,20 +80,14 @@ function MealItems(props) {
                   >
                     <Card id="react-slick-card">
                       <Card.Body id="card-body-react-slick">
-                        <Row>
-                          <Col>
-                            <Card.Title>{mealType}</Card.Title>
-                            <Card.Text>New {mealType} ideas</Card.Text>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col>
-                            <Button>
-                              <Link to={mealType}>View recipes</Link>
-                            </Button>
-                          </Col>
-                        </Row>
+                        <Card.Title>{mealType}</Card.Title>
+                        <Card.Text>New {mealType} ideas</Card.Text>
                       </Card.Body>
+                      <Card.Footer id="card-footer-react-slick">
+                        <Button>
+                          <Link to={mealType}>View recipes</Link>
+                        </Button>
+                      </Card.Footer>
                     </Card>
                   </Animate>
                 ))}
