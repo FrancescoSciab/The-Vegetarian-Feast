@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/The-Vegetarian-Feast/static/css/main.ce184764.css",
-    "main.js": "/The-Vegetarian-Feast/static/js/main.2100cdeb.js",
+    "main.js": "/The-Vegetarian-Feast/static/js/main.f7f3cfef.js",
     "static/js/787.28cb0dcd.chunk.js": "/The-Vegetarian-Feast/static/js/787.28cb0dcd.chunk.js",
     "static/media/slick.svg": "/The-Vegetarian-Feast/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/The-Vegetarian-Feast/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -9,11 +9,11 @@
     "static/media/slick.woff": "/The-Vegetarian-Feast/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/The-Vegetarian-Feast/index.html",
     "main.ce184764.css.map": "/The-Vegetarian-Feast/static/css/main.ce184764.css.map",
-    "main.2100cdeb.js.map": "/The-Vegetarian-Feast/static/js/main.2100cdeb.js.map",
+    "main.f7f3cfef.js.map": "/The-Vegetarian-Feast/static/js/main.f7f3cfef.js.map",
     "787.28cb0dcd.chunk.js.map": "/The-Vegetarian-Feast/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ce184764.css",
-    "static/js/main.2100cdeb.js"
+    "static/js/main.f7f3cfef.js"
   ]
 }
