@@ -5,6 +5,7 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "../components/navbar/NavbarComponent";
+import Welcome from "../../src/components/Welcome";
 import RecipeCarousel from "../components/carousel/RecipeCarousel";
 import MealItems from "../components/navigation/MealType";
 import SocialSection from "../components/social/SocialSection";
@@ -13,8 +14,6 @@ import Footer from "../components/footer/footer";
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import MealPlaceholder from "../components/navigation/meal-placeholder/MealPlaceholder";
-import ErrorPage from "../error-page";
 
 const cache = {};
 const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
@@ -31,6 +30,9 @@ export default function Root() {
     response: [],
     errorCode: null,
   });
+
+  const [welcomeAnimationFinished, setWelcomeAnimationFinished] =
+    useState(false);
 
   useEffect(() => {
     if (cache[`${randomFood}`]) {
@@ -66,34 +68,48 @@ export default function Root() {
     }
   }, [randomFood]);
 
+  useEffect(() => {
+    const animationTimeout = setTimeout(() => {
+      setWelcomeAnimationFinished(true);
+    }, 2000);
+
+    return () => clearTimeout(animationTimeout);
+  }, []);
+
   return (
     <div className="root">
       <Container fluid>
-        <Row id="navbar-row">
-          <NavbarComponent />
-        </Row>
+        {welcomeAnimationFinished ? (
+          <>
+            <Row id="navbar-row">
+              <NavbarComponent />
+            </Row>
 
-        {/**<Row> is in RecipeCarousel */}
-        <Routes>
-          <Route
-            path="/"
-            element={<RecipeCarousel randomFood={randomFood} />}
-          />
-        </Routes>
+            {/**<Row> is in RecipeCarousel */}
+            <Routes>
+              <Route
+                path="/"
+                element={<RecipeCarousel randomFood={randomFood} />}
+              />
+            </Routes>
 
-        <Row>
-          <Routes>
-            <Route path="/*" element={<MealItems client={client} />} />
-          </Routes>
-        </Row>
+            <Row>
+              <Routes>
+                <Route path="/*" element={<MealItems client={client} />} />
+              </Routes>
+            </Row>
 
-        <Row id="social-row">
-          <SocialSection />
-        </Row>
+            <Row id="social-row">
+              <SocialSection />
+            </Row>
 
-        <Row>
-          <Footer />
-        </Row>
+            <Row>
+              <Footer />
+            </Row>
+          </>
+        ) : (
+          <Welcome />
+        )}
       </Container>
     </div>
   );
