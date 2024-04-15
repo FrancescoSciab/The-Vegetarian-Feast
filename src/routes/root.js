@@ -13,8 +13,6 @@ import Footer from "../components/footer/footer";
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import MealPlaceholder from "../components/navigation/meal-placeholder/MealPlaceholder";
-import ErrorPage from "../error-page";
 
 const cache = {};
 const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
