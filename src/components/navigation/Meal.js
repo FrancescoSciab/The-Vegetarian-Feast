@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
@@ -10,14 +10,15 @@ import MealPlaceholder from "./meal-placeholder/MealPlaceholder";
 const cache = {};
 
 export default function Meal(props) {
-  const { mealType } = useParams();
-  const mealText = mealType.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
-  const tags = ["vegetarian", mealText];
+  const location = useLocation();
+  console.log(location);
+  // const location = location.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
+  const tags = ["vegetarian", location];
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
     errorCode: null,
-  }); //when mealText changes the api call will be triggered
+  }); //when location changes the api call will be triggered
 
   useEffect(() => {
     const params = {
@@ -25,10 +26,10 @@ export default function Meal(props) {
       number: 100,
     };
 
-    if (cache[mealText]) {
+    if (cache[location]) {
       setMeals({
         loading: false,
-        response: cache[mealText],
+        response: cache[location],
         errorCode: null,
       });
     } else {
@@ -36,7 +37,7 @@ export default function Meal(props) {
         .get(`/recipes/random`, { params })
         .then((response) => {
           //handle success
-          cache[mealText] = response.data.recipes;
+          cache[location] = response.data.recipes;
           setMeals({
             loading: false,
             response: response.data.recipes,
@@ -55,7 +56,7 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [mealText]);
+  }, [location]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
@@ -100,7 +101,7 @@ export default function Meal(props) {
 
         <Route
           path="overview/:id"
-          element={<Ingredients client={props.client} mealType={mealType} />}
+          element={<Ingredients client={props.client} mealType={location} />}
         />
       </Routes>
     </>
