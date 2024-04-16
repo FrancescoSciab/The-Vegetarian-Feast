@@ -14,7 +14,6 @@ export default function NavbarComponent(props) {
   const location = useLocation();
   const { pathname } = location;
   const homePage = pathname === "/";
-
   const [searchActive, setSearchActive] = useState(false);
 
   function handleClick() {
