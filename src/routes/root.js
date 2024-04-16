@@ -43,7 +43,7 @@ export default function Root() {
       });
     } else {
       client
-        .get("/recipes/complexSearch?diet=vegetarian&number=100")
+        .get("/")
         .then((response) => {
           //handle success
           cache[`${randomFood}`] = response.data.results;
@@ -66,7 +66,7 @@ export default function Root() {
           // always executed
         });
     }
-  }, [randomFood]);
+  }, [randomFood.response]);
 
   useEffect(() => {
     const animationTimeout = setTimeout(() => {
