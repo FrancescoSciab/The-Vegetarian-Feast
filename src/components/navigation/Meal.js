@@ -13,7 +13,7 @@ export default function Meal(props) {
   const location = useLocation();
   console.log(location);
   // const location = location.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
-  const tags = ["vegetarian", location];
+  const tags = ["vegetarian", location.pathname];
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
@@ -26,10 +26,10 @@ export default function Meal(props) {
       number: 100,
     };
 
-    if (cache[location]) {
+    if (cache[location.pathname]) {
       setMeals({
         loading: false,
-        response: cache[location],
+        response: cache[location.pathname],
         errorCode: null,
       });
     } else {
@@ -37,7 +37,7 @@ export default function Meal(props) {
         .get(`/recipes/random`, { params })
         .then((response) => {
           //handle success
-          cache[location] = response.data.recipes;
+          cache[location.pathname] = response.data.recipes;
           setMeals({
             loading: false,
             response: response.data.recipes,
@@ -101,7 +101,9 @@ export default function Meal(props) {
 
         <Route
           path="overview/:id"
-          element={<Ingredients client={props.client} mealType={location} />}
+          element={
+            <Ingredients client={props.client} mealType={location.pathname} />
+          }
         />
       </Routes>
     </>
