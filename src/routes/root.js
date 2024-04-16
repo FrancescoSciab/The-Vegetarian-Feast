@@ -43,7 +43,7 @@ export default function Root() {
       });
     } else {
       client
-        .get("/")
+        .get("/recipes/complexSearch?diet=vegetarian&number=100")
         .then((response) => {
           //handle success
           cache[`${randomFood}`] = response.data.results;

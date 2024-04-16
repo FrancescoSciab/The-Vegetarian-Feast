@@ -53,7 +53,7 @@ export default function Ingredients(props) {
           // always executed
         });
     }
-  }, [id, props.client]);
+  }, [id]);
   if (mealsInfo.errorCode) {
     console.log(mealsInfo.errorCode);
     return <ErrorPage errorStatus={mealsInfo.errorCode} />;
