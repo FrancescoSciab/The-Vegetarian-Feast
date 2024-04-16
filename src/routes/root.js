@@ -66,7 +66,7 @@ export default function Root() {
           // always executed
         });
     }
-  }, [randomFood]);
+  }, [randomFood.response]);
 
   useEffect(() => {
     const animationTimeout = setTimeout(() => {

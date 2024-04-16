@@ -6,6 +6,7 @@ import Row from "react-bootstrap/esm/Row";
 
 export default function MealCards(props) {
   const meal = props.meal;
+
   return (
     <Card key={meal.id} id="card-meal">
       <Card.Img id="card-img-meal" variant="top" src={meal.image} />
@@ -21,7 +22,9 @@ export default function MealCards(props) {
       </Card.Body>
       <Card.Footer>
         <Button>
-          <Link to={`overview/${meal.id}`}>View Recipe</Link>
+          <Link to={`overview/${meal.id}`} replace>
+            View Recipe
+          </Link>
         </Button>
       </Card.Footer>
     </Card>
