@@ -14,9 +14,10 @@ export default function SearchItems(props) {
     setQuery(event.target.value);
   };
 
+  // to not add navigate in the dependency array to not trigger action when use clicks the card button
   useEffect(() => {
     navigate(debouncedQuery);
-  }, [debouncedQuery, navigate]);
+  }, [debouncedQuery]);
 
   return (
     <>

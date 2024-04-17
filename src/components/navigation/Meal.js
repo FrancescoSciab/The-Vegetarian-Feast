@@ -56,7 +56,7 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [location]);
+  }, [location.pathname]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
@@ -102,7 +102,7 @@ export default function Meal(props) {
         <Route
           path="overview/:id"
           element={
-            <Ingredients client={props.client} mealType={location.pathname} />
+            <Ingredients client={props.client} mealType={location.hash} />
           }
         />
       </Routes>
