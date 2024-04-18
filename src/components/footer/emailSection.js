@@ -23,7 +23,7 @@ export const EmailSection = () => {
         },
         (error) => {
           console.log(error.text);
-          alert("Error, please try again.");
+          alert(`Error: ${error.text}, please try again.`);
         }
       );
   };
