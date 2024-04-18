@@ -19,9 +19,11 @@ export const EmailSection = () => {
       .then(
         (result) => {
           console.log(result.text);
+          alert("Email sent, you can close this alert.");
         },
         (error) => {
           console.log(error.text);
+          alert("Error, please try again.");
         }
       );
   };
@@ -38,7 +40,7 @@ export const EmailSection = () => {
             name="user_name"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             required
