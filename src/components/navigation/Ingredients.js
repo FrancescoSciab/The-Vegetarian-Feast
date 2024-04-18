@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/Card";
 //sanitizing summary html below
@@ -16,6 +16,8 @@ const cache = {};
 
 export default function Ingredients(props) {
   const { id } = useParams();
+  // const location = useLocation();
+  // console.log(location.pathname);
   const [mealsInfo, setMealsInfo] = useState({
     loading: true,
     response: [],

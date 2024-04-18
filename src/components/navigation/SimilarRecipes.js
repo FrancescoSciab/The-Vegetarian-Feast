@@ -13,6 +13,7 @@ const cache = {};
 
 export default function SimilarRecipes(props) {
   const id = props.id;
+  const mealType = props.mealType;
 
   const settings = {
     infinite: true,
@@ -128,10 +129,7 @@ export default function SimilarRecipes(props) {
             </Card.Body>
             <Card.Footer>
               <Button>
-                <Link
-                  to={`/${props.mealType}/overview/${similarRecipe.id}`}
-                  replace
-                >
+                <Link to={`${similarRecipe.id}`} replace>
                   View Recipe
                 </Link>
               </Button>

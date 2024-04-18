@@ -11,9 +11,10 @@ const cache = {};
 
 export default function Meal(props) {
   const location = useLocation();
-  console.log(location);
-  // const location = location.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
-  const tags = ["vegetarian", location.pathname];
+  const locationPath = location.pathname;
+  const mealText = locationPath.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
+  console.log(mealText);
+  const tags = ["vegetarian", mealText];
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
@@ -26,10 +27,10 @@ export default function Meal(props) {
       number: 100,
     };
 
-    if (cache[location.pathname]) {
+    if (cache[mealText]) {
       setMeals({
         loading: false,
-        response: cache[location.pathname],
+        response: cache[mealText],
         errorCode: null,
       });
     } else {
@@ -37,7 +38,7 @@ export default function Meal(props) {
         .get(`/recipes/random`, { params })
         .then((response) => {
           //handle success
-          cache[location.pathname] = response.data.recipes;
+          cache[mealText] = response.data.recipes;
           setMeals({
             loading: false,
             response: response.data.recipes,
@@ -56,7 +57,7 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [location.pathname]);
+  }, [mealText]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
@@ -101,9 +102,7 @@ export default function Meal(props) {
 
         <Route
           path="overview/:id"
-          element={
-            <Ingredients client={props.client} mealType={location.hash} />
-          }
+          element={<Ingredients client={props.client} mealType={mealText} />}
         />
       </Routes>
     </>
