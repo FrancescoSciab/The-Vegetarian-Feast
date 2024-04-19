@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
@@ -129,7 +129,7 @@ export default function SimilarRecipes(props) {
             </Card.Body>
             <Card.Footer>
               <Button>
-                <Link to={`${similarRecipe.id}`} replace>
+                <Link to={`/${mealType}/overview/${similarRecipe.id}`} replace>
                   View Recipe
                 </Link>
               </Button>

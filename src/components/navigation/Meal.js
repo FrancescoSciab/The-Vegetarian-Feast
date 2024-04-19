@@ -10,9 +10,10 @@ import MealPlaceholder from "./meal-placeholder/MealPlaceholder";
 const cache = {};
 
 export default function Meal(props) {
-  const location = useLocation();
-  const locationPath = location.pathname;
-  const mealText = locationPath.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
+  const { mealType } = useParams();
+  // const location = useLocation();
+  // const locationPath = location.pathname;
+  const mealText = mealType.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
   console.log(mealText);
   const tags = ["vegetarian", mealText];
   const [meals, setMeals] = useState({
