@@ -16,7 +16,6 @@ const cache = {};
 
 export default function Ingredients(props) {
   const { id } = useParams();
-  console.log(`Ingredients ha preso id: ${id}`);
   const [mealsInfo, setMealsInfo] = useState({
     loading: true,
     response: [],

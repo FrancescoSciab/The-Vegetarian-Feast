@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
@@ -11,10 +11,7 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
-  // const location = useLocation();
-  // const locationPath = location.pathname;
-  // const mealText = mealType.replace(/[\uD83C-\uDBFF\uDC00-\uDFFF]+/g, "");
-  console.log(mealType);
+
   const tags = ["vegetarian", mealType];
   const [meals, setMeals] = useState({
     loading: true,
