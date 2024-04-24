@@ -129,7 +129,7 @@ export default function SimilarRecipes(props) {
             </Card.Body>
             <Card.Footer>
               <Button>
-                <Link to={`/${mealType}/overview/${similarRecipe.id}`} replace>
+                <Link to={`/${mealType}/overview/${similarRecipe.id}`}>
                   View Recipe
                 </Link>
               </Button>
