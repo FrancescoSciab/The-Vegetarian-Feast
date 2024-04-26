@@ -60,7 +60,7 @@ export default function Ingredients(props) {
     return <ErrorPage errorStatus={mealsInfo.errorCode} />;
   }
 
-  if (!mealsInfo.loading) {
+  if (mealsInfo.loading) {
     return (
       <Row>
         <Col xs md={8}>
