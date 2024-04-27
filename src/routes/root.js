@@ -66,6 +66,7 @@ export default function Root() {
           // always executed
         });
     }
+    // eslint-disable-next-line
   }, [randomFood.response]);
 
   //welcome animation
