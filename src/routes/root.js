@@ -68,6 +68,7 @@ export default function Root() {
     }
   }, [randomFood.response]);
 
+  //welcome animation
   useEffect(() => {
     const animationTimeout = setTimeout(() => {
       setWelcomeAnimationFinished(true);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Slider from "react-slick";
@@ -108,7 +108,7 @@ export default function SimilarRecipes(props) {
     <Col xs md={8}>
       <Slider {...settings}>
         {similarRecipes.response.map((similarRecipe) => (
-          <Card id="card-similar-recipe">
+          <Card key={similarRecipe.id} id="card-similar-recipe">
             <Card.Body>
               <Card.Title>
                 <LinesEllipsis
