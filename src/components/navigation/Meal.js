@@ -12,7 +12,8 @@ const cache = {};
 export default function Meal(props) {
   const { mealType } = useParams();
   const location = useLocation();
-  console.log(location);
+  let queryString = location.search;
+  let cleanedQueryString = queryString.replace("?q=", "");
 
   const tags = ["vegetarian", mealType];
   const [meals, setMeals] = useState({
@@ -21,29 +22,34 @@ export default function Meal(props) {
     errorCode: null,
   }); //when location changes the api call will be triggered
 
-  useEffect(() => {
+  function getSearch() {
+    console.log(queryString);
+    if (location.search === "?q=") {
+      return;
+    }
+
     const params = {
-      "include-tags": tags.join(","),
-      number: 100,
+      number: 50,
     };
 
-    if (cache[location.search]) {
+    if (cache[cleanedQueryString]) {
       setMeals({
         loading: false,
-        response: cache[location.search],
+        response: cache[cleanedQueryString],
         errorCode: null,
       });
     } else {
       props.client
         .get(
-          `/recipes/complexSearch?&titleMatch=${location.search}`
-          ///recipes/complexSearch?query=${location.search}&titleMatch=${location.search}
+          `/recipes/complexSearch?&titleMatch=${cleanedQueryString}`,
+          { params }
+          ///recipes/complexSearch?query=${cleanedQueryString}&titleMatch=${cleanedQueryString}
           //, { params })
         )
         .then((response) => {
           //handle success
           console.log(response);
-          cache[location.search] = response.data.results;
+          cache[cleanedQueryString] = response.data.results;
           setMeals({
             loading: false,
             response: response.data.results,
@@ -62,7 +68,57 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [location.search]);
+  }
+  function getMealType() {
+    const params = {
+      "include-tags": tags.join(","),
+      number: 50,
+    };
+
+    if (cache[mealType]) {
+      setMeals({
+        loading: false,
+        response: cache[mealType],
+        errorCode: null,
+      });
+    } else {
+      props.client
+        .get(
+          "/recipes/random",
+          { params }
+          ///recipes/complexSearch?query=${cleanedQueryString}&titleMatch=${cleanedQueryString}
+          //, { params })
+        )
+        .then((response) => {
+          //handle success
+
+          cache[mealType] = response.data.recipes;
+          setMeals({
+            loading: false,
+            response: response.data.recipes,
+            errorCode: null,
+          });
+        })
+        .catch((error) => {
+          // the error is gonna be loaded below before rendering
+          setMeals({
+            loading: false,
+            response: null,
+            errorCode: error.request.status,
+          });
+        })
+        .finally(function () {
+          // always executed
+        });
+    }
+  }
+  useEffect(() => {
+    if (location.search) {
+      getSearch();
+    } else {
+      getMealType();
+    }
+  }, [cleanedQueryString, mealType]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
@@ -108,7 +164,7 @@ export default function Meal(props) {
         <Route
           path="/overview/:id"
           element={
-            <Ingredients client={props.client} mealType={location.search} />
+            <Ingredients client={props.client} mealType={cleanedQueryString} />
           }
         />
       </Routes>

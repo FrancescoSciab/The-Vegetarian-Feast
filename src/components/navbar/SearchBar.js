@@ -19,7 +19,7 @@ export default function SearchItems(props) {
 
   // do not add navigate in the dependency array to not trigger action when user clicks the card button
   useEffect(() => {
-    navigate(`${encodeURIComponent(query)}`);
+    navigate(`/search?q=${encodeURIComponent(query)}`);
   }, [debouncedQuery]);
 
   return (
