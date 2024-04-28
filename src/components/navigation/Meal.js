@@ -17,7 +17,7 @@ export default function Meal(props) {
     loading: true,
     response: [],
     errorCode: null,
-  }); //when location changes the api call will be triggered
+  }); //when location changes the api call will betriggered
 
   useEffect(() => {
     const params = {
