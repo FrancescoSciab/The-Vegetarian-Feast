@@ -81,7 +81,7 @@ function MealItems(props) {
                     <Card id="react-slick-card">
                       <Card.Body id="card-body-react-slick">
                         <Card.Title>{mealType}</Card.Title>
-                        <Card.Text>New {mealType} ideas</Card.Text>
+                        <Card.Text>Discover delicious recipes</Card.Text>
                       </Card.Body>
                       <Card.Footer id="card-footer-react-slick">
                         <Button>

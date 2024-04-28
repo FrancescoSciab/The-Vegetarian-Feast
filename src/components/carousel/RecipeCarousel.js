@@ -31,8 +31,6 @@ export default function RecipeCarousel(props) {
           indicators={false}
           pause={"hover"}
           touch={"true"}
-
-          // onSlid={updateIndex}
         >
           {randomFood.response &&
             randomFood.response.map((food) => (
