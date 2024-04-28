@@ -33,13 +33,17 @@ export default function Meal(props) {
       });
     } else {
       props.client
-        .get(`/recipes/random`, { params })
+        .get(
+          `/recipes/complexSearch?query=${mealType}&titleMatch=${mealType}`
+          //, { params })
+        )
         .then((response) => {
           //handle success
-          cache[mealType] = response.data.recipes;
+          console.log(response);
+          cache[mealType] = response.data.results;
           setMeals({
             loading: false,
-            response: response.data.recipes,
+            response: response.data.results,
             errorCode: null,
           });
         })

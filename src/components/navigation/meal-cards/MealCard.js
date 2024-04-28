@@ -14,9 +14,9 @@ export default function MealCards(props) {
         <Card.Title>{meal.title}</Card.Title>
         <Card.Subtitle>
           <Row>
-            <Col>&#x1F550; {meal.readyInMinutes} Minutes</Col>
+            {/* <Col>&#x1F550; {meal.readyInMinutes} Minutes</Col>
             <Col>&#x1F464; {meal.servings} Servings</Col>
-            <Col>&#129382; {meal.healthScore} HealthScore</Col>
+            <Col>&#129382; {meal.healthScore} HealthScore</Col> */}
           </Row>
         </Card.Subtitle>
       </Card.Body>
