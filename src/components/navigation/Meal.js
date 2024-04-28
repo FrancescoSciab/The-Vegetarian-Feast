@@ -24,9 +24,6 @@ export default function Meal(props) {
 
   function getSearch() {
     console.log(queryString);
-    if (location.search === "?q=") {
-      return;
-    }
 
     const params = {
       number: 50,
@@ -113,6 +110,9 @@ export default function Meal(props) {
     }
   }
   useEffect(() => {
+    if (location.search === "?q=") {
+      return;
+    }
     if (location.search) {
       getSearch();
     } else {
