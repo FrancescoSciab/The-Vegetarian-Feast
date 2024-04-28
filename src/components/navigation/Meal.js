@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
 import { Animate } from "react-simple-animate";
 import ErrorPage from "../../error-page";
@@ -11,6 +11,8 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
+  const location = useLocation();
+  console.log(location);
 
   const tags = ["vegetarian", mealType];
   const [meals, setMeals] = useState({
@@ -25,22 +27,23 @@ export default function Meal(props) {
       number: 100,
     };
 
-    if (cache[mealType]) {
+    if (cache[location.search]) {
       setMeals({
         loading: false,
-        response: cache[mealType],
+        response: cache[location.search],
         errorCode: null,
       });
     } else {
       props.client
         .get(
-          `/recipes/complexSearch?query=${mealType}&titleMatch=${mealType}`
+          `/recipes/complexSearch?&titleMatch=${location.search}`
+          ///recipes/complexSearch?query=${location.search}&titleMatch=${location.search}
           //, { params })
         )
         .then((response) => {
           //handle success
           console.log(response);
-          cache[mealType] = response.data.results;
+          cache[location.search] = response.data.results;
           setMeals({
             loading: false,
             response: response.data.results,
@@ -59,7 +62,7 @@ export default function Meal(props) {
           // always executed
         });
     }
-  }, [mealType]);
+  }, [location.search]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
@@ -104,7 +107,9 @@ export default function Meal(props) {
 
         <Route
           path="/overview/:id"
-          element={<Ingredients client={props.client} mealType={mealType} />}
+          element={
+            <Ingredients client={props.client} mealType={location.search} />
+          }
         />
       </Routes>
     </>
