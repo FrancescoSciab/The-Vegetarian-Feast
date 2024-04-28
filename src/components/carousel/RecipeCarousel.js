@@ -31,11 +31,12 @@ export default function RecipeCarousel(props) {
           indicators={false}
           pause={"hover"}
           touch={"true"}
+
           // onSlid={updateIndex}
         >
           {randomFood.response &&
-            randomFood.response.map((food, index) => (
-              <Carousel.Item>
+            randomFood.response.map((food) => (
+              <Carousel.Item key={food.id}>
                 <Link to={`mealtype/overview/${food.id}`}>
                   <Card.Img
                     src={`${food.image}`}
