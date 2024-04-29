@@ -6,6 +6,7 @@ import Row from "react-bootstrap/esm/Row";
 
 export default function MealCards(props) {
   const meal = props.meal;
+  const mealType = props.mealType;
 
   return (
     <Card key={meal.id} id="card-meal">
@@ -22,7 +23,7 @@ export default function MealCards(props) {
       </Card.Body>
       <Card.Footer>
         <Button>
-          <Link to={`overview/${meal.id}`} replace>
+          <Link to={`/${mealType}/overview/${meal.id}`} replace>
             View Recipe
           </Link>
         </Button>

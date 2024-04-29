@@ -7,20 +7,20 @@ export default function SearchItems(props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const [query, setQuery] = useState(searchParams.get("q") || "");
-  console.log(query);
 
   // delaying api request when searching
   const [debouncedQuery] = useDebounce(query, 500);
 
   const handleChange = (event) => {
-    setQuery(event.target.value);
-    setSearchParams({ q: query });
+    const value = event.target.value;
+    setQuery(value);
   };
 
   // do not add navigate in the dependency array to not trigger action when user clicks the card button
   useEffect(() => {
+    setSearchParams({ q: query });
     navigate(`/search?q=${encodeURIComponent(query)}`);
-  }, [debouncedQuery]);
+  }, [debouncedQuery, setSearchParams]);
 
   return (
     <>

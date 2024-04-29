@@ -15,6 +15,9 @@ export default function Meal(props) {
   let queryString = location.search;
   let cleanedQueryString = queryString.replace("?q=", "");
 
+  console.log(mealType);
+  console.log(location.search);
+
   const tags = ["vegetarian", mealType];
   const [meals, setMeals] = useState({
     loading: true,
@@ -23,8 +26,6 @@ export default function Meal(props) {
   }); //when location changes the api call will be triggered
 
   function getSearch() {
-    console.log(queryString);
-
     const params = {
       number: 50,
     };
@@ -45,7 +46,7 @@ export default function Meal(props) {
         )
         .then((response) => {
           //handle success
-          console.log(response);
+
           cache[cleanedQueryString] = response.data.results;
           setMeals({
             loading: false,
@@ -149,7 +150,10 @@ export default function Meal(props) {
                     start={{ opacity: 0, transform: "translateY(20px)" }}
                     end={{ opacity: 1, transform: "translateY(0)" }}
                   >
-                    <MealCards meal={meal} />
+                    <MealCards
+                      meal={meal}
+                      mealType={`${mealType}${location.search}`}
+                    />
                   </Animate>
                 ))
               ) : (
@@ -164,7 +168,10 @@ export default function Meal(props) {
         <Route
           path="/overview/:id"
           element={
-            <Ingredients client={props.client} mealType={cleanedQueryString} />
+            <Ingredients
+              client={props.client}
+              mealType={`${mealType}${location.search}`}
+            />
           }
         />
       </Routes>
