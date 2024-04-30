@@ -16,7 +16,7 @@ export default function Meal(props) {
   let cleanedQueryString = queryString.replace("?q=", "");
 
   console.log(`params: ${mealType}`);
-  console.log(`location.search: ${location.search}`);
+  console.log(location);
   console.log(`cleanedquerystring: ${cleanedQueryString}`);
 
   const tags = ["vegetarian", mealType];
@@ -120,7 +120,7 @@ export default function Meal(props) {
     } else {
       getMealType();
     }
-  }, [mealType, cleanedQueryString, location]);
+  }, [location.pathname, location.search]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
