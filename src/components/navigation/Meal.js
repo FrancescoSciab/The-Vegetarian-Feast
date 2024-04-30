@@ -15,8 +15,9 @@ export default function Meal(props) {
   let queryString = location.search;
   let cleanedQueryString = queryString.replace("?q=", "");
 
-  console.log(mealType);
-  console.log(location.search);
+  console.log(`params: ${mealType}`);
+  console.log(`location.search: ${location.search}`);
+  console.log(`cleanedquerystring: ${cleanedQueryString}`);
 
   const tags = ["vegetarian", mealType];
   const [meals, setMeals] = useState({
@@ -119,7 +120,7 @@ export default function Meal(props) {
     } else {
       getMealType();
     }
-  }, [cleanedQueryString, mealType]);
+  }, [mealType, cleanedQueryString, location]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
@@ -150,10 +151,7 @@ export default function Meal(props) {
                     start={{ opacity: 0, transform: "translateY(20px)" }}
                     end={{ opacity: 1, transform: "translateY(0)" }}
                   >
-                    <MealCards
-                      meal={meal}
-                      mealType={`${mealType}${location.search}`}
-                    />
+                    <MealCards meal={meal} />
                   </Animate>
                 ))
               ) : (
