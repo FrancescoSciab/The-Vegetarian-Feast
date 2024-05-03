@@ -1,7 +1,6 @@
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 
 export default function MealCards(props) {

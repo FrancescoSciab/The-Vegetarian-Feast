@@ -4,23 +4,20 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDebounce } from "use-debounce";
 
 export default function SearchItems(props) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const [query, setQuery] = useState(searchParams.get("q") || "");
 
   // delaying api request when searching
   const [debouncedQuery] = useDebounce(query, 500);
 
   const handleChange = (event) => {
-    const value = event.target.value;
-    setQuery(value);
+    setQuery(event.target.value);
   };
 
-  // do not add navigate in the dependency array to not trigger action when user clicks the card button
+  // to not add navigate in the dependency array to not trigger action when user clicks the card button
   useEffect(() => {
-    setSearchParams({ q: query });
-    navigate(`/search?q=${encodeURIComponent(query)}`);
-  }, [debouncedQuery, setSearchParams]);
+    navigate(debouncedQuery);
+  }, [debouncedQuery]);
 
   return (
     <>
@@ -28,9 +25,10 @@ export default function SearchItems(props) {
         <Form.Group>
           <Form.Label id="searchbar-label">Type your search query</Form.Label>
           <Form.Control
-            type="text"
+            type="search"
             placeholder="Search"
             controlid="header-search"
+            name="query"
             value={query}
             onChange={handleChange}
             autoFocus
