@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDebounce } from "use-debounce";
 
 export default function SearchItems(props) {

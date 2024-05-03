@@ -11,18 +11,20 @@ const cache = {};
 
 export default function Meal(props) {
   const { mealType } = useParams();
-
-  const tags = ["vegetarian", mealType];
   const [meals, setMeals] = useState({
     loading: true,
     response: [],
     errorCode: null,
   }); //when location changes the api call will betriggered
 
-  useEffect(() => {
+  function getMealType() {
     const params = {
-      "include-tags": tags.join(","),
-      number: 100,
+      tags: "vegetarian",
+      type: mealType,
+      titleMatch: mealType,
+      sort: "popularity",
+      sortDirection: "disc",
+      number: 50,
     };
 
     if (cache[mealType]) {
@@ -33,13 +35,19 @@ export default function Meal(props) {
       });
     } else {
       props.client
-        .get(`/recipes/random`, { params })
+        .get(
+          "/recipes/complexSearch",
+          { params }
+          ///recipes/complexSearch?query=${cleanedQueryString}&titleMatch=${cleanedQueryString}
+          //, { params })
+        )
         .then((response) => {
           //handle success
-          cache[mealType] = response.data.recipes;
+
+          cache[mealType] = response.data.results;
           setMeals({
             loading: false,
-            response: response.data.recipes,
+            response: response.data.results,
             errorCode: null,
           });
         })
@@ -55,6 +63,9 @@ export default function Meal(props) {
           // always executed
         });
     }
+  }
+  useEffect(() => {
+    getMealType();
   }, [mealType]);
 
   if (meals.errorCode) {
@@ -79,20 +90,24 @@ export default function Meal(props) {
             <Row xs={1} md={2} lg={3} className="g-4">
               {meals.response.length ? (
                 meals.response.map((meal, index) => (
-                  <Animate
-                    play
-                    key={meal}
-                    sequenceIndex={index}
-                    start={{ opacity: 0, transform: "translateY(20px)" }}
-                    end={{ opacity: 1, transform: "translateY(0)" }}
-                  >
-                    <MealCards meal={meal} />
-                  </Animate>
+                  <>
+                    <Animate
+                      play
+                      key={meal.id}
+                      sequenceIndex={index}
+                      start={{ opacity: 0, transform: "translateY(20px)" }}
+                      end={{ opacity: 1, transform: "translateY(0)" }}
+                    >
+                      <MealCards meal={meal} />
+                    </Animate>
+                  </>
                 ))
               ) : (
-                <h5>
-                  No results found. I hope you're not looking for meat.. 😒
-                </h5>
+                <>
+                  <h5>
+                    No results found. I hope you're not looking for meat.. 😒
+                  </h5>
+                </>
               )}
             </Row>
           }
