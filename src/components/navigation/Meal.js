@@ -22,6 +22,8 @@ export default function Meal(props) {
       tags: "vegetarian",
       type: mealType,
       titleMatch: mealType,
+      sort: "popularity",
+      sortDirection: "disc",
       number: 50,
     };
 
