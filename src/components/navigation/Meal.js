@@ -6,6 +6,7 @@ import ErrorPage from "../../error-page";
 import Row from "react-bootstrap/Row";
 import MealCards from "./meal-cards/MealCard";
 import MealPlaceholder from "./meal-placeholder/MealPlaceholder";
+import Button from "react-bootstrap/Button";
 
 const cache = {};
 
@@ -16,7 +17,7 @@ export default function Meal(props) {
     response: [],
     errorCode: null,
   }); //when location changes the api call will betriggered
-
+  const [itemsNumber, setItemsNumber] = useState(10);
   function getMealType() {
     const params = {
       tags: "vegetarian",
@@ -24,10 +25,10 @@ export default function Meal(props) {
       titleMatch: mealType,
       sort: "popularity",
       sortDirection: "disc",
-      number: 50,
+      number: itemsNumber,
     };
 
-    if (cache[mealType]) {
+    if (cache[(mealType, itemsNumber)]) {
       setMeals({
         loading: false,
         response: cache[mealType],
@@ -64,9 +65,12 @@ export default function Meal(props) {
         });
     }
   }
+  function getMoreItems() {
+    setItemsNumber((prevItemsNumber) => prevItemsNumber + 10);
+  }
   useEffect(() => {
     getMealType();
-  }, [mealType]);
+  }, [mealType, itemsNumber]);
 
   if (meals.errorCode) {
     console.log(meals.errorCode);
@@ -87,29 +91,36 @@ export default function Meal(props) {
         <Route
           path="*"
           element={
-            <Row xs={1} md={2} lg={3} className="g-4">
-              {meals.response.length ? (
-                meals.response.map((meal, index) => (
+            <>
+              <Row xs={1} md={2} lg={3} className="g-4">
+                {meals.response.length ? (
+                  meals.response.map((meal, index) => (
+                    <>
+                      <Animate
+                        play
+                        key={meal.id}
+                        sequenceIndex={index}
+                        start={{ opacity: 0, transform: "translateY(20px)" }}
+                        end={{ opacity: 1, transform: "translateY(0)" }}
+                      >
+                        <MealCards meal={meal} />
+                      </Animate>
+                    </>
+                  ))
+                ) : (
                   <>
-                    <Animate
-                      play
-                      key={meal.id}
-                      sequenceIndex={index}
-                      start={{ opacity: 0, transform: "translateY(20px)" }}
-                      end={{ opacity: 1, transform: "translateY(0)" }}
-                    >
-                      <MealCards meal={meal} />
-                    </Animate>
+                    <h5>
+                      No results found. I hope you're not looking for meat.. 😒
+                    </h5>
                   </>
-                ))
-              ) : (
-                <>
-                  <h5>
-                    No results found. I hope you're not looking for meat.. 😒
-                  </h5>
-                </>
-              )}
-            </Row>
+                )}
+              </Row>
+              <Row>
+                <Button onClick={getMoreItems}>
+                  {meals.loading ? "Loading..." : "Load More"}
+                </Button>
+              </Row>
+            </>
           }
         />
 
