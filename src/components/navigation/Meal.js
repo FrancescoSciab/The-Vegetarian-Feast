@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import MealCards from "./meal-cards/MealCard";
 import MealPlaceholder from "./meal-placeholder/MealPlaceholder";
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/esm/Col";
 
 const cache = {};
 
@@ -116,9 +117,11 @@ export default function Meal(props) {
                 )}
               </Row>
               <Row>
-                <Button onClick={getMoreItems}>
-                  {meals.loading ? "Loading..." : "Load More"}
-                </Button>
+                <Col md={8}>
+                  <Button onClick={getMoreItems}>
+                    {meals.loading ? "Loading..." : "Load More"}
+                  </Button>
+                </Col>
               </Row>
             </>
           }
