@@ -18,7 +18,7 @@ import "slick-carousel/slick/slick-theme.css";
 const cache = {};
 const apiKey = process.env.SPOONACULAR_API_KEY;
 const client = axios.create({
-  baseURL: "https://api.spooacular.com",
+  baseURL: "https://api.spoonacular.com",
   params: {
     apiKey: apiKey,
   },
