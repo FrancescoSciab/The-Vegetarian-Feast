@@ -1,5 +1,4 @@
 import Logo from "./navbar/Logo";
-
 import { Link } from "react-router-dom";
 
 export default function Welcome() {
