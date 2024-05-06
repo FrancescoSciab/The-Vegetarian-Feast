@@ -16,9 +16,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const cache = {};
-const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
+const apiKey = process.env.SPOONACULAR_API_KEY;
 const client = axios.create({
-  baseURL: "https://api.spoonacular.com",
+  baseURL: "https://api.spooacular.com",
   params: {
     apiKey: apiKey,
   },
@@ -30,7 +30,7 @@ export default function Root() {
     response: [],
     errorCode: null,
   });
-
+  //
   const [welcomeAnimationFinished, setWelcomeAnimationFinished] =
     useState(false);
 
