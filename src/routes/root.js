@@ -17,10 +17,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 const cache = {};
 const apiKey = process.env.SPOONACULAR_API_KEY;
+console.log(apiKey);
 const client = axios.create({
   baseURL: "https://api.spoonacular.com",
   params: {
-    apiKey: apiKey,
+    apiKey: "ca591456037f421f8af87df0ccdb2894",
   },
 });
 
@@ -43,7 +44,7 @@ export default function Root() {
       });
     } else {
       client
-        .get("/recipes/complexSearch?diet=vegetarian&number=100")
+        .get(`/recipes/complexSearch?diet=vegetarian&number=100`)
         .then((response) => {
           //handle success
           cache[`${randomFood}`] = response.data.results;
