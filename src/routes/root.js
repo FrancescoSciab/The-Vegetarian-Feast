@@ -21,7 +21,7 @@ console.log(apiKey);
 const client = axios.create({
   baseURL: "https://api.spoonacular.com",
   params: {
-    apiKey: apiKey,
+    apiKey: "13f3f82958a648d686b8688acecdd6c1",
   },
 });
 
