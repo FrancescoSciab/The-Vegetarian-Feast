@@ -117,7 +117,7 @@ export default function Meal(props) {
                 )}
               </Row>
               <Row>
-                <Col md={8}>
+                <Col xs={2} md={2} lg={2}>
                   <Button onClick={getMoreItems}>
                     {meals.loading ? "Loading..." : "Load More"}
                   </Button>
