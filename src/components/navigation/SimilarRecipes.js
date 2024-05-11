@@ -113,8 +113,8 @@ export default function SimilarRecipes(props) {
               <Card.Title>
                 <LinesEllipsis
                   text={similarRecipe.title}
-                  maxLine="2"
-                  ellipsis="..."
+                  maxLine="1"
+                  ellipsis=".."
                   trimRight
                   basedOn="letters"
                 />

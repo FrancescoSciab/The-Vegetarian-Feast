@@ -71,6 +71,7 @@ export default function Meal(props) {
   }
   useEffect(() => {
     getMealType();
+    // eslint-disable-next-line
   }, [mealType, itemsNumber]);
 
   if (meals.errorCode) {

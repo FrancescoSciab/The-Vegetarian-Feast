@@ -7,7 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "../components/navbar/NavbarComponent";
 import Welcome from "../../src/components/Welcome";
 import RecipeCarousel from "../components/carousel/RecipeCarousel";
-import MealItems from "../components/navigation/meal-type/MealTypes";
 import SocialSection from "../components/social/SocialSection";
 import axios from "axios";
 import Footer from "../components/footer/footer";
