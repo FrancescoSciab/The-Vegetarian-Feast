@@ -7,13 +7,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "../components/navbar/NavbarComponent";
 import Welcome from "../../src/components/Welcome";
 import RecipeCarousel from "../components/carousel/RecipeCarousel";
-import MealItems from "../components/navigation/MealType";
+import MealItems from "../components/navigation/meal-type/MealTypes";
 import SocialSection from "../components/social/SocialSection";
 import axios from "axios";
 import Footer from "../components/footer/footer";
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MealTypes from "../components/navigation/meal-type/MealTypes";
 
 const cache = {};
 const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
@@ -101,7 +102,7 @@ export default function Root() {
                 <Route
                   exact
                   path="/*"
-                  element={<MealItems client={client} />}
+                  element={<MealTypes client={client} />}
                 />
               </Routes>
             </Row>
