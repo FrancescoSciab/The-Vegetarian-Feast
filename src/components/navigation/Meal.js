@@ -19,6 +19,8 @@ export default function Meal(props) {
     errorCode: null,
   }); //when location changes the api call will betriggered
   const [itemsNumber, setItemsNumber] = useState(10);
+  const [noMoreRecipes, setNoMoreRecipes] = useState(false);
+
   function getMealType() {
     const params = {
       tags: "vegetarian",
@@ -63,11 +65,19 @@ export default function Meal(props) {
         })
         .finally(function () {
           // always executed
+          // if (meals.response.length) {
+          //   setNoMoreRecipes(true);
+          // }
         });
     }
   }
   function getMoreItems() {
-    setItemsNumber((prevItemsNumber) => prevItemsNumber + 10);
+    //If there are recipes left to be loaded
+    if (meals.response.length === itemsNumber) {
+      setItemsNumber((prevItemsNumber) => prevItemsNumber + 10);
+    } else {
+      setNoMoreRecipes(true);
+    }
   }
   useEffect(() => {
     getMealType();
@@ -119,7 +129,7 @@ export default function Meal(props) {
               </Row>
               <Row>
                 <Col xs={2} md={2} lg={2}>
-                  <Button onClick={getMoreItems}>
+                  <Button onClick={getMoreItems} disabled={noMoreRecipes}>
                     {meals.loading ? "Loading..." : "Load More"}
                   </Button>
                 </Col>
