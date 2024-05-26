@@ -39,12 +39,7 @@ export default function Meal(props) {
       });
     } else {
       props.client
-        .get(
-          "/recipes/complexSearch",
-          { params }
-          ///recipes/complexSearch?query=${cleanedQueryString}&titleMatch=${cleanedQueryString}
-          //, { params })
-        )
+        .get("/recipes/complexSearch", { params })
         .then((response) => {
           //handle success
 
@@ -65,9 +60,6 @@ export default function Meal(props) {
         })
         .finally(function () {
           // always executed
-          // if (meals.response.length) {
-          //   setNoMoreRecipes(true);
-          // }
         });
     }
   }
